@@ -8,4 +8,5 @@ public class Wall {
 	{
 		this.pos=pos;
 	}
+	public void update() {};
 }

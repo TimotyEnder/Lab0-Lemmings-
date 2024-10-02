@@ -4,19 +4,25 @@ public class Game {
 
 	public static final int DIM_X = 10;
 	public static final int DIM_Y = 10;
-
+	
+	private int CyclesNumber;
+	private int LemmingsNumber;
+	private GameObjectContainer gameCon= new GameObjectContainer();	
 	public Game(int nLevel) {
 		// TODO Auto-generated constructor stub
 	}
+	public void update() 
+	{
+		CyclesNumber++;
+		gameCon.update();
+	}
 
 	public int getCycle() {
-		// TODO Auto-generated method stub
-		return 0;
+		return this.CyclesNumber;
 	}
 
 	public int numLemmingsInBoard() {
-		// TODO Auto-generated method stub
-		return 0;
+		return this.LemmingsNumber;
 	}
 
 	public int numLemmingsDead() {
