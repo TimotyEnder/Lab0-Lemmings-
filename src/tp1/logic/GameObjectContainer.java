@@ -24,6 +24,24 @@ public class GameObjectContainer {
 	{
 		 dor= exitDoor;
 	}
+	public String SearchForPos(Position pos) 
+	{
+		for(Lemming i:Lemmings) 
+		{
+			if(i.GetPos()==pos) 
+			{
+				return "l";
+			}
+		}
+		for(Wall j:Walls) 
+		{
+			if(j.GetPos()==pos) 
+			{
+				return "w";
+			}
+		}
+		return "n";
+	}
 	public void update() 
 	{
 		for(Lemming i:Lemmings) 

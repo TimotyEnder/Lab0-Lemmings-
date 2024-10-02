@@ -41,7 +41,7 @@ public class Game {
 	}
 
 	public String positionToString(int col, int row) {
-		// TODO Auto-generated method stub
+		
 		return null;
 	}
 

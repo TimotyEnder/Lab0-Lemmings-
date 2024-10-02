@@ -8,5 +8,9 @@ public class Wall {
 	{
 		this.pos=pos;
 	}
+	public Position GetPos() 
+	{
+		return this.pos;
+	}
 	public void update() {};
 }

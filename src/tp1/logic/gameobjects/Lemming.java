@@ -26,6 +26,10 @@ public class Lemming
 		this.pos=MovePos;
 		
 	}
+	public Position GetPos() 
+	{
+		return this.pos;
+	}	
 	public void update() 
 	{
 		if(alive) 

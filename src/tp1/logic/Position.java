@@ -14,6 +14,10 @@ public class Position {
 		this.col=col;
 		this.row=row;
 	}
+	public Boolean Eq(Position pos) 
+	{
+		return (this.col==pos.col) && (this.row==pos.row);
+	}
 	//TODO fill your code
 
 }
