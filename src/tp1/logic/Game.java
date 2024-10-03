@@ -41,8 +41,7 @@ public class Game {
 	}
 
 	public String positionToString(int col, int row) {
-		
-		return null;
+		return  gameCon.SearchForPos(new Position(col,row));
 	}
 
 	public boolean playerWins() {

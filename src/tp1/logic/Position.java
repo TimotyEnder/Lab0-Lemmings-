@@ -14,6 +14,14 @@ public class Position {
 		this.col=col;
 		this.row=row;
 	}
+	public int GetCol() 
+	{
+		return col;
+	}
+	public int GetRow() 
+	{
+		return row;
+	}
 	public Boolean Eq(Position pos) 
 	{
 		return (this.col==pos.col) && (this.row==pos.row);

@@ -7,7 +7,7 @@ import tp1.logic.Game;
 
 public class Lemming 
 {
-	
+	private final int LethalFall=2;
 	private Position pos;
 	private boolean alive;
 	private Direction dir;
@@ -22,8 +22,30 @@ public class Lemming
 	}
 	public void Move () 
 	{
-		Position MovePos=new Position(dir.getX(),dir.getY());
-		this.pos=MovePos;
+		
+		if(game.positionToString(pos.GetCol(), pos.GetRow()-1)=="w") 
+		{
+			if(fallForce<LethalFall) {
+			if(game.positionToString(pos.GetCol()+dir.getX(), pos.GetRow()+dir.getY())=="w") 
+			{
+				dir.invert();
+			}
+			}
+			else 
+			{
+				alive=false;
+			}
+		}
+		else 
+		{
+			dir=Direction.DOWN;
+			fallForce++;
+		}
+		if(alive) 
+		{
+			Position MovePos=new Position(dir.getX(),dir.getY());
+			this.pos=MovePos;
+		}
 		
 	}
 	public Position GetPos() 
