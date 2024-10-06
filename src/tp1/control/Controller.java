@@ -25,6 +25,13 @@ public class Controller {
 		view.showWelcome();
 		//TODO fill your code: The main loop that displays the game, asks the user for input, and executes the action.
 		
+		while(!game.playerWins() || !game.playerLooses()) {
+			//Request orders from user
+			game.update();															//Updates state of game
+			view.showGame(); 														//Show updated game
+			System.out.println("The number of cycles is " + game.getCycle());		//Shows the number of turns the player has
+		}
+		
 		view.showEndMessage();
 	}
 

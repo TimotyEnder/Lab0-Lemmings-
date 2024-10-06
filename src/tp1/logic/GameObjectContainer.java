@@ -16,14 +16,17 @@ public class GameObjectContainer {
 	{
 		Lemmings.add(lemming);
 	}
+	
 	public void add(Wall wall) 
 	{
 		Walls.add(wall);
 	}
+	
 	public void add(ExitDoor exitDoor) 
 	{
 		 dor= exitDoor;
 	}
+	
 	public String SearchForPos(Position pos) 
 	{
 		for(Lemming i:Lemmings) 
@@ -42,6 +45,7 @@ public class GameObjectContainer {
 		}
 		return "n";
 	}
+	
 	public void update() 
 	{
 		for(Lemming i:Lemmings) 

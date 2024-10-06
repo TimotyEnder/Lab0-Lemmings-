@@ -19,4 +19,5 @@ public abstract class GameView {
 
 	// get data from view methods
 	public abstract String[] getPrompt();
+	
 }
