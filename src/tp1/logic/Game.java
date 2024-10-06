@@ -26,8 +26,7 @@ public class Game {
 	}
 
 	public int numLemmingsDead() {
-		
-		return 0;
+		return gameCon.numLemmingDead();
 	}
 
 	public int numLemmingsExit() {
