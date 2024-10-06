@@ -14,6 +14,7 @@ public class Lemming
 	private Integer fallForce;
 	private Walker role;
 	private Game game;
+	
 	public Lemming (Position pos, boolean alive, Direction dir, Integer fForce) {
 		this.pos=pos;
 		this.alive=alive;
@@ -59,5 +60,7 @@ public class Lemming
 			role.Advance(this);
 		}
 	}
-
+	public boolean isAlive() {
+		return this.alive;
+	}
 }
