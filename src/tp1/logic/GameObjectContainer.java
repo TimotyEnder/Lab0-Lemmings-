@@ -57,4 +57,16 @@ public class GameObjectContainer {
 			i.update();
 		}
 	}
+
+	public int numLemmingDead() {
+		int dead = 0; 
+		
+		for(Lemming i: Lemmings) {
+			if(!i.isAlive()) {
+				dead++;
+			}
+		}
+		
+		return dead;
+	}
 }

@@ -26,8 +26,7 @@ public class Game {
 	}
 
 	public int numLemmingsDead() {
-		// TODO Auto-generated method stub
-		return 0;
+		return gameCon.numLemmingDead();
 	}
 
 	public int numLemmingsExit() {
