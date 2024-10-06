@@ -30,8 +30,7 @@ public class Game {
 	}
 
 	public int numLemmingsExit() {
-		// TODO Auto-generated method stub
-		return 0;
+		return gameCon.GetExit();
 	}
 
 	public int numLemmingsToWin() {
@@ -44,17 +43,14 @@ public class Game {
 	}
 
 	public boolean playerWins() {
-		// TODO Auto-generated method stub
-		return false;
+		return numLemmingsExit()==numLemmingsToWin();
 	}
 
 	public boolean playerLooses() {
-		// TODO Auto-generated method stub
-		return false;
+		return numLemmingsInBoard() > numLemmingsToWin();
 	}
 
 	public String help() {
-		// TODO Auto-generated method stub
 		return null;
 	}
 

@@ -10,7 +10,8 @@ public class GameObjectContainer {
 	//TODO fill your code
 	private Vector<Lemming> Lemmings = new Vector<Lemming>();
 	private Vector<Wall> Walls = new Vector<Wall>();
-	private ExitDoor dor;
+
+	private ExitDoor dor= new ExitDoor(new Position(0,0));
 	
 	public void add(Lemming lemming) 
 	{
@@ -51,6 +52,11 @@ public class GameObjectContainer {
 		for(Lemming i:Lemmings) 
 		{
 			i.update();
+			if(i.GetPos().equals(dor.GetPos())) 
+			{
+				dor.Exit();
+				Lemmings.remove(i);
+			}
 		}
 		for(Wall i:Walls) 
 		{
@@ -68,5 +74,9 @@ public class GameObjectContainer {
 		}
 		
 		return dead;
+	}
+	public int GetExit() 
+	{
+		return dor.GetExit();
 	}
 }
