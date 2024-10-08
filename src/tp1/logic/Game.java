@@ -53,5 +53,8 @@ public class Game {
 	public String help() {
 		return null;
 	}
+	// is solid en el container tmb
+	// is in air
+	// pos to string es para pintar
 
 }
