@@ -53,6 +53,10 @@ public class Game {
 	public String help() {
 		return null;
 	}
+	public Boolean isWall(Position pos) 
+	{
+		return gameCon.isWall(pos);
+	}
 	// is solid en el container tmb
 	// is in air
 	// pos to string es para pintar

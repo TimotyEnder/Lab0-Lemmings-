@@ -5,6 +5,7 @@ import java.util.Vector;
 import tp1.logic.gameobjects.ExitDoor;
 import tp1.logic.gameobjects.Lemming;
 import tp1.logic.gameobjects.Wall;
+import tp1.view.Messages;
 
 public class GameObjectContainer {
 	//TODO fill your code
@@ -13,6 +14,7 @@ public class GameObjectContainer {
 
 	private ExitDoor dor= new ExitDoor(new Position(0,0));
 	
+	private Messages msg= new Messages();
 	public void add(Lemming lemming) 
 	{
 		Lemmings.add(lemming);
@@ -34,19 +36,43 @@ public class GameObjectContainer {
 		{
 			if(i.GetPos()==pos) 
 			{
-				return "l";
+				if(i.GetDir()==Direction.RIGHT) 
+				{
+					return msg.LEMMING_RIGHT;
+				}
+				else 
+				{
+					return msg.LEMMING_LEFT;
+				}
 			}
 		}
 		for(Wall j:Walls) 
 		{
 			if(j.GetPos()==pos) 
 			{
-				return "w";
+				return msg.WALL;
 			}
 		}
-		return "n";
+		if(pos==dor.GetPos()) 
+		{
+			return msg.EXIT_DOOR;
+		}
+		else 
+		{
+			return " ";
+		}
 	}
-	
+	public Boolean isWall(Position pos) 
+	{
+		for(Wall i: Walls) 
+		{
+			if(i.GetPos()==pos) 
+			{
+				return true;
+			}
+		}
+		return false;
+	}
 	public void update() 
 	{
 		for(Lemming i:Lemmings) 
