@@ -56,14 +56,11 @@ public class Controller {
 				state = 0;
 				game.Reset();
 				view.showWelcome();
+				view.showGame();
 			}
 			else if(state==0) 
 			{
 				game.update();	
-
-			}
-			if(state!=1) 
-			{
 				view.showGame();
 			}
 		}
