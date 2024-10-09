@@ -5,6 +5,7 @@ public class Game {
 	public static final int DIM_X = 10;
 	public static final int DIM_Y = 10;
 	
+	private int lemmingsToWin;
 	private int CyclesNumber;
 	private int LemmingsNumber;
 	private GameObjectContainer gameCon= new GameObjectContainer();	
@@ -34,8 +35,7 @@ public class Game {
 	}
 
 	public int numLemmingsToWin() {
-		// TODO Auto-generated method stub
-		return 0;
+		return this.lemmingsToWin;
 	}
 
 	public String positionToString(int col, int row) {
@@ -57,8 +57,10 @@ public class Game {
 	{
 		return gameCon.isWall(pos);
 	}
-	// is solid en el container tmb
-	// is in air
-	// pos to string es para pintar
-
+	public void Reset() 
+	{
+		this.CyclesNumber=0;
+		this.LemmingsNumber=0;
+		this.gameCon=new GameObjectContainer();
+	}
 }
