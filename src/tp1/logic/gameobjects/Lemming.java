@@ -15,11 +15,11 @@ public class Lemming
 	private Walker role;
 	private Game game;
 	
-	public Lemming (Position pos, boolean alive, Direction dir, Integer fForce) {
+	public Lemming (Position pos,Direction dir) {
 		this.pos=pos;
-		this.alive=alive;
+		this.alive=true;
 		this.dir=dir;
-		this.fallForce=fForce;
+		this.fallForce=0;
 	}
 	public void Move () 
 	{

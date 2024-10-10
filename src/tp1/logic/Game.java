@@ -21,31 +21,35 @@ public class Game {
 	{
 		if(level==1) 
 		{
-			gameCon.add(new Lemming(new Position(4, 4), true, Direction.RIGHT, 0));  // D4
-			gameCon.add(new Lemming(new Position(8, 4), true, Direction.RIGHT, 0));  // D8
-			gameCon.add(new Lemming(new Position(2, 9), true, Direction.RIGHT, 0));  // I2
 
-			// Add Walls
-			for (int col = 3; col <= 10; col++) {
-				gameCon.add(new Wall(new Position(col, 2)));  // B3 to B10
-			}
-			for (int col = 2; col <= 11; col++) {
-				gameCon.add(new Wall(new Position(col, 5)));  // E2 to E11
-			}
-			for (int col = 7; col <= 11; col++) {
-				gameCon.add(new Wall(new Position(col, 6)));  // F7 to F11
-			}
-			for (int col = 2; col <= 10; col++) {
-				gameCon.add(new Wall(new Position(col, 7)));  // G2 to G10
-			}
-			for (int col = 7; col <= 11; col++) {
-				gameCon.add(new Wall(new Position(col, 9)));  // I7 to I11
-			}
-			for (int col = 1; col <= 10; col++) {
-				gameCon.add(new Wall(new Position(col, 10)));  // J1 to J10
-			}
-			gameCon.add(new ExitDoor(new Position(6, 6)));  // F6
-			gameCon.PrintArrays();
+			LemmingsNumber=0;
+
+			gameCon.add(new Lemming(new Position(3,3),Direction.RIGHT));
+
+			LemmingsNumber++;
+
+			gameCon.add(new Lemming(new Position(2,3),Direction.RIGHT));
+
+			LemmingsNumber++;
+
+			gameCon.add(new Wall(new Position(2,4)));
+
+			gameCon.add(new Wall(new Position(3,4)));
+
+			gameCon.add(new Wall(new Position(4,4)));
+
+			gameCon.add(new Wall(new Position(4,6)));
+
+			gameCon.add(new Wall(new Position(5,6)));
+
+			gameCon.add(new Wall(new Position(6,6)));
+
+			gameCon.add(new Wall(new Position(7,6)));
+
+			gameCon.add(new Wall(new Position(7,5)));
+
+			gameCon.add(new ExitDoor(new Position(4,5)));
+
 	}
 }
 	public void update() 

@@ -14,7 +14,6 @@ public class GameObjectContainer {
 
 	private ExitDoor dor= new ExitDoor(new Position(0,0));
 	
-	private Messages msg= new Messages();
 	public void PrintArrays() 
 	{
 		for(Lemming i:Lemmings) 
@@ -50,11 +49,11 @@ public class GameObjectContainer {
 			{
 				if(i.GetDir()==Direction.RIGHT) 
 				{
-					return msg.LEMMING_RIGHT;
+					return Messages.LEMMING_RIGHT;
 				}
 				else 
 				{
-					return msg.LEMMING_LEFT;
+					return Messages.LEMMING_LEFT;
 				}
 			}
 		}
@@ -62,12 +61,12 @@ public class GameObjectContainer {
 		{
 			if(j.GetPos()==pos) 
 			{
-				return msg.WALL;
+				return Messages.WALL;
 			}
 		}
 		if(pos==dor.GetPos()) 
 		{
-			return msg.EXIT_DOOR;
+			return Messages.EXIT_DOOR;
 		}
 		else 
 		{
