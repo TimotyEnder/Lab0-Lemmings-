@@ -24,6 +24,7 @@ public class Controller {
 	 */
 	public void run() {
 		int state=-1; // 0 continue/ 1 end/ 2 reset	
+		view.showWelcome();
 		view.showGame();
 		while(state<=0 && (!game.playerWins() || !game.playerLooses())) {
 			String[] ans;

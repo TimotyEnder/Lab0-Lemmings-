@@ -15,6 +15,18 @@ public class GameObjectContainer {
 	private ExitDoor dor= new ExitDoor(new Position(0,0));
 	
 	private Messages msg= new Messages();
+	public void PrintArrays() 
+	{
+		for(Lemming i:Lemmings) 
+		{
+			System.out.println(i.GetPos().col+" " + i.GetPos().row);
+		}
+		for(Wall j:Walls) 
+		{
+			System.out.println(j.GetPos().col+" " + j.GetPos().row);
+		}
+		System.out.println(dor.GetPos().col +" "+ dor.GetPos().row);
+	}
 	public void add(Lemming lemming) 
 	{
 		Lemmings.add(lemming);
