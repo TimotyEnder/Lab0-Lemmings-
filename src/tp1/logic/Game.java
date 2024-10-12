@@ -12,9 +12,10 @@ public class Game {
 	private int lemmingsToWin;
 	private int CyclesNumber;
 	private int LemmingsNumber;
-	private GameObjectContainer gameCon= new GameObjectContainer();	
+	private GameObjectContainer gameCon;
 	public Game(int nLevel) {
 		this.level=nLevel;
+		gameCon= new GameObjectContainer();	
 		Init(level);
 	}
 	public void Init(int level) 
@@ -24,11 +25,11 @@ public class Game {
 
 			LemmingsNumber=0;
 
-			gameCon.add(new Lemming(new Position(3,3),Direction.RIGHT));
+			gameCon.add(new Lemming(this, new Position(3,3),Direction.RIGHT));
 
 			LemmingsNumber++;
 
-			gameCon.add(new Lemming(new Position(2,3),Direction.RIGHT));
+			gameCon.add(new Lemming(this, new Position(2,3),Direction.RIGHT));
 
 			LemmingsNumber++;
 
@@ -49,6 +50,8 @@ public class Game {
 			gameCon.add(new Wall(new Position(7,5)));
 
 			gameCon.add(new ExitDoor(new Position(4,5)));
+			
+			lemmingsToWin=LemmingsNumber;
 
 	}
 }

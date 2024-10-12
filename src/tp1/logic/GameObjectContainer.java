@@ -9,11 +9,17 @@ import tp1.view.Messages;
 
 public class GameObjectContainer {
 	//TODO fill your code
-	private Vector<Lemming> Lemmings = new Vector<Lemming>();
-	private Vector<Wall> Walls = new Vector<Wall>();
+	private Vector<Lemming> Lemmings;
+	private Vector<Wall> Walls;
 
-	private ExitDoor dor= new ExitDoor(new Position(0,0));
+	private ExitDoor dor;
 	
+	public GameObjectContainer() 
+	{
+		Lemmings = new Vector<Lemming>();
+		Walls = new Vector<Wall>();
+		dor= new ExitDoor(new Position(0,0));
+	}
 	public void PrintArrays() 
 	{
 		for(Lemming i:Lemmings) 
@@ -45,7 +51,7 @@ public class GameObjectContainer {
 	{
 		for(Lemming i:Lemmings) 
 		{
-			if(i.GetPos()==pos) 
+			if(i.GetPos().col==pos.col &&i.GetPos().row==pos.row) 
 			{
 				if(i.GetDir()==Direction.RIGHT) 
 				{
@@ -59,7 +65,7 @@ public class GameObjectContainer {
 		}
 		for(Wall j:Walls) 
 		{
-			if(j.GetPos()==pos) 
+			if(j.GetPos().col==pos.col &&j.GetPos().row==pos.row) 
 			{
 				return Messages.WALL;
 			}
