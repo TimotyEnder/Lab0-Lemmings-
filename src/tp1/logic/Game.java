@@ -53,8 +53,67 @@ public class Game {
 			
 			lemmingsToWin=LemmingsNumber;
 
+		}
+		if(level==2) 
+		{
+			LemmingsNumber=0;
+
+			gameCon.add(new Lemming(this, new Position(4,0),Direction.RIGHT));
+
+			gameCon.add(new Lemming(this, new Position(5,0),Direction.RIGHT));
+
+			gameCon.add(new Lemming(this, new Position(6,0),Direction.RIGHT));
+
+			gameCon.add(new Lemming(this, new Position(7,0),Direction.RIGHT));
+
+
+
+			LemmingsNumber = 4;
+
+
+			gameCon.add(new Wall(new Position(2,1)));
+
+			gameCon.add(new Wall(new Position(3,1)));
+
+			gameCon.add(new Wall(new Position(4,1)));
+
+			gameCon.add(new Wall(new Position(5,1)));
+
+			gameCon.add(new Wall(new Position(6,1)));
+
+			gameCon.add(new Wall(new Position(7,1)));
+
+
+
+			gameCon.add(new Wall(new Position(5,3)));
+
+			gameCon.add(new Wall(new Position(6,3)));
+
+			gameCon.add(new Wall(new Position(7,3)));
+
+
+
+			gameCon.add(new Wall(new Position(3,9)));
+
+			gameCon.add(new Wall(new Position(4,9)));
+
+			gameCon.add(new Wall(new Position(5,9)));
+
+			gameCon.add(new Wall(new Position(6,9)));
+
+			gameCon.add(new Wall(new Position(7,9)));
+
+
+
+			gameCon.add(new Wall(new Position(3,8)));
+
+
+
+			gameCon.add(new ExitDoor(new Position(7,8)));
+
+			lemmingsToWin=LemmingsNumber;
+		}
 	}
-}
 	public void update() 
 	{
 		CyclesNumber++;
