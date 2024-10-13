@@ -25,7 +25,7 @@ public class Lemming
 	}
 	public void Move () 
 	{
-		if(this.GetPos().GetCol()>=0 && this.GetPos().GetCol()<this.game.DIM_X && this.GetPos().GetRow()>=0 && this.GetPos().GetRow()<this.game.DIM_Y) 
+		if(this.GetPos().GetRow()>=0 && this.GetPos().GetRow()<Game.DIM_Y) 
 		{
 			Position fallPos=new Position(pos.GetCol(), pos.GetRow()+1);
 			Position bumpPos= new Position(pos.GetCol()+dir.getX(), pos.GetRow());
@@ -44,7 +44,7 @@ public class Lemming
 							dir=Direction.RIGHT;
 						}
 					}
-					if(game.isWall(bumpPos)) 
+					if(game.isWall(bumpPos) || bumpPos.GetCol()<0 && bumpPos.GetCol()<Game.DIM_X) 
 					{
 						if(this.dir.equals(Direction.RIGHT)) 
 						{
