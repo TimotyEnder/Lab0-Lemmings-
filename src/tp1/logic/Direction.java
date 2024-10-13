@@ -17,7 +17,6 @@ public enum Direction {
 	public void invert() 
 	{
 		x=-x;
-		y=-y;
 	}
 	
 	public int getX() {

@@ -18,7 +18,6 @@ public class GameObjectContainer {
 	{
 		Lemmings = new Vector<Lemming>();
 		Walls = new Vector<Wall>();
-		dor= new ExitDoor(new Position(0,0));
 	}
 	public void PrintArrays() 
 	{
@@ -51,26 +50,29 @@ public class GameObjectContainer {
 	{
 		for(Lemming i:Lemmings) 
 		{
-			if(i.GetPos().col==pos.col &&i.GetPos().row==pos.row) 
+			if(i.GetPos().Eq(pos)) 
 			{
-				if(i.GetDir()==Direction.RIGHT) 
+				if(i.isAlive()) 
 				{
-					return Messages.LEMMING_RIGHT;
-				}
-				else 
-				{
-					return Messages.LEMMING_LEFT;
+					if(i.GetDir()==Direction.LEFT) 
+					{
+						return Messages.LEMMING_LEFT;
+					}
+					else 
+					{
+						return Messages.LEMMING_RIGHT;
+					}
 				}
 			}
 		}
 		for(Wall j:Walls) 
 		{
-			if(j.GetPos().col==pos.col &&j.GetPos().row==pos.row) 
+			if(j.GetPos().Eq(pos)) 
 			{
 				return Messages.WALL;
 			}
 		}
-		if(pos==dor.GetPos()) 
+		if(dor.GetPos().Eq(pos)) 
 		{
 			return Messages.EXIT_DOOR;
 		}
@@ -83,7 +85,7 @@ public class GameObjectContainer {
 	{
 		for(Wall i: Walls) 
 		{
-			if(i.GetPos()==pos) 
+			if(i.GetPos().Eq(pos)) 
 			{
 				return true;
 			}
@@ -95,7 +97,7 @@ public class GameObjectContainer {
 		for(Lemming i:Lemmings) 
 		{
 			i.update();
-			if(i.GetPos().equals(dor.GetPos())) 
+			if(i.GetPos().Eq(dor.GetPos())) 
 			{
 				dor.Exit();
 				Lemmings.remove(i);

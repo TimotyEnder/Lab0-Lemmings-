@@ -18,15 +18,12 @@ public class Controller {
 	}
 
 
-	/**
-	 * Runs the game logic, coordinate Model(game) and View(view)
-	 * 
-	 */
+	// add reset option after loss or win
 	public void run() {
 		int state=-1; // 0 continue/ 1 end/ 2 reset	
 		view.showWelcome();
 		view.showGame();
-		while(state<=0 && (!game.playerWins() || !game.playerLooses())) {
+		while(state<=0 && (!game.playerWins() && !game.playerLooses())) {
 			String[] ans;
 			GameView.clearConsole();
 			ans=view.getPrompt();

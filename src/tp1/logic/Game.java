@@ -66,7 +66,7 @@ public class Game {
 	}
 
 	public int numLemmingsInBoard() {
-		return this.LemmingsNumber;
+		return this.LemmingsNumber-numLemmingsDead();
 	}
 
 	public int numLemmingsDead() {
@@ -90,7 +90,7 @@ public class Game {
 	}
 
 	public boolean playerLooses() {
-		return numLemmingsInBoard() > numLemmingsToWin();
+		return numLemmingsInBoard() < numLemmingsToWin();
 	}
 
 	public String help() {
