@@ -25,43 +25,60 @@ public class Lemming
 	}
 	public void Move () 
 	{
-		Position fallPos=new Position(pos.GetCol(), pos.GetRow()+1);
-		Position bumpPos= new Position(pos.GetCol()+dir.getX(), pos.GetRow());
-		if(game.isWall(fallPos))
+		if(this.GetPos().GetCol()>=0 && this.GetPos().GetCol()<this.game.DIM_X && this.GetPos().GetRow()>=0 && this.GetPos().GetRow()<this.game.DIM_Y) 
 		{
-			if(fallForce<LethalFall) {
-				fallForce=0;
-				if(prevDir!=null) 
-				{
-					dir=prevDir;
+			Position fallPos=new Position(pos.GetCol(), pos.GetRow()+1);
+			Position bumpPos= new Position(pos.GetCol()+dir.getX(), pos.GetRow());
+			if(game.isWall(fallPos))
+			{
+				if(fallForce<LethalFall) {
+					if(fallForce > 0) 
+					{
+						fallForce=0;
+						if(prevDir!=null) 
+						{
+							dir=prevDir;
+						}
+						else 
+						{
+							dir=Direction.RIGHT;
+						}
+					}
+					if(game.isWall(bumpPos)) 
+					{
+						if(this.dir.equals(Direction.RIGHT)) 
+						{
+							this.dir=Direction.LEFT;
+						}
+						else 
+						{
+							this.dir=Direction.RIGHT;
+						}
+					}
 				}
 				else 
 				{
-					dir=Direction.RIGHT;
-				}
-				if(game.isWall(bumpPos)) 
-				{
-					dir.invert();
+					alive=false;
 				}
 			}
 			else 
 			{
-				alive=false;
+				if(prevDir!=null && prevDir.equals(Direction.DOWN)) 
+				{
+					prevDir=dir;
+				}
+				dir=Direction.DOWN;
+				fallForce++;
+			}
+			if(alive) 
+			{
+				Position MovePos=new Position(pos.GetCol()+dir.getX(),pos.GetRow()+dir.getY());
+				this.pos=MovePos;
 			}
 		}
 		else 
 		{
-			if(prevDir!=null && prevDir.equals(Direction.DOWN)) 
-			{
-				prevDir=dir;
-			}
-			dir=Direction.DOWN;
-			fallForce++;
-		}
-		if(alive) 
-		{
-			Position MovePos=new Position(pos.GetCol()+dir.getX(),pos.GetRow()+dir.getY());
-			this.pos=MovePos;
+			this.alive=false;
 		}
 		
 	}

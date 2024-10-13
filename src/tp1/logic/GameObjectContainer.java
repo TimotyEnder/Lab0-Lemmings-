@@ -1,5 +1,6 @@
 package tp1.logic;
 
+import java.util.Iterator;
 import java.util.Vector;
 
 import tp1.logic.gameobjects.ExitDoor;
@@ -94,13 +95,15 @@ public class GameObjectContainer {
 	}
 	public void update() 
 	{
-		for(Lemming i:Lemmings) 
+		Vector<Lemming> LemmingsDel;
+		for(Iterator<Lemming> iterator = Lemmings.iterator(); iterator.hasNext();) 
 		{
-			i.update();
-			if(i.GetPos().Eq(dor.GetPos())) 
+			Lemming LemmingIT=iterator.next();
+			LemmingIT.update();
+			if(LemmingIT.GetPos().Eq(dor.GetPos())) 
 			{
 				dor.Exit();
-				Lemmings.remove(i);
+				iterator.remove();
 			}
 		}
 		for(Wall i:Walls) 

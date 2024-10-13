@@ -14,10 +14,6 @@ public enum Direction {
 		this.x=x;
 		this.y=y;
 	}
-	public void invert() 
-	{
-		x=-x;
-	}
 	
 	public int getX() {
 		return x;
