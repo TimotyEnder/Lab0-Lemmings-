@@ -25,9 +25,9 @@ public class Game {
 
 			LemmingsNumber=0;
 
-			//gameCon.add(new Lemming(this, new Position(3,3),Direction.RIGHT));
+			gameCon.add(new Lemming(this, new Position(3,3),Direction.RIGHT));
 
-			//LemmingsNumber++;
+			LemmingsNumber++;
 
 			gameCon.add(new Lemming(this, new Position(2,3),Direction.RIGHT));
 
