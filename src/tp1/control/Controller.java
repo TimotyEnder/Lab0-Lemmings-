@@ -29,6 +29,7 @@ public class Controller {
 			ans=view.getPrompt();
 			switch(ans[0].toLowerCase()) {
 			case "h":
+			case"help":
 				state=-1;
 				for(String i: msg.HELP_LINES) 
 				{
@@ -36,12 +37,16 @@ public class Controller {
 				}
 				break;
 			case"r":
+			case"reset":
 				state=2;
 				break;
 			case "e":
+			case "exit":
 				state=1;
 				break;
 			case "n": 
+			case "none":
+			case"":
 				state=0;
 				break;
 			default:
