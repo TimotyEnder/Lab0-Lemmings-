@@ -26,11 +26,19 @@ public class Lemming
 	public void Move () 
 	{
 		Position fallPos=new Position(pos.GetCol(), pos.GetRow()+1);
-		Position bumpPos= new Position(pos.GetCol()+dir.getX(), pos.GetRow()+dir.getY());
+		Position bumpPos= new Position(pos.GetCol()+dir.getX(), pos.GetRow());
 		if(game.isWall(fallPos))
 		{
 			if(fallForce<LethalFall) {
-				dir=prevDir;
+				fallForce=0;
+				if(prevDir!=null) 
+				{
+					dir=prevDir;
+				}
+				else 
+				{
+					dir=Direction.RIGHT;
+				}
 				if(game.isWall(bumpPos)) 
 				{
 					dir.invert();
@@ -43,7 +51,10 @@ public class Lemming
 		}
 		else 
 		{
-			prevDir=dir;
+			if(prevDir!=null && prevDir.equals(Direction.DOWN)) 
+			{
+				prevDir=dir;
+			}
 			dir=Direction.DOWN;
 			fallForce++;
 		}
