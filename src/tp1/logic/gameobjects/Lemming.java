@@ -1,7 +1,7 @@
 package tp1.logic.gameobjects;
 
 import tp1.logic.Position;
-
+import tp1.view.Messages;
 import tp1.logic.Direction;
 import tp1.logic.Game;
 
@@ -99,5 +99,23 @@ public class Lemming
 	}
 	public boolean isAlive() {
 		return this.alive;
+	}
+	public String toString() 
+	{
+		if(this.isAlive()) 
+		{
+			if(this.GetDir()==Direction.LEFT) 
+			{
+				return Messages.LEMMING_LEFT;
+			}
+			else 
+			{
+				return Messages.LEMMING_RIGHT;
+			}
+		}
+		else 
+		{
+			return "";
+		}
 	}
 }

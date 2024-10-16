@@ -1,6 +1,7 @@
 package tp1.logic.gameobjects;
 
 import tp1.logic.Position;
+import tp1.view.Messages;
 public class Wall {
 	private Position pos;
 	public Wall( Position pos) 
@@ -12,4 +13,8 @@ public class Wall {
 		return this.pos;
 	}
 	public void update() {};
+	public String toString() 
+	{
+		return Messages.WALL;
+	}
 }

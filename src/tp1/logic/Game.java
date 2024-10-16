@@ -13,109 +13,89 @@ public class Game {
 	private int CyclesNumber;
 	private int LemmingsNumber;
 	private GameObjectContainer gameCon;
+
 	public Game(int nLevel) {
-		this.level=nLevel;
-		gameCon= new GameObjectContainer();	
+		this.level = nLevel;
+		gameCon = new GameObjectContainer();
 		Init(level);
 	}
-	public void Init(int level) 
-	{
-		if(level==1) 
-		{
 
-			LemmingsNumber=0;
+	public void Init(int level) {
+		if (level == 1) {
 
-			gameCon.add(new Lemming(this, new Position(3,3),Direction.RIGHT));
+			Add(new Lemming(this, new Position(3, 3), Direction.RIGHT));
 
-			LemmingsNumber++;
+			Add(new Lemming(this, new Position(2, 3), Direction.RIGHT));
 
-			gameCon.add(new Lemming(this, new Position(2,3),Direction.RIGHT));
+			Add(new Wall(new Position(2, 4)));
 
-			LemmingsNumber++;
+			Add(new Wall(new Position(3, 4)));
 
-			gameCon.add(new Wall(new Position(2,4)));
+			Add(new Wall(new Position(4, 4)));
 
-			gameCon.add(new Wall(new Position(3,4)));
+			Add(new Wall(new Position(4, 6)));
 
-			gameCon.add(new Wall(new Position(4,4)));
+			Add(new Wall(new Position(5, 6)));
 
-			gameCon.add(new Wall(new Position(4,6)));
+			Add(new Wall(new Position(6, 6)));
 
-			gameCon.add(new Wall(new Position(5,6)));
+			Add(new Wall(new Position(7, 6)));
 
-			gameCon.add(new Wall(new Position(6,6)));
+			Add(new Wall(new Position(7, 5)));
 
-			gameCon.add(new Wall(new Position(7,6)));
+			Add(new ExitDoor(new Position(4, 5)));
 
-			gameCon.add(new Wall(new Position(7,5)));
-
-			gameCon.add(new ExitDoor(new Position(4,5)));
-			
-			lemmingsToWin=LemmingsNumber;
+			lemmingsToWin = LemmingsNumber;
 
 		}
-		if(level==2) 
-		{
-			LemmingsNumber=0;
+		if (level == 2) {
+			LemmingsNumber = 0;
 
-			gameCon.add(new Lemming(this, new Position(4,0),Direction.RIGHT));
+			Add(new Lemming(this, new Position(4, 0), Direction.RIGHT));
 
-			gameCon.add(new Lemming(this, new Position(5,0),Direction.RIGHT));
+			Add(new Lemming(this, new Position(5, 0), Direction.RIGHT));
 
-			gameCon.add(new Lemming(this, new Position(6,0),Direction.RIGHT));
+			Add(new Lemming(this, new Position(6, 0), Direction.RIGHT));
 
-			gameCon.add(new Lemming(this, new Position(7,0),Direction.RIGHT));
+			Add(new Lemming(this, new Position(7, 0), Direction.RIGHT));
 
+			Add(new Wall(new Position(2, 1)));
 
+			Add(new Wall(new Position(3, 1)));
 
-			LemmingsNumber = 4;
+			Add(new Wall(new Position(4, 1)));
 
+			Add(new Wall(new Position(5, 1)));
 
-			gameCon.add(new Wall(new Position(2,1)));
+			Add(new Wall(new Position(6, 1)));
 
-			gameCon.add(new Wall(new Position(3,1)));
+			Add(new Wall(new Position(7, 1)));
 
-			gameCon.add(new Wall(new Position(4,1)));
+			Add(new Wall(new Position(5, 3)));
 
-			gameCon.add(new Wall(new Position(5,1)));
+			Add(new Wall(new Position(6, 3)));
 
-			gameCon.add(new Wall(new Position(6,1)));
+			Add(new Wall(new Position(7, 3)));
 
-			gameCon.add(new Wall(new Position(7,1)));
+			Add(new Wall(new Position(3, 9)));
 
+			Add(new Wall(new Position(4, 9)));
 
+			Add(new Wall(new Position(5, 9)));
 
-			gameCon.add(new Wall(new Position(5,3)));
+			Add(new Wall(new Position(6, 9)));
 
-			gameCon.add(new Wall(new Position(6,3)));
+			Add(new Wall(new Position(7, 9)));
 
-			gameCon.add(new Wall(new Position(7,3)));
+			Add(new Wall(new Position(3, 8)));
 
+			Add(new ExitDoor(new Position(7, 8)));
 
-
-			gameCon.add(new Wall(new Position(3,9)));
-
-			gameCon.add(new Wall(new Position(4,9)));
-
-			gameCon.add(new Wall(new Position(5,9)));
-
-			gameCon.add(new Wall(new Position(6,9)));
-
-			gameCon.add(new Wall(new Position(7,9)));
-
-
-
-			gameCon.add(new Wall(new Position(3,8)));
-
-
-
-			gameCon.add(new ExitDoor(new Position(7,8)));
-
-			lemmingsToWin=LemmingsNumber;
+			lemmingsToWin = LemmingsNumber;
 		}
 	}
-	public void update() 
-	{
+
+	public void update() {
 		CyclesNumber++;
 		gameCon.update();
 	}
@@ -125,7 +105,8 @@ public class Game {
 	}
 
 	public int numLemmingsInBoard() {
-		return this.LemmingsNumber-numLemmingsDead();
+		this.LemmingsNumber -= numLemmingsDead();
+		return this.LemmingsNumber;
 	}
 
 	public int numLemmingsDead() {
@@ -141,11 +122,11 @@ public class Game {
 	}
 
 	public String positionToString(int col, int row) {
-		return  gameCon.SearchForPos(new Position(col,row));
+		return gameCon.SearchForPos(new Position(col, row));
 	}
 
 	public boolean playerWins() {
-		return numLemmingsExit()==numLemmingsToWin();
+		return numLemmingsExit() == numLemmingsToWin();
 	}
 
 	public boolean playerLooses() {
@@ -155,15 +136,28 @@ public class Game {
 	public String help() {
 		return null;
 	}
-	public Boolean isWall(Position pos) 
-	{
+
+	public Boolean isWall(Position pos) {
 		return gameCon.isWall(pos);
 	}
-	public void Reset() 
-	{
-		this.CyclesNumber=0;
-		this.LemmingsNumber=0;
-		this.gameCon=new GameObjectContainer();
+
+	public void Add(Lemming l) {
+		LemmingsNumber++;
+		gameCon.add(l);
+	}
+
+	public void Add(ExitDoor e) {
+		gameCon.add(e);
+	}
+
+	public void Add(Wall w) {
+		gameCon.add(w);
+	}
+
+	public void Reset() {
+		this.CyclesNumber = 0;
+		this.LemmingsNumber = 0;
+		this.gameCon = new GameObjectContainer();
 		this.Init(level);
 	}
 }

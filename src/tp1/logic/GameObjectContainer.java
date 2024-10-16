@@ -12,25 +12,13 @@ public class GameObjectContainer {
 	//TODO fill your code
 	private Vector<Lemming> Lemmings;
 	private Vector<Wall> Walls;
-
+	private Boolean LemmingDied=false;
 	private ExitDoor dor;
 	
 	public GameObjectContainer() 
 	{
 		Lemmings = new Vector<Lemming>();
 		Walls = new Vector<Wall>();
-	}
-	public void PrintArrays() 
-	{
-		for(Lemming i:Lemmings) 
-		{
-			System.out.println(i.GetPos().col+" " + i.GetPos().row);
-		}
-		for(Wall j:Walls) 
-		{
-			System.out.println(j.GetPos().col+" " + j.GetPos().row);
-		}
-		System.out.println(dor.GetPos().col +" "+ dor.GetPos().row);
 	}
 	public void add(Lemming lemming) 
 	{
@@ -46,36 +34,26 @@ public class GameObjectContainer {
 	{
 		 dor= exitDoor;
 	}
-	
+	// get from toString() of object
 	public String SearchForPos(Position pos) 
 	{
 		for(Lemming i:Lemmings) 
 		{
 			if(i.GetPos().Eq(pos)) 
 			{
-				if(i.isAlive()) 
-				{
-					if(i.GetDir()==Direction.LEFT) 
-					{
-						return Messages.LEMMING_LEFT;
-					}
-					else 
-					{
-						return Messages.LEMMING_RIGHT;
-					}
-				}
+				return i.toString();
 			}
 		}
 		for(Wall j:Walls) 
 		{
 			if(j.GetPos().Eq(pos)) 
 			{
-				return Messages.WALL;
+				return j.toString();
 			}
 		}
 		if(dor.GetPos().Eq(pos)) 
 		{
-			return Messages.EXIT_DOOR;
+			return dor.toString();
 		}
 		else 
 		{
@@ -104,6 +82,7 @@ public class GameObjectContainer {
 			{
 				dor.Exit();
 				iterator.remove();
+				LemmingDied=true;
 			}
 		}
 		for(Wall i:Walls) 
@@ -115,11 +94,15 @@ public class GameObjectContainer {
 	public int numLemmingDead() {
 		int dead = 0; 
 		
-		for(Lemming i: Lemmings) {
-			if(!i.isAlive()) {
+		if(LemmingDied){
+			LemmingDied=false;
+			for(Lemming i: Lemmings) {
+			if(!i.isAlive()) 
+			{
 				dead++;
 			}
 		}
+}
 		
 		return dead;
 	}
