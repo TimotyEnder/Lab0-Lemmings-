@@ -37,28 +37,30 @@ public class GameObjectContainer {
 	// get from toString() of object
 	public String SearchForPos(Position pos) 
 	{
+		String obj = "";
 		for(Lemming i:Lemmings) 
 		{
 			if(i.GetPos().Eq(pos)) 
 			{
-				return i.toString();
+				obj+= i.toString();
 			}
 		}
 		for(Wall j:Walls) 
 		{
 			if(j.GetPos().Eq(pos)) 
 			{
-				return j.toString();
+				obj+= j.toString();
 			}
 		}
 		if(dor.GetPos().Eq(pos)) 
 		{
-			return dor.toString();
+			obj+= dor.toString();
 		}
 		else 
 		{
-			return " ";
+			obj+= " ";
 		}
+		return obj;
 	}
 	public Boolean isWall(Position pos) 
 	{

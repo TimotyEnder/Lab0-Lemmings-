@@ -24,7 +24,7 @@ public class Game {
 		if (level == 1) {
 
 			Add(new Lemming(this, new Position(3, 3), Direction.RIGHT));
-
+			Add(new Lemming(this, new Position(3, 3), Direction.RIGHT));
 			Add(new Lemming(this, new Position(2, 3), Direction.RIGHT));
 
 			Add(new Wall(new Position(2, 4)));
