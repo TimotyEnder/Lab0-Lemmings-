@@ -19,11 +19,11 @@ public class Controller {
 
 
 	// add reset option after loss or win
-	public void run() {
+	/*public void run() {
 		int state=-1; // 0 continue/ 1 end/ 2 reset	
 		view.showWelcome();
 		view.showGame();
-		while(state<=0 && (!game.playerWins() && !game.playerLooses())) {
+		while(state<=0 && (game.seFinito(false))) {
 			String[] ans;
 			GameView.clearConsole();
 			ans=view.getPrompt();
@@ -68,5 +68,17 @@ public class Controller {
 			}
 		}
 		view.showEndMessage();
+	}*/
+public void run() {
+		while (!game.seFinito(false)) {
+	
+		    String[] userWords = view.getPrompt();
+		    Command command = CommandGenerator.parse(userWords);
+	
+		    if (command != null) 
+		        command.execute(game, view);
+		    else 
+		        view.showError(Messages.UNKNOWN_COMMAND);
+		}
 	}
 }

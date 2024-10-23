@@ -13,6 +13,7 @@ public class Game {
 	private int CyclesNumber;
 	private int LemmingsNumber;
 	private GameObjectContainer gameCon;
+	private Boolean exit=false;
 
 	public Game(int nLevel) {
 		this.level = nLevel;
@@ -159,5 +160,13 @@ public class Game {
 		this.LemmingsNumber = 0;
 		this.gameCon = new GameObjectContainer();
 		this.Init(level);
+	}
+	public boolean seFinito(boolean exiting) 
+	{
+		if(exiting) 
+		{
+			exit=true;
+		}
+		return exit? true : this.playerWins() || this.playerLooses();
 	}
 }
