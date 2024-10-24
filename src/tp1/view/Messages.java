@@ -77,6 +77,18 @@ public class Messages {
 	public static final String COMMAND_NONE_DETAILS = "[n]one | \"\"";
 	public static final String COMMAND_NONE_HELP = "user does not perform any action";
 	
+	//Added reset commands (didn't found any other)
+	public static final String COMMAND_RESET_NAME = "reset";
+	public static final String COMMAND_RESET_SHORTCUT = "r";
+	public static final String COMMAND_RESET_DETAILS = "[r]eset";
+	public static final String COMMAND_RESET_HELP = "reset the level that was being played";
+	
+	//Same with this one
+	public static final String COMMAND_UPDATE_NAME = "update";
+	public static final String COMMAND_UPDATE_SHORTCUT = "u";
+	public static final String COMMAND_UPDATE_DETAILS = "[u]pdate";
+	public static final String COMMAND_UPDATE_HELP = "updates the game by one cycle";
+	
 	public static final String COMMAND_EXIT_NAME = "exit";
 	public static final String COMMAND_EXIT_SHORTCUT = "e";
 	public static final String COMMAND_EXIT_DETAILS = "[e]xit";

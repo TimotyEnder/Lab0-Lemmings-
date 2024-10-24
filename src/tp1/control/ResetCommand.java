@@ -4,32 +4,35 @@ import tp1.logic.Game;
 import tp1.view.GameView;
 import tp1.view.Messages;
 
-public class ExitCommand extends NoParamsCommand{
+public class ResetCommand extends NoParamsCommand{
+	
 	private static final String NAME = Messages.COMMAND_EXIT_NAME;
 	private static final String SHORTCUT = Messages.COMMAND_EXIT_SHORTCUT;
 	private static final String DETAILS = Messages.COMMAND_EXIT_DETAILS;
 	private static final String HELP = Messages.COMMAND_EXIT_HELP;
-
-	public ExitCommand() {
+	
+	public ResetCommand() {
 		super(NAME, SHORTCUT, DETAILS, HELP);
 	}
-
+	
 	protected boolean matchCommand(String c) 
 	{
 		return c.equalsIgnoreCase(this.GetName()) || c.equalsIgnoreCase(this.GetShortCut()); 
 	} 
+	
 	public static Command parse(String[] sa) 
 	{
-		ExitCommand c= new ExitCommand();
+		ResetCommand c= new ResetCommand();
 		if(c.matchCommand(sa[0])) 
 		{
 			return c;
 		}
 		else return null;
 	}
+	
 	@Override
-	public void execute(Game mtg, GameView mtgview) 
-	{
-		mtg.seFinito(true);
+	protected void execute(Game game, GameView view) {
+		game.Reset();
 	}
+
 }
