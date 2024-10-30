@@ -20,7 +20,7 @@ public class NoneCommand extends NoParamsCommand{
 	} 
 	public Command parse(String[] sa) 
 	{
-		UpdateCommand c= new UpdateCommand();
+		NoneCommand c= new NoneCommand();
 		if(c.matchCommand(sa[0])) 
 		{
 			return c;

@@ -33,7 +33,7 @@ public class HelpCommand extends NoParamsCommand{
 		System.out.println(CommandGenerator.commandHelp());
 	}
 	public String helpText() {
-		String s ;
+		String s = "";
 		for(String i: msg.HELP_LINES) 
 		{
 			s += i;

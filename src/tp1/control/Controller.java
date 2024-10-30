@@ -80,5 +80,6 @@ public void run() {
 		    else 
 		        view.showError(Messages.UNKNOWN_COMMAND);
 		}
+		view.showEndMessage();
 	}
 }
