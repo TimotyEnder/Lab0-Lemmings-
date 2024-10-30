@@ -5,7 +5,7 @@ import tp1.view.Messages;
 import tp1.logic.Direction;
 import tp1.logic.Game;
 
-public class Lemming 
+public class Lemming extends GameObject 
 {
 	private final int LethalFall=4;
 	private Position pos;

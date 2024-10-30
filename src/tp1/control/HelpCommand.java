@@ -32,6 +32,7 @@ public class HelpCommand extends NoParamsCommand{
 	{
 		System.out.println(CommandGenerator.commandHelp());
 	}
+<<<<<<< Updated upstream
 	public String helpText() {
 		String s = "";
 		for(String i: msg.HELP_LINES) 
@@ -40,4 +41,6 @@ public class HelpCommand extends NoParamsCommand{
 		}
 		return s;
 	}
+=======
+>>>>>>> Stashed changes
 }

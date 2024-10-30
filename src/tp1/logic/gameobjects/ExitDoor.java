@@ -3,7 +3,8 @@ package tp1.logic.gameobjects;
 import tp1.logic.Position;
 import tp1.view.Messages;
 
-public class ExitDoor {
+public class ExitDoor extends GameObject
+{
 	private Position pos;
 	private int ExitNum=0;
 	public ExitDoor(Position pos) 
