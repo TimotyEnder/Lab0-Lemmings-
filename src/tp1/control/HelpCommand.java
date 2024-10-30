@@ -18,7 +18,7 @@ public class HelpCommand extends NoParamsCommand{
 	{
 		return c.equalsIgnoreCase(this.GetName()) || c.equalsIgnoreCase(this.GetShortCut()); 
 	} 
-	public static  Command parse(String[] sa) 
+	public Command parse(String[] sa) 
 	{
 		HelpCommand c= new HelpCommand();
 		if(c.matchCommand(sa[0])) 
@@ -33,7 +33,7 @@ public class HelpCommand extends NoParamsCommand{
 		System.out.println(CommandGenerator.commandHelp());
 	}
 	public String helpText() {
-		String s = null;
+		String s ;
 		for(String i: msg.HELP_LINES) 
 		{
 			s += i;

@@ -18,7 +18,7 @@ public class NoneCommand extends NoParamsCommand{
 	{
 		return c.equalsIgnoreCase(this.GetName()) || c.equalsIgnoreCase(this.GetShortCut()); 
 	} 
-	public static Command parse(String[] sa) 
+	public Command parse(String[] sa) 
 	{
 		UpdateCommand c= new UpdateCommand();
 		if(c.matchCommand(sa[0])) 
