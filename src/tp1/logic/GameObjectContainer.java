@@ -9,11 +9,76 @@ import tp1.logic.gameobjects.Wall;
 import tp1.view.Messages;
 
 public class GameObjectContainer {
-	//TODO fill your code
 	private Vector<Lemming> Lemmings;
 	private Vector<Wall> Walls;
 	private Boolean LemmingDied=false;
 	private ExitDoor dor;
+	
+	/*
+	 private List<GameObject> gameObjects;
+
+	public GameObjectContainer() {
+		gameObjects = new ArrayList<>();
+	}
+	
+	public void add(GameObject object) 
+	{
+		GameObject.add(object);
+	}
+	
+	public String SearchForPos(Position pos) 
+	{
+		String obj = "";
+		for(GameObject i:gameObjects) 
+		{
+			if(i.GetPos().Eq(pos)) 
+			{
+				obj += i.toString();
+			}
+		}
+		return obj;
+	}
+	
+	public Boolean isWall(Position pos) 
+	{
+		for(Wall i: Walls) 
+		{
+			if(i.GetPos().Eq(pos)) 
+			{
+				return true;
+			}
+		}
+		return false;
+	}
+	
+	public void update() 
+	{
+		for(GameObject i:GameObjects) 
+		{
+			i.update();
+		}
+	}
+
+	public int numLemmingDead() {
+		int dead = 0; 
+		
+		if(LemmingDied){
+			LemmingDied=false;
+			for(Lemming i: Lemmings) {
+			if(!i.isAlive()) 
+			{
+				dead++;
+			}
+		}
+}
+		
+		return dead;
+	}
+	public int GetExit() 
+	{
+		return dor.GetExit();
+	}
+	 */
 	
 	public GameObjectContainer() 
 	{
@@ -99,12 +164,12 @@ public class GameObjectContainer {
 		if(LemmingDied){
 			LemmingDied=false;
 			for(Lemming i: Lemmings) {
-			if(!i.isAlive()) 
-			{
-				dead++;
+				if(!i.isAlive()) 
+				{
+					dead++;
+				}
 			}
 		}
-}
 		
 		return dead;
 	}
