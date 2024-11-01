@@ -5,11 +5,11 @@ import tp1.view.Messages;
 
 public class ExitDoor extends GameObject
 {
-	private Position pos;
 	private int ExitNum=0;
+	//Maybe should redirect the calls to GameObject instead of having this function
 	public ExitDoor(Position pos) 
 	{
-		this.pos=pos;
+		setPos(pos);
 	}
 	public int GetExit() 
 	{
@@ -18,10 +18,6 @@ public class ExitDoor extends GameObject
 	public void Exit() 
 	{
 		ExitNum++;
-	}
-	public Position GetPos() 
-	{
-		return this.pos;
 	}
 	public String toString() 
 	{

@@ -8,8 +8,6 @@ import tp1.logic.Game;
 public class Lemming extends GameObject 
 {
 	private final int LethalFall=4;
-	private Position pos;
-	private boolean alive;
 	private Direction prevDir;
 	private Direction dir;
 	private Integer fallForce;
@@ -60,7 +58,7 @@ public class Lemming extends GameObject
 				}
 				else 
 				{
-					alive=false;
+					setAlive(false);
 				}
 			}
 			else 
@@ -80,27 +78,21 @@ public class Lemming extends GameObject
 		}
 		else 
 		{
-			this.alive=false;
+			setAlive(false);
 		}
 		
 	}
-	public Position GetPos() 
-	{
-		return this.pos;
-	}	
 	public Direction GetDir() 
 	{
 		return dir;
 	}
+	@Override
 	public void update() 
 	{
 		if(alive) 
 		{
 			role.Advance(this);
 		}
-	}
-	public boolean isAlive() {
-		return this.alive;
 	}
 	public String toString() 
 	{
