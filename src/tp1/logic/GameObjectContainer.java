@@ -5,6 +5,7 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Vector;
 
+import tp1.logic.gameobjects.ExitDoor;
 import tp1.logic.gameobjects.GameObject;
 //import tp1.logic.gameobjects.Lemming;
 //import tp1.logic.gameobjects.Wall;
@@ -52,13 +53,32 @@ public class GameObjectContainer {
 		return false;
 	}
 	
-	public void update() 
-	{
-		for(GameObject i:gameObjects) 
-		{
-			i.update();
-		}
-	}
+	public void update() {
+		List<GameObject> toRemove = new ArrayList<>();
+
+		 // First loop to process and mark for removal
+		 for (GameObject j: gameObjects) {
+		     for (GameObject i : gameObjects) {
+		         if (!j.isExit() && i.isExit()) {
+		            ExitDoor dor = (ExitDoor) i;
+		              if (j.GetPos().Eq(dor.GetPos())) {
+		                 dor.Exit();
+		                 toRemove.add(j);  // Mark for removal later
+		                 break;  // Exit the inner loop once we mark for removal
+		               }
+		           }
+		       }
+		  }
+
+		    // Remove marked objects
+		  gameObjects.removeAll(toRemove);
+
+		    // Second loop to update all remaining objects
+		  for (GameObject j : gameObjects) {
+		     j.update();
+		  }
+    }
+
 
 	public int numLemmingDead() {
 		int dead = 0; 
