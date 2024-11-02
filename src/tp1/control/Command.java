@@ -1,6 +1,6 @@
 package tp1.control;
 
-import tp1.logic.Game;
+import tp1.logic.GameModel;
 import tp1.view.GameView;
 
 public abstract class Command {
@@ -28,5 +28,5 @@ public abstract class Command {
 	{
 		return help;
 	}
-	protected abstract void execute(Game game, GameView view);
+	protected abstract void execute(GameModel game, GameView view);
 }

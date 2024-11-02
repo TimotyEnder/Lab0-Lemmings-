@@ -4,6 +4,7 @@ import tp1.logic.Position;
 import tp1.view.Messages;
 import tp1.logic.Direction;
 import tp1.logic.Game;
+import tp1.logic.GameWorld;
 
 public class Lemming extends GameObject 
 {
@@ -12,9 +13,9 @@ public class Lemming extends GameObject
 	private Direction dir;
 	private Integer fallForce;
 	private Walker role= new Walker();
-	private Game game;
+	private GameWorld game;
 	
-	public Lemming (Game game, Position pos,Direction dir) {
+	public Lemming (GameWorld game, Position pos,Direction dir) {
 		this.pos=pos;
 		this.alive=true;
 		this.dir=dir;

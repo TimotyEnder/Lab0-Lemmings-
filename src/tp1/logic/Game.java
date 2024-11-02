@@ -4,10 +4,8 @@ import tp1.logic.gameobjects.ExitDoor;
 import tp1.logic.gameobjects.Lemming;
 import tp1.logic.gameobjects.Wall;
 
-public class Game {
+public class Game implements GameModel, GameStatus,GameWorld{
 
-	public static final int DIM_X = 10;
-	public static final int DIM_Y = 10;
 	private int level;
 	private int lemmingsToWin;
 	private int CyclesNumber;
@@ -100,7 +98,6 @@ public class Game {
 		CyclesNumber++;
 		gameCon.update();
 	}
-
 	public int getCycle() {
 		return this.CyclesNumber;
 	}
@@ -134,10 +131,6 @@ public class Game {
 		return numLemmingsInBoard() < numLemmingsToWin();
 	}
 
-	public String help() {
-		return null;
-	}
-
 	public Boolean isWall(Position pos) {
 		return gameCon.isSolid(pos);
 	}
@@ -155,7 +148,7 @@ public class Game {
 		gameCon.add(w);
 	}
 
-	public void Reset() {
+	public void reset() {
 		this.CyclesNumber = 0;
 		this.LemmingsNumber = 0;
 		this.gameCon = new GameObjectContainer();

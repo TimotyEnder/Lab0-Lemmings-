@@ -1,6 +1,6 @@
 package tp1.control;
 
-import tp1.logic.Game;
+import tp1.logic.GameModel;
 import tp1.view.GameView;
 import tp1.view.Messages;
 
@@ -30,7 +30,7 @@ public class UpdateCommand extends NoParamsCommand{
 	}
 	
 	@Override
-	public void execute(Game mtg, GameView mtgview) 
+	public void execute(GameModel mtg, GameView mtgview) 
 	{
 		mtg.update();
 		mtgview.showGame();
