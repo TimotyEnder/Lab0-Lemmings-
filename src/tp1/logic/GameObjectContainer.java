@@ -65,7 +65,7 @@ public class GameObjectContainer {
 		
 		for(GameObject i : gameObjects)
 		{
-			if(!i.isAlive() && !i.isSolid()){
+			if(!i.isAlive() && !i.isSolid() && !i.isExit()){
 				dead++;
 			}
 		}
