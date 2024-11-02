@@ -139,7 +139,7 @@ public class Game {
 	}
 
 	public Boolean isWall(Position pos) {
-		return gameCon.isWall(pos);
+		return gameCon.isSolid(pos);
 	}
 
 	public void Add(Lemming l) {

@@ -1,20 +1,21 @@
 package tp1.logic;
 
+import java.util.ArrayList;
 import java.util.Iterator;
+import java.util.List;
 import java.util.Vector;
 
-import tp1.logic.gameobjects.ExitDoor;
-import tp1.logic.gameobjects.Lemming;
-import tp1.logic.gameobjects.Wall;
+import tp1.logic.gameobjects.GameObject;
+//import tp1.logic.gameobjects.Lemming;
+//import tp1.logic.gameobjects.Wall;
 import tp1.view.Messages;
 
 public class GameObjectContainer {
-	private Vector<Lemming> Lemmings;
-	private Vector<Wall> Walls;
-	private Boolean LemmingDied=false;
-	private ExitDoor dor;
+	//private Vector<Lemming> Lemmings;
+	//private Vector<Wall> Walls;
+	//private Boolean LemmingDied=false;
+	//private ExitDoor dor;
 	
-	/*
 	 private List<GameObject> gameObjects;
 
 	public GameObjectContainer() {
@@ -23,7 +24,7 @@ public class GameObjectContainer {
 	
 	public void add(GameObject object) 
 	{
-		GameObject.add(object);
+		gameObjects.add(object);
 	}
 	
 	public String SearchForPos(Position pos) 
@@ -39,11 +40,11 @@ public class GameObjectContainer {
 		return obj;
 	}
 	
-	public Boolean isWall(Position pos) 
+	public boolean isSolid(Position pos) 
 	{
-		for(Wall i: Walls) 
+		for(GameObject i: gameObjects) 
 		{
-			if(i.GetPos().Eq(pos)) 
+			if(i.GetPos().Eq(pos) && i.isSolid()) 
 			{
 				return true;
 			}
@@ -53,7 +54,7 @@ public class GameObjectContainer {
 	
 	public void update() 
 	{
-		for(GameObject i:GameObjects) 
+		for(GameObject i:gameObjects) 
 		{
 			i.update();
 		}
@@ -62,24 +63,28 @@ public class GameObjectContainer {
 	public int numLemmingDead() {
 		int dead = 0; 
 		
-		if(LemmingDied){
-			LemmingDied=false;
-			for(Lemming i: Lemmings) {
-			if(!i.isAlive()) 
-			{
+		for(GameObject i : gameObjects)
+		{
+			if(!i.isAlive() && !i.isSolid()){
 				dead++;
 			}
 		}
-}
 		
 		return dead;
 	}
+	
 	public int GetExit() 
 	{
-		return dor.GetExit();
+		int c = -1;
+		for(GameObject i : gameObjects)
+		{
+			if(i.isExit()){
+				c = i.GetExit();
+			}
+		}
+		return c;
 	}
-	 */
-	
+	/*
 	public GameObjectContainer() 
 	{
 		Lemmings = new Vector<Lemming>();
@@ -177,4 +182,5 @@ public class GameObjectContainer {
 	{
 		return dor.GetExit();
 	}
+	*/
 }

@@ -11,6 +11,7 @@ public class ExitDoor extends GameObject
 	{
 		setPos(pos);
 	}
+	@Override
 	public int GetExit() 
 	{
 		return ExitNum;
@@ -22,5 +23,13 @@ public class ExitDoor extends GameObject
 	public String toString() 
 	{
 		return Messages.EXIT_DOOR;
+	}
+	
+	public boolean isSolid() {
+		return false;
+	}
+	
+	public boolean isExit() {
+		return true;
 	}
 }

@@ -21,6 +21,15 @@ public class Lemming extends GameObject
 		this.fallForce=0;
 		this.game=game;
 	}
+	
+	public boolean isSolid() {
+		return false;
+	}
+	
+	public boolean isExit() {
+		return false;
+	}
+	
 	public void Move () 
 	{
 		if(this.GetPos().GetRow()>=0 && this.GetPos().GetRow()<Game.DIM_Y) 

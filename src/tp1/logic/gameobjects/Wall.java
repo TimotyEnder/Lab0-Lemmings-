@@ -4,7 +4,13 @@ import tp1.logic.Position;
 import tp1.view.Messages;
 public class Wall extends GameObject
 {
-	public Wall( Position pos) 
+	public boolean isSolid() {
+		return true;
+	}
+	public boolean isExit() {
+		return false;
+	}
+ 	public Wall( Position pos) 
 	{
 		setPos(pos);
 	}
