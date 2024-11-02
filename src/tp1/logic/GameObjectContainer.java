@@ -54,30 +54,30 @@ public class GameObjectContainer {
 	}
 	
 	public void update() {
-		List<GameObject> toRemove = new ArrayList<>();
+		GameObject d = null;
+        for(GameObject i : gameObjects)
+        {
+            if(i.isExit()){
+                d = i;
+            }
+        }
 
-		 // First loop to process and mark for removal
-		 for (GameObject j: gameObjects) {
-		     for (GameObject i : gameObjects) {
-		         if (!j.isExit() && i.isExit()) {
-		            ExitDoor dor = (ExitDoor) i;
-		              if (j.GetPos().Eq(dor.GetPos())) {
-		                 dor.Exit();
-		                 toRemove.add(j);  // Mark for removal later
-		                 break;  // Exit the inner loop once we mark for removal
-		               }
-		           }
-		       }
-		  }
+        for (Iterator<GameObject> iterator = gameObjects.iterator(); iterator.hasNext();) {
+        {
+            GameObject goIt= iterator.next();
 
-		    // Remove marked objects
-		  gameObjects.removeAll(toRemove);
-
-		    // Second loop to update all remaining objects
-		  for (GameObject j : gameObjects) {
-		     j.update();
-		  }
-    }
+            if(!goIt.isExit()&& d.GetPos().Eq(goIt.GetPos())) 
+            {
+                ((ExitDoor) d).Exit();
+                iterator.remove();
+            }
+            else
+            {
+                goIt.update();
+            }
+        }
+     }
+}
 
 
 	public int numLemmingDead() {
