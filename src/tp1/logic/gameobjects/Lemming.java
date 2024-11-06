@@ -38,7 +38,7 @@ public class Lemming extends GameObject
 			Position fallPos=new Position(pos.GetCol(), pos.GetRow()+1);
 			Position bumpPos= new Position(pos.GetCol()+dir.getX(), pos.GetRow());
 			Boolean turned=false;
-			if(game.isWall(fallPos))
+			if(game.isSolid(fallPos))
 			{
 				if(fallForce<LethalFall) {
 					if(fallForce > 0) 
@@ -53,7 +53,7 @@ public class Lemming extends GameObject
 							dir=Direction.RIGHT;
 						}
 					}
-					if(game.isWall(bumpPos) || bumpPos.GetCol()<0 && bumpPos.GetCol()<Game.DIM_X) 
+					if(game.isSolid(bumpPos) || bumpPos.GetCol()<0 && bumpPos.GetCol()<Game.DIM_X) 
 					{
 						turned=true;
 						if(this.dir.equals(Direction.RIGHT)) 

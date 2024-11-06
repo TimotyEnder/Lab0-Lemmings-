@@ -13,7 +13,7 @@ public interface GameStatus {
 
 	public String positionToString(int col, int row);
 
-	public boolean playerLooses();
+	public boolean playerLoses();
 
 	public boolean playerWins();
 

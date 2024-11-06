@@ -5,5 +5,5 @@ public interface GameModel  {
     public void update();
     public void reset();
     public boolean playerWins();
-	public boolean playerLooses();
+	public boolean playerLoses();
 }

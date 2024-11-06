@@ -127,11 +127,11 @@ public class Game implements GameModel, GameStatus,GameWorld{
 		return numLemmingsExit() == numLemmingsToWin();
 	}
 
-	public boolean playerLooses() {
+	public boolean playerLoses() {
 		return numLemmingsInBoard() < numLemmingsToWin();
 	}
 
-	public Boolean isWall(Position pos) {
+	public Boolean isSolid(Position pos) {
 		return gameCon.isSolid(pos);
 	}
 
@@ -160,6 +160,6 @@ public class Game implements GameModel, GameStatus,GameWorld{
 		{
 			exit=true;
 		}
-		return exit? true : this.playerWins() || this.playerLooses();
+		return exit? true : this.playerWins() || this.playerLoses();
 	}
 }
