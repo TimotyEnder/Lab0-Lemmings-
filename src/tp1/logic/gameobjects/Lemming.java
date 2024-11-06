@@ -126,4 +126,8 @@ public class Lemming extends GameObject
 			return "";
 		}
 	}
+	
+	public void setANewRole(LemmingRole lr) {
+		this.lr = lr;
+	}
 }
