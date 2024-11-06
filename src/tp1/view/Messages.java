@@ -72,18 +72,26 @@ public class Messages {
 	public static final String POSITION = "(%s,%s)";
 
 //Commands
+	
+	
+	public static final String COMMAND_SETROLE_NAME = "none";
+	public static final String COMMAND_SETROLE_SHORTCUT = "n";
+	public static final String COMMAND_SETROLE_DETAILS = "[n]one | \"\"";
+	public static final String COMMAND_SETROLE_HELP = "user does not perform any action";
+	
+	//A
 	public static final String COMMAND_NONE_NAME = "none";
 	public static final String COMMAND_NONE_SHORTCUT = "n";
 	public static final String COMMAND_NONE_DETAILS = "[n]one | \"\"";
 	public static final String COMMAND_NONE_HELP = "user does not perform any action";
 	
-	//Added reset commands (didn't found any other)
+	//Added reset commands
 	public static final String COMMAND_RESET_NAME = "reset";
 	public static final String COMMAND_RESET_SHORTCUT = "r";
 	public static final String COMMAND_RESET_DETAILS = "[r]eset";
 	public static final String COMMAND_RESET_HELP = "reset the level that was being played";
 	
-	//Same with this one
+	//Added none command
 	public static final String COMMAND_UPDATE_NAME = "update";
 	public static final String COMMAND_UPDATE_SHORTCUT = "u";
 	public static final String COMMAND_UPDATE_DETAILS = "[u]pdate";
@@ -103,7 +111,8 @@ public class Messages {
 	public static final String EMPTY = "";
 	public static final String WALL = MyStringUtils.repeat("▓",ConsoleView.CELL_SIZE);
 	public static final String EXIT_DOOR = "🚪";
-	public static final String LEMMING_RIGHT = "B";
-	public static final String LEMMING_LEFT = "ᗺ";
+	public static final String LEMMING_RIGHT = "K";
+	public static final String LEMMING_LEFT = "ꓘ";
+	public static final String PARACHUTE = "🪂";
 
 }
