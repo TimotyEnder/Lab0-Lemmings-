@@ -1,5 +1,7 @@
 package tp1.logic.gameobjects;
 
+import tp1.view.Messages;
+
 public class ParachuterRole implements LemmingRole {
 
 	@Override
@@ -10,14 +12,21 @@ public class ParachuterRole implements LemmingRole {
 
 	@Override
 	public void advance(Lemming l) {
-		// TODO Auto-generated method stub
+		l.Move(true);
 		
 	}
 
 	@Override
 	public String geticon(Lemming l) {
 		// TODO Auto-generated method stub
-		return null;
+		if(l.isAlive())
+		{
+			return Messages.PARACHUTE;
+		}
+		else 
+		{
+			return "";
+		}
 	}
 
 }

@@ -31,13 +31,17 @@ public class Lemming extends GameObject
 		return false;
 	}
 	
-	public void Move () 
+	public void Move (Boolean fallRes) 
 	{
 		if(this.GetPos().GetRow()>=0 && this.GetPos().GetRow()<Game.DIM_Y) 
 		{
 			Position fallPos=new Position(pos.GetCol(), pos.GetRow()+1);
 			Position bumpPos= new Position(pos.GetCol()+dir.getX(), pos.GetRow());
 			Boolean turned=false;
+			if(fallRes) 
+			{
+				fallForce=0;
+			}
 			if(game.isSolid(fallPos))
 			{
 				if(fallForce<LethalFall) {
