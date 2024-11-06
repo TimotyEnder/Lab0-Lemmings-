@@ -74,10 +74,10 @@ public class Messages {
 //Commands
 	
 	
-	public static final String COMMAND_SETROLE_NAME = "none";
-	public static final String COMMAND_SETROLE_SHORTCUT = "n";
-	public static final String COMMAND_SETROLE_DETAILS = "[n]one | \"\"";
-	public static final String COMMAND_SETROLE_HELP = "user does not perform any action";
+	public static final String COMMAND_SETROLE_NAME = "set Role";
+	public static final String COMMAND_SETROLE_SHORTCUT = "sR";
+	public static final String COMMAND_SETROLE_DETAILS = "[s]et[R]ole ROLE ROW COL:";
+	public static final String COMMAND_SETROLE_HELP = "set the lemming in position (ROW,COL) to role ROLE";
 	
 	//A
 	public static final String COMMAND_NONE_NAME = "none";
