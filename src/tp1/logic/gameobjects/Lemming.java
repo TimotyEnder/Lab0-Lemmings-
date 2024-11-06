@@ -12,7 +12,7 @@ public class Lemming extends GameObject
 	private Direction prevDir;
 	private Direction dir;
 	private Integer fallForce;
-	private Walker role= new Walker();
+	private LemmingRole lr;
 	private GameWorld game;
 	
 	public Lemming (GameWorld game, Position pos,Direction dir) {
@@ -101,7 +101,7 @@ public class Lemming extends GameObject
 	{
 		if(alive) 
 		{
-			role.Advance(this);
+			lr.advance(this);
 		}
 	}
 	public String toString() 
