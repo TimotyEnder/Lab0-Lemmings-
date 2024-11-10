@@ -41,7 +41,11 @@ public class Messages {
 	public static final String HELP = String.join(LINE_SEPARATOR+"   ", HELP_LINES) + LINE_SEPARATOR;
 	
 	public static final String UNKNOWN_COMMAND = "Unknown command";
-
+	
+	public static final String UNKOWN_ROLE="Unknown Role";
+	
+	public static final String SETROLE_ERROR="SetRoleCommand error (Incorrect position or no object in that position admits that role)";
+	
 	public static final String COMMAND_PARAMETERS_MISSING = "Missing parameters";
 
 	public static final String COMMAND_INCORRECT_PARAMETER_NUMBER = "Incorrect parameter number";
@@ -106,6 +110,18 @@ public class Messages {
 	public static final String COMMAND_HELP_SHORTCUT = "h";
 	public static final String COMMAND_HELP_DETAILS = "[h]elp";
 	public static final String COMMAND_HELP_HELP = "shows this help";
+	
+//Roles
+	public static final String WALKER_NAME="walker";
+	public static final String WALKER_SHORTCUT="w";
+	public static final String WALKER_DETAILS="[W]alker";
+	public static final String WALKER_HELP="Lemming that walks";
+	
+	public static final String PARACHUTER_NAME="Parachuter";
+	public static final String PARACHUTER_SHORTCUT="p";
+	public static final String PARACHUTER_DETAILS="[P]arachuter";
+	public static final String PARACHUTER_HELP="Lemming that falls with a parachute";
+	
 
 //Symbols
 	public static final String EMPTY = "";
@@ -114,5 +130,6 @@ public class Messages {
 	public static final String LEMMING_RIGHT = "K";
 	public static final String LEMMING_LEFT = "ꓘ";
 	public static final String PARACHUTE = "🪂";
+	
 
 }

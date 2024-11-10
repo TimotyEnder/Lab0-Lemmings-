@@ -1,6 +1,8 @@
 package tp1.logic.gameobjects;
 
 import tp1.logic.Position;
+import tp1.logic.LemmingsRole.LemmingRole;
+import tp1.logic.LemmingsRole.Walker;
 import tp1.view.Messages;
 import tp1.logic.Direction;
 import tp1.logic.Game;
@@ -31,7 +33,6 @@ public class Lemming extends GameObject
 	public boolean isExit() {
 		return false;
 	}
-	
 	public void Move (Boolean fallRes) 
 	{
 		if(this.GetPos().GetRow()>=0 && this.GetPos().GetRow()<Game.DIM_Y) 
@@ -130,5 +131,9 @@ public class Lemming extends GameObject
 	
 	public void setANewRole(LemmingRole lr) {
 		this.lr = lr;
+	}
+	public void DisableRole() 
+	{
+		this.lr= new Walker();
 	}
 }

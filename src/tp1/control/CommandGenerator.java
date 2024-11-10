@@ -19,7 +19,7 @@ public class CommandGenerator {
 	public static Command parse(String [] wordywords) {
 		Command c = null;
 		for(Command d : AVAILABLE_COMMANDS) {
-			d = ((NoParamsCommand) d).parse(wordywords);
+			d = d.parse(wordywords);
 			if(d != null){
 				c = d;
 			}

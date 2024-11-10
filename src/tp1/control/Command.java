@@ -29,4 +29,5 @@ public abstract class Command {
 		return help;
 	}
 	protected abstract void execute(GameModel game, GameView view);
+	protected abstract Command parse(String[] sa);
 }
