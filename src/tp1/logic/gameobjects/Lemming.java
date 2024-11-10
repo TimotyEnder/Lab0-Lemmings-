@@ -21,6 +21,7 @@ public class Lemming extends GameObject
 		this.dir=dir;
 		this.fallForce=0;
 		this.game=game;
+		this.lr= new Walker();
 	}
 	
 	public boolean isSolid() {
