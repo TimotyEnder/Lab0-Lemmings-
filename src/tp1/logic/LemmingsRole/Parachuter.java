@@ -26,7 +26,7 @@ public class Parachuter implements LemmingRole {
 
 	@Override
 	public void advance(Lemming l) {
-		l.Move(true);
+		l.Move();
 		
 	}
 
@@ -57,6 +57,9 @@ public class Parachuter implements LemmingRole {
 			return null;
 		}
 		
+	}
+	public int FallForce(int ff) {
+		return 0;
 	}
 
 }

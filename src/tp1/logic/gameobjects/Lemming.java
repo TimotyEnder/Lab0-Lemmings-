@@ -16,6 +16,7 @@ public class Lemming extends GameObject
 	private Integer fallForce;
 	private LemmingRole lr;
 	private GameWorld game;
+	private Boolean turned=false;
 	
 	public Lemming (GameWorld game, Position pos,Direction dir) {
 		this.pos=pos;
@@ -33,58 +34,19 @@ public class Lemming extends GameObject
 	public boolean isExit() {
 		return false;
 	}
-	public void Move (Boolean fallRes) 
+	public void Move ()
 	{
+		turned=false;
 		if(this.GetPos().GetRow()>=0 && this.GetPos().GetRow()<Game.DIM_Y) 
 		{
 			Position fallPos=new Position(pos.GetCol(), pos.GetRow()+1);
-			Position bumpPos= new Position(pos.GetCol()+dir.getX(), pos.GetRow());
-			Boolean turned=false;
-			if(fallRes) 
-			{
-				fallForce=0;
-			}
 			if(game.isSolid(fallPos))
 			{
-				if(fallForce<LethalFall) {
-					if(fallForce > 0) 
-					{
-						fallForce=0;
-						if(prevDir!=null) 
-						{
-							dir=prevDir;
-						}
-						else 
-						{
-							dir=Direction.RIGHT;
-						}
-					}
-					if(game.isSolid(bumpPos) || bumpPos.GetCol()<0 && bumpPos.GetCol()<Game.DIM_X) 
-					{
-						turned=true;
-						if(this.dir.equals(Direction.RIGHT)) 
-						{
-							this.dir=Direction.LEFT;
-						}
-						else 
-						{
-							this.dir=Direction.RIGHT;
-						}
-					}
-				}
-				else 
-				{
-					setAlive(false);
-				}
+				Walk();
 			}
 			else 
 			{
-				if(prevDir!=null && prevDir.equals(Direction.DOWN)) 
-				{
-					prevDir=dir;
-				}
-				dir=Direction.DOWN;
-				fallForce++;
+				Fall();
 			}
 			if(alive && !turned) 
 			{
@@ -97,6 +59,53 @@ public class Lemming extends GameObject
 			setAlive(false);
 		}
 		
+	}
+	private void Walk() 
+	{
+		Position bumpPos= new Position(pos.GetCol()+dir.getX(), pos.GetRow());
+		if(fallForce<LethalFall) {
+			if(fallForce > 0) 
+			{
+				fallForce=0;
+				if(prevDir!=null) 
+				{
+					dir=prevDir;
+				}
+				else 
+				{
+					dir=Direction.RIGHT;
+				}
+			}
+			if(game.isSolid(bumpPos) || bumpPos.GetCol()<0 && bumpPos.GetCol()<Game.DIM_X) 
+			{
+				turned=true;
+				if(this.dir.equals(Direction.RIGHT)) 
+				{
+					this.dir=Direction.LEFT;
+				}
+				else 
+				{
+					this.dir=Direction.RIGHT;
+				}
+			}
+		}
+		else 
+		{
+			setAlive(false);
+		}
+	}
+	private void Fall() 
+	{
+		if(prevDir!=null && prevDir.equals(Direction.DOWN)) 
+		{
+			prevDir=dir;
+		}
+		dir=Direction.DOWN;
+		fallForce=FallForce();
+	}
+	public int FallForce() 
+	{
+		return lr.FallForce(fallForce);
 	}
 	public Direction GetDir() 
 	{

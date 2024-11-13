@@ -6,5 +6,6 @@ public interface LemmingRole {
  public void start(Lemming l);
  public void advance(Lemming l);
  public String geticon(Lemming l);
-public LemmingRole parse(String wordywords);
+ public LemmingRole parse(String wordywords);
+ public int FallForce(int ff);
 }

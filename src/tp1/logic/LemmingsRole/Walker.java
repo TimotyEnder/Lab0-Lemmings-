@@ -25,7 +25,7 @@ public class Walker implements LemmingRole
 	}
 	@Override
 	public void advance(Lemming l) {
-		l.Move(false);
+		l.Move();
 	}
 	@Override
 	public String geticon(Lemming l) {
@@ -60,5 +60,9 @@ public class Walker implements LemmingRole
 			return null;
 		}
 		
+	}
+	public int FallForce(int ff) {
+		
+		return ff+1;
 	}
 }
