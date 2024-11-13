@@ -7,4 +7,5 @@ public interface LemmingRole {
  public void advance(Lemming l);
  public String geticon(Lemming l);
 public LemmingRole parse(String wordywords);
+public String getDetails();
 }

@@ -1,5 +1,6 @@
 package tp1.logic;
 
+import tp1.logic.LemmingsRole.LemmingRole;
 import tp1.logic.gameobjects.ExitDoor;
 import tp1.logic.gameobjects.Lemming;
 import tp1.logic.gameobjects.Wall;
@@ -161,5 +162,9 @@ public class Game implements GameModel, GameStatus,GameWorld{
 			exit=true;
 		}
 		return exit? true : this.playerWins() || this.playerLoses();
+	}
+	public void LemmingRoleAssign(Position pos, LemmingRole lr) 
+	{
+		gameCon.LemmingRoleAssigner(pos, lr);
 	}
 }

@@ -61,4 +61,9 @@ public class Walker implements LemmingRole
 		}
 		
 	}
+	
+	public String getDetails() {
+		String r = this.details + ": " + this.help;
+		return r;
+	}
 }

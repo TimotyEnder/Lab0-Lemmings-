@@ -5,9 +5,10 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Vector;
 
+import tp1.logic.LemmingsRole.LemmingRole;
 import tp1.logic.gameobjects.ExitDoor;
 import tp1.logic.gameobjects.GameObject;
-//import tp1.logic.gameobjects.Lemming;
+import tp1.logic.gameobjects.Lemming;
 //import tp1.logic.gameobjects.Wall;
 import tp1.view.Messages;
 
@@ -47,6 +48,17 @@ public class GameObjectContainer {
 			}
 		}
 		return false;
+	}
+	
+	public void LemmingRoleAssigner(Position pos, LemmingRole lr) 
+	{
+		for(GameObject i: gameObjects) 
+		{
+			if(i.GetPos().Eq(pos) && !i.isSolid() && !i.isExit()) 
+			{
+				((Lemming) i).setANewRole(lr);
+			}
+		}
 	}
 	
 	public void update() {
