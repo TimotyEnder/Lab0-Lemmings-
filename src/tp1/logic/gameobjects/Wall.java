@@ -21,6 +21,7 @@ public class Wall extends GameObject
 		return Messages.WALL;
 	}
 	@Override
-	public void setRole(LemmingRole lr) {
+	public boolean setRole(LemmingRole lr) {
+		return false;
 	}
 }

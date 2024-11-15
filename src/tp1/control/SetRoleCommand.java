@@ -17,8 +17,8 @@ public class SetRoleCommand extends Command{
 	
 
 	//parameter attributes
-	private int col=0;
-	private int row=0;
+	private int col;
+	private int row;
 	private LemmingRole role;
 	public SetRoleCommand() {
 		super(NAME, SHORTCUT, DETAILS, HELP);
@@ -32,21 +32,23 @@ public class SetRoleCommand extends Command{
 		if(c.matchCommand(sa[0])) 
 		{
 			role= LemmingRoleFactory.parse(sa[1]);
-			row= LetterToNum(sa[2].toUpperCase());
-			col= Integer.parseInt(sa[3])-1;
-			return c;
+			col= LetterToNum(sa[2].toUpperCase());
+			row= Integer.parseInt(sa[3])-1;
+			return this;
 		}
 		else return null;
-	}
-	public boolean setRole(LemmingRole role) {
-		return false;
 	}
 	
 	@Override
 	public void execute(GameModel mtg, GameView mtgview) 
 	{
 		Position pos = new Position(row,col);
-		mtg.LemmingRoleAssign(pos, role);
+		if(mtg.LemmingRoleAssign(pos, role)) {
+        }
+		else {
+			//change to show errors
+			System.out.println("Lemming not found");
+		}
 		mtgview.showGame();
 	}
 	public int LetterToNum(String let) 

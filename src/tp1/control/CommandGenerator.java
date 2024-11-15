@@ -18,10 +18,15 @@ public class CommandGenerator {
 	
 	public static Command parse(String [] wordywords) {
 		Command c = null;
+		if(wordywords[0]=="") 
+		{
+			c=new UpdateCommand();
+			return c;
+		}
 		for(Command d : AVAILABLE_COMMANDS) {
 			d = d.parse(wordywords);
 			if(d != null){
-				c = d;
+				return d;
 			}
 		}
 		return c;

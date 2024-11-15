@@ -35,7 +35,7 @@ public class ExitDoor extends GameObject
 		return true;
 	}
 	@Override
-	public void setRole(LemmingRole lr) {
-		
+	public boolean setRole(LemmingRole lr) {
+		return  false;
 	}
 }

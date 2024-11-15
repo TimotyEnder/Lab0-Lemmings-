@@ -33,5 +33,5 @@ public abstract class GameObject {
 	{
 		
 	}
-	public abstract void setRole(LemmingRole lr);
+	public abstract boolean setRole(LemmingRole lr);
 }

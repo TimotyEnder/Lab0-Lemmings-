@@ -213,8 +213,8 @@ public class Game implements GameModel, GameStatus,GameWorld{
 		}
 		return exit? true : this.playerWins() || this.playerLoses();
 	}
-	public void LemmingRoleAssign(Position pos, LemmingRole lr) 
+	public boolean LemmingRoleAssign(Position pos, LemmingRole lr) 
 	{
-		gameCon.LemmingRoleAssigner(pos, lr);
+		return gameCon.LemmingRoleAssigner(pos, lr);
 	}
 }

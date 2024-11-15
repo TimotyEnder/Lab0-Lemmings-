@@ -16,7 +16,7 @@ public class Lemming extends GameObject
 	private Integer fallForce;
 	private LemmingRole lr;
 	private GameWorld game;
-	private Boolean turned=false;
+	private boolean turned=false;
 	
 	public Lemming (GameWorld game, Position pos,Direction dir) {
 		this.pos=pos;
@@ -124,9 +124,9 @@ public class Lemming extends GameObject
 		return lr.geticon(this);
 	}
 	
-	public void setRole(LemmingRole lr) {
+	public boolean setRole(LemmingRole lr) {
 		this.lr = lr;
-		System.out.println("changed to parachuter");
+		return true;
 	}
 	public void DisableRole() 
 	{

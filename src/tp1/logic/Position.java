@@ -22,7 +22,7 @@ public class Position {
 	{
 		return row;
 	}
-	public Boolean Eq(Position pos) 
+	public boolean Eq(Position pos) 
 	{
 		return (this.col==pos.col) && (this.row==pos.row);
 	}

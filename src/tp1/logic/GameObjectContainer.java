@@ -50,15 +50,16 @@ public class GameObjectContainer {
 		return false;
 	}
 	
-	public void LemmingRoleAssigner(Position pos, LemmingRole lr) 
+	public boolean LemmingRoleAssigner(Position pos, LemmingRole lr) 
 	{
 		for(GameObject i: gameObjects) 
 		{
 			if(i.GetPos().Eq(pos) && !i.isSolid() && !i.isExit()) 
 			{
-				 i.setRole(lr);
+				 return i.setRole(lr);
 			}
 		}
+		return false;
 	}
 	
 	public void update() {
