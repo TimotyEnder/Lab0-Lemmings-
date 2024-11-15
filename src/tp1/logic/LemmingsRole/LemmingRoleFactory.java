@@ -7,7 +7,8 @@ import java.util.List;
 public class LemmingRoleFactory {
 	private static final List<LemmingRole> ROLES = Arrays.asList(
 	        new Walker(),
-	        new Parachuter());
+	        new Parachuter(),
+	        new DownCaver());
 	
 	public static LemmingRole parse(String  wordywords) {
 		LemmingRole lr=null;

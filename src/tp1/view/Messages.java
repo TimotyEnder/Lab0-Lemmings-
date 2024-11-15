@@ -124,14 +124,19 @@ public class Messages {
 	public static final String PARACHUTER_DETAILS="[P]arachuter";
 	public static final String PARACHUTER_HELP="Lemming that falls with a parachute";
 	
+	public static final String DOWNCAVER_NAME="downcaver";
+	public static final String DOWNCAVER_SHORTCUT="d";
+	public static final String DOWNCAVER_DETAILS="[D]owncaver";
+	public static final String DOWNCAVER_HELP="Lemming caves downwards";
+	
 
 //Symbols
 	public static final String EMPTY = "";
 	public static final String WALL = MyStringUtils.repeat("▓",ConsoleView.CELL_SIZE);
+	public static final String METALWALL = MyStringUtils.repeat("X",ConsoleView.CELL_SIZE);
 	public static final String EXIT_DOOR = "🚪";
 	public static final String LEMMING_RIGHT = "K";
 	public static final String LEMMING_LEFT = "ꓘ";
 	public static final String PARACHUTE = "🪂";
-	
-
+	public static final String LEMMING_DOWN_CAVER = "´･ω･`";
 }

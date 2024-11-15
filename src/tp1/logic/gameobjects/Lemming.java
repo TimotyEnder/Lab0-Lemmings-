@@ -44,7 +44,7 @@ public class Lemming extends GameObject
 			Position unParachutePos= new Position(pos.GetCol(), pos.GetRow()+2);
 			if(game.isSolid(unParachutePos)) 
 			{
-				ResetRole();
+				resetRole();
 			}
 			if(game.isSolid(fallPos))
 			{
@@ -144,11 +144,10 @@ public class Lemming extends GameObject
 		this.lr = lr;
 		return true;
 	}
-	public void ResetRole() 
+	public void resetRole() 
 	{
 		this.lr= new Walker();
 	}
-
 	@Override
 	public boolean receiveInteraction(GameItem other) {
 		// TODO Auto-generated method stub
@@ -176,6 +175,11 @@ public class Lemming extends GameObject
 	@Override
 	public boolean isInPosition(Position pos) {
 		// TODO Auto-generated method stub
+		return false;
+	}
+
+	@Override
+	public boolean isSoft() {
 		return false;
 	}
 }

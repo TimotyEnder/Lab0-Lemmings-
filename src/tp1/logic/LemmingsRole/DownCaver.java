@@ -6,21 +6,12 @@ import tp1.logic.gameobjects.Lemming;
 import tp1.logic.gameobjects.Wall;
 import tp1.view.Messages;
 
-public class Parachuter implements LemmingRole {
+public class DownCaver implements LemmingRole  {
 
-	private String name= Messages.PARACHUTER_NAME;
-	private String details= Messages.PARACHUTER_DETAILS;
-	private String sc=Messages.PARACHUTER_SHORTCUT;
-	private String help= Messages.PARACHUTER_HELP;
-	
-	public String GetName() 
-	{
-		return this.name;
-	}
-	public String GetSc() 
-	{
-		return this.sc;
-	}
+	private String name= Messages.DOWNCAVER_NAME;
+	private String details= Messages.DOWNCAVER_DETAILS;
+	private String sc=Messages.DOWNCAVER_SHORTCUT;
+	private String help= Messages.DOWNCAVER_HELP;
 	@Override
 	public void start(Lemming l) {
 		// TODO Auto-generated method stub
@@ -29,54 +20,61 @@ public class Parachuter implements LemmingRole {
 
 	@Override
 	public void advance(Lemming l) {
-		l.Move();
-		
 	}
 
 	@Override
 	public String geticon(Lemming l) {
-		// TODO Auto-generated method stub
-		if(l.isAlive())
-		{
-			return Messages.PARACHUTE;
-		}
-		else 
-		{
-			return "";
-		}
+		return Messages.LEMMING_DOWN_CAVER;
 	}
-	public  boolean matchRole(String c) 
-	{
-		return c.equalsIgnoreCase(this.GetName()) || c.equalsIgnoreCase(this.GetSc()); 
-	} 
+
+	@Override
 	public int FallForce(int ff) {
 		return 0;
 	}
 
-	
-	
+	@Override
 	public String getDetails() {
 		String r = this.details + ": " + this.help;
 		return r;
 	}
+
+	@Override
+	public boolean matchRole(String c) {
+		return c.equalsIgnoreCase(this.GetName()) || c.equalsIgnoreCase(this.GetSc()); 
+	}
+
+	private String GetSc() {
+		// TODO Auto-generated method stub
+		return sc;
+	}
+
+	private String GetName() {
+		// TODO Auto-generated method stub
+		return name;
+	}
+
 	@Override
 	public boolean receiveInteraction(GameItem other, Lemming lemming) {
 		// TODO Auto-generated method stub
 		return false;
 	}
+
 	@Override
 	public boolean interactWith(Lemming receiver, Lemming lemming) {
 		// TODO Auto-generated method stub
 		return false;
 	}
+
 	@Override
 	public boolean interactWith(Wall wall, Lemming lemming) {
 		// TODO Auto-generated method stub
 		return false;
 	}
+
 	@Override
 	public boolean interactWith(ExitDoor door, Lemming lemming) {
 		// TODO Auto-generated method stub
 		return false;
 	}
+
 }

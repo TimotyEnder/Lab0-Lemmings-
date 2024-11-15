@@ -20,6 +20,7 @@ public abstract class GameObject implements GameItem{
 		this.pos = pos;
 	}
 	public abstract boolean isSolid();
+	public abstract boolean isSoft();
 	public abstract boolean isExit();
 	public boolean isAlive() 
 	{

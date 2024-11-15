@@ -31,6 +31,10 @@ public class ExitDoor extends GameObject
 		return false;
 	}
 	
+	public  boolean isSoft() 
+	{
+		return false;
+	}
 	public boolean isExit() {
 		return true;
 	}
