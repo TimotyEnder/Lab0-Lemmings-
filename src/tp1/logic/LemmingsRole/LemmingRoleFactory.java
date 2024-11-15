@@ -19,5 +19,13 @@ public class LemmingRoleFactory {
 		}
 		return lr;
 	}
+	
+	public static String getHelpRole() {
+		String help = "";
+		for(LemmingRole lr : ROLES) {
+			help += "\n\t" + lr.getDetails();
+		}
+		return help;
+	}
 }
 

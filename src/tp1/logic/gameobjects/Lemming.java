@@ -121,21 +121,7 @@ public class Lemming extends GameObject
 	}
 	public String toString() 
 	{
-		if(this.isAlive()) 
-		{
-			if(this.GetDir()==Direction.LEFT) 
-			{
-				return Messages.LEMMING_LEFT;
-			}
-			else 
-			{
-				return Messages.LEMMING_RIGHT;
-			}
-		}
-		else 
-		{
-			return "";
-		}
+		return lr.geticon(this);
 	}
 	
 	public void setANewRole(LemmingRole lr) {

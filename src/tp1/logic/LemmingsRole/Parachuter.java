@@ -62,4 +62,10 @@ public class Parachuter implements LemmingRole {
 		return 0;
 	}
 
+	
+	
+	public String getDetails() {
+		String r = this.details + ": " + this.help;
+		return r;
+	}
 }

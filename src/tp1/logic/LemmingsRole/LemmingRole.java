@@ -8,4 +8,5 @@ public interface LemmingRole {
  public String geticon(Lemming l);
  public LemmingRole parse(String wordywords);
  public int FallForce(int ff);
+ public String getDetails();
 }

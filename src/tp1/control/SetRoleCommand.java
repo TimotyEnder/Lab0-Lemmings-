@@ -2,8 +2,10 @@ package tp1.control;
 
 import tp1.logic.GameModel;
 import tp1.logic.GameWorld;
+import tp1.logic.Position;
 import tp1.logic.LemmingsRole.LemmingRole;
 import tp1.logic.LemmingsRole.LemmingRoleFactory;
+import tp1.logic.gameobjects.GameObject;
 import tp1.view.GameView;
 import tp1.view.Messages;
 
@@ -42,14 +44,30 @@ public class SetRoleCommand extends Command{
 	}
 	
 	//Not sure what to execute in here
+	public boolean setRole(LemmingRole role) {
+		return false;
+		
+	}
+	
+	//Correct this method ;)
 	@Override
 	public void execute(GameModel mtg, GameView mtgview) 
 	{
 		LemmingRole lr= LemmingRoleFactory.parse(roleName);
-		
+		Position pos = new Position(row,col);
+		mtg.LemmingRoleAssign(pos, lr);
+		mtgview.showGame();
 	}
 	public int LetterToNum(String let) 
 	{
 		return let.charAt(0) - 'A';
+	}
+	
+	@Override
+	public  String GetHelp() 
+	{
+		String help = this.HELP;
+		help += LemmingRoleFactory.getHelpRole();
+		return help;
 	}
 }
