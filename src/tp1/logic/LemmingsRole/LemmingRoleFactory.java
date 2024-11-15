@@ -10,10 +10,9 @@ public class LemmingRoleFactory {
 	        new Parachuter());
 	
 	public static LemmingRole parse(String  wordywords) {
-		LemmingRole lr = null;
+		LemmingRole lr=null;
 		for(LemmingRole lrp : ROLES) {
-			lrp = lrp.parse(wordywords);
-			if(lrp != null){
+			if(lrp.matchRole(wordywords)){
 				lr = lrp;
 			}
 		}

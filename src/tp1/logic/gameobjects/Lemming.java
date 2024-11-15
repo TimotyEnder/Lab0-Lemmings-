@@ -37,7 +37,7 @@ public class Lemming extends GameObject
 	public void Move ()
 	{
 		turned=false;
-		if(this.GetPos().GetRow()>=0 && this.GetPos().GetRow()<Game.DIM_Y) 
+		if(this.GetPos().GetRow()>=0 && this.GetPos().GetRow()<Game.DIM_Y-1) 
 		{
 			Position fallPos=new Position(pos.GetCol(), pos.GetRow()+1);
 			if(game.isSolid(fallPos))
@@ -76,7 +76,7 @@ public class Lemming extends GameObject
 					dir=Direction.RIGHT;
 				}
 			}
-			if(game.isSolid(bumpPos) || bumpPos.GetCol()<0 && bumpPos.GetCol()<Game.DIM_X) 
+			if(game.isSolid(bumpPos) || bumpPos.GetCol()<0 || bumpPos.GetCol()>Game.DIM_X-1) 
 			{
 				turned=true;
 				if(this.dir.equals(Direction.RIGHT)) 
@@ -124,8 +124,9 @@ public class Lemming extends GameObject
 		return lr.geticon(this);
 	}
 	
-	public void setANewRole(LemmingRole lr) {
+	public void setRole(LemmingRole lr) {
 		this.lr = lr;
+		System.out.println("changed to parachuter");
 	}
 	public void DisableRole() 
 	{

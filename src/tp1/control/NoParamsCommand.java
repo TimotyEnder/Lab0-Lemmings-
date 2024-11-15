@@ -6,5 +6,12 @@ public abstract class NoParamsCommand extends Command{
 		super(name, sc, d, h);
 	}
 	
-	public abstract Command parse(String[] wordywords);
+	public Command parse(String[] sa) 
+	{
+		if(sa.length == 1  && matchCommand(sa[0])) 
+		{
+			return this;
+		}
+		else return null;
+	}
 }

@@ -56,7 +56,7 @@ public class GameObjectContainer {
 		{
 			if(i.GetPos().Eq(pos) && !i.isSolid() && !i.isExit()) 
 			{
-				((Lemming) i).setANewRole(lr);
+				 i.setRole(lr);
 			}
 		}
 	}

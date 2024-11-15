@@ -28,6 +28,10 @@ public abstract class Command {
 	{
 		return help;
 	}
+	protected boolean matchCommand(String c) 
+	{
+		return c.equalsIgnoreCase(this.GetName()) || c.equalsIgnoreCase(this.GetShortCut()); 
+	} 
 	protected abstract void execute(GameModel game, GameView view);
 	protected abstract Command parse(String[] sa);
 }

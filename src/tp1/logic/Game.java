@@ -22,28 +22,28 @@ public class Game implements GameModel, GameStatus,GameWorld{
 
 	public void Init(int level) {
 		if (level == 1) {
-
+			LemmingsNumber = 0;
 			Add(new Lemming(this, new Position(3, 3), Direction.RIGHT));
 			Add(new Lemming(this, new Position(3, 3), Direction.RIGHT));
 			Add(new Lemming(this, new Position(2, 3), Direction.RIGHT));
 
-			Add(new Wall(new Position(2, 4)));
+			Add(new Wall(this, new Position(2, 4)));
 
-			Add(new Wall(new Position(3, 4)));
+			Add(new Wall(this, new Position(3, 4)));
 
-			Add(new Wall(new Position(4, 4)));
+			Add(new Wall(this, new Position(4, 4)));
 
-			Add(new Wall(new Position(4, 6)));
+			Add(new Wall(this, new Position(4, 6)));
 
-			Add(new Wall(new Position(5, 6)));
+			Add(new Wall(this, new Position(5, 6)));
 
-			Add(new Wall(new Position(6, 6)));
+			Add(new Wall(this, new Position(6, 6)));
 
-			Add(new Wall(new Position(7, 6)));
+			Add(new Wall(this, new Position(7, 6)));
 
-			Add(new Wall(new Position(7, 5)));
+			Add(new Wall(this, new Position(7, 5)));
 
-			Add(new ExitDoor(new Position(4, 5)));
+			Add(new ExitDoor(this, new Position(4, 5)));
 
 			lemmingsToWin = LemmingsNumber;
 
@@ -59,39 +59,89 @@ public class Game implements GameModel, GameStatus,GameWorld{
 
 			Add(new Lemming(this, new Position(7, 0), Direction.RIGHT));
 
-			Add(new Wall(new Position(2, 1)));
+			Add(new Wall(this, new Position(2, 1)));
 
-			Add(new Wall(new Position(3, 1)));
+			Add(new Wall(this, new Position(3, 1)));
 
-			Add(new Wall(new Position(4, 1)));
+			Add(new Wall(this, new Position(4, 1)));
 
-			Add(new Wall(new Position(5, 1)));
+			Add(new Wall(this, new Position(5, 1)));
 
-			Add(new Wall(new Position(6, 1)));
+			Add(new Wall(this, new Position(6, 1)));
 
-			Add(new Wall(new Position(7, 1)));
+			Add(new Wall(this, new Position(7, 1)));
 
-			Add(new Wall(new Position(5, 3)));
+			Add(new Wall(this, new Position(5, 3)));
 
-			Add(new Wall(new Position(6, 3)));
+			Add(new Wall(this, new Position(6, 3)));
 
-			Add(new Wall(new Position(7, 3)));
+			Add(new Wall(this, new Position(7, 3)));
 
-			Add(new Wall(new Position(3, 9)));
+			Add(new Wall(this, new Position(3, 9)));
 
-			Add(new Wall(new Position(4, 9)));
+			Add(new Wall(this, new Position(4, 9)));
 
-			Add(new Wall(new Position(5, 9)));
+			Add(new Wall(this, new Position(5, 9)));
 
-			Add(new Wall(new Position(6, 9)));
+			Add(new Wall(this, new Position(6, 9)));
 
-			Add(new Wall(new Position(7, 9)));
+			Add(new Wall(this, new Position(7, 9)));
 
-			Add(new Wall(new Position(3, 8)));
+			Add(new Wall(this, new Position(3, 8)));
 
-			Add(new ExitDoor(new Position(7, 8)));
+			Add(new ExitDoor(this, new Position(7, 8)));
 
 			lemmingsToWin = LemmingsNumber;
+		}
+		if(level == 3) 
+		{
+			LemmingsNumber = 0;
+	        Add(new Lemming(this, new Position(0,8),Direction.RIGHT));
+
+	        Add(new Lemming(this, new Position(2,3),Direction.RIGHT));
+
+	        Add(new Lemming(this, new Position(9,0),Direction.RIGHT));
+
+	        Add(new Lemming(this, new Position(3,3),Direction.RIGHT));
+
+
+	        Add(new Wall(this, new Position(0,9)));
+
+	        Add(new Wall(this, new Position(1,9)));
+
+	        Add(new Wall(this, new Position(2,4)));
+
+	        Add(new Wall(this, new Position(3,4)));
+
+	        Add(new Wall(this, new Position(4,4)));
+
+
+	        Add(new Wall(this, new Position(4,6)));
+
+	        Add(new Wall(this, new Position(5,6)));
+
+	        Add(new Wall(this, new Position(6,6)));
+
+	        Add(new Wall(this, new Position(7,6)));
+
+	        Add(new Wall(this, new Position(7,5)));
+
+	        Add(new Wall(this, new Position(8,1)));
+
+	        Add(new Wall(this, new Position(9,1)));
+
+	        Add(new Wall(this, new Position(8,8)));
+
+	        Add(new Wall(this, new Position(9,9)));
+
+	        Add(new Wall(this, new Position(8,8)));
+
+	        Add(new Wall(this, new Position(8,9)));
+
+
+	        Add(new ExitDoor(this, new Position(4,5)));
+
+	        this.lemmingsToWin = 3;//por ejempo
 		}
 	}
 
@@ -104,7 +154,7 @@ public class Game implements GameModel, GameStatus,GameWorld{
 	}
 
 	public int numLemmingsInBoard() {
-		this.LemmingsNumber -= numLemmingsDead();
+		//this.LemmingsNumber -= numLemmingsDead();
 		return this.LemmingsNumber;
 	}
 
@@ -129,7 +179,7 @@ public class Game implements GameModel, GameStatus,GameWorld{
 	}
 
 	public boolean playerLoses() {
-		return numLemmingsInBoard() < numLemmingsToWin();
+		return numLemmingsInBoard() - numLemmingsDead() < numLemmingsToWin();
 	}
 
 	public Boolean isSolid(Position pos) {

@@ -19,43 +19,34 @@ public class SetRoleCommand extends Command{
 	//parameter attributes
 	private int col=0;
 	private int row=0;
-	private String roleName="";
+	private LemmingRole role;
 	public SetRoleCommand() {
 		super(NAME, SHORTCUT, DETAILS, HELP);
 	}
 	
-	//Remember to change this, as it needs to recognize a position (ROW COL)
-	protected boolean matchCommand(String c) 
-	{
-		return c.equalsIgnoreCase(this.GetName()) || c.equalsIgnoreCase(this.GetShortCut()); 
-	} 
+	//Remember to change this, as it needs to recognize a position (ROW COL
 	public Command parse(String[] sa) 
 	{
 		SetRoleCommand c= new SetRoleCommand();
 		
 		if(c.matchCommand(sa[0])) 
 		{
-			roleName= sa[1];
-			row= LetterToNum(sa[2]);
+			role= LemmingRoleFactory.parse(sa[1]);
+			row= LetterToNum(sa[2].toUpperCase());
 			col= Integer.parseInt(sa[3])-1;
 			return c;
 		}
 		else return null;
 	}
-	
-	//Not sure what to execute in here
 	public boolean setRole(LemmingRole role) {
 		return false;
-		
 	}
 	
-	//Correct this method ;)
 	@Override
 	public void execute(GameModel mtg, GameView mtgview) 
 	{
-		LemmingRole lr= LemmingRoleFactory.parse(roleName);
 		Position pos = new Position(row,col);
-		mtg.LemmingRoleAssign(pos, lr);
+		mtg.LemmingRoleAssign(pos, role);
 		mtgview.showGame();
 	}
 	public int LetterToNum(String let) 

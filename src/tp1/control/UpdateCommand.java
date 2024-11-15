@@ -15,20 +15,6 @@ public class UpdateCommand extends NoParamsCommand{
 		super(NAME, SHORTCUT, DETAILS, HELP);
 	}
 	
-	protected boolean matchCommand(String c) 
-	{
-		return c.equalsIgnoreCase(this.GetName()) || c.equalsIgnoreCase(this.GetShortCut()); 
-	} 
-	public Command parse(String[] sa) 
-	{
-		UpdateCommand c= new UpdateCommand();
-		if(c.matchCommand(sa[0])) 
-		{
-			return c;
-		}
-		else return null;
-	}
-	
 	@Override
 	public void execute(GameModel mtg, GameView mtgview) 
 	{

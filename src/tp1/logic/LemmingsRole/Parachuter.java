@@ -42,22 +42,10 @@ public class Parachuter implements LemmingRole {
 			return "";
 		}
 	}
-	protected boolean matchRole(String c) 
+	public  boolean matchRole(String c) 
 	{
 		return c.equalsIgnoreCase(this.GetName()) || c.equalsIgnoreCase(this.GetSc()); 
 	} 
-	public LemmingRole parse(String wordywords) {
-		LemmingRole lr = new Parachuter();
-		if(matchRole(wordywords)) 
-		{
-			return lr;
-		}
-		else 
-		{
-			return null;
-		}
-		
-	}
 	public int FallForce(int ff) {
 		return 0;
 	}

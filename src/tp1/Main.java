@@ -17,13 +17,13 @@ public class Main {
 		Locale.setDefault(new Locale("es", "ES"));
 		try {
 			
-			int nLevel = 1;
+			int nLevel =0;
 			if (args.length != 0) nLevel = Integer.parseInt(args[0]);
 			//System.out.println(nLevel);
 			Game game = new Game(nLevel);
 			GameView view = new ConsoleView(game);
 			Controller controller = new Controller(game, view);
-					
+			view.showGame();
 			controller.run();
 		} 
 		catch (NumberFormatException e) {
