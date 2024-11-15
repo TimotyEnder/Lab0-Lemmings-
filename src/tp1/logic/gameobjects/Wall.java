@@ -42,7 +42,7 @@ public class Wall extends GameObject
 	}
 	@Override
 	public boolean isInPosition(Position pos) {
-		return false;
+		return pos.Eq(pos);
 	}
 	@Override
 	public boolean isSoft() {

@@ -67,7 +67,7 @@ public class DownCaver implements LemmingRole  {
 
 	@Override
 	public boolean interactWith(Wall wall, Lemming lemming) {
-		// TODO Auto-generated method stub
+		wall.receiveInteraction(lemming);
 		return false;
 	}
 

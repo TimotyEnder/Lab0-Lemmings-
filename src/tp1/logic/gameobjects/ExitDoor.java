@@ -64,7 +64,6 @@ public class ExitDoor extends GameObject
 	}
 	@Override
 	public boolean isInPosition(Position pos) {
-		// TODO Auto-generated method stub
-		return false;
+		return pos.Eq(pos);
 	}
 }
