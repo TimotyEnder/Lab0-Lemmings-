@@ -7,6 +7,7 @@ import java.util.Vector;
 
 import tp1.logic.LemmingsRole.LemmingRole;
 import tp1.logic.gameobjects.ExitDoor;
+import tp1.logic.gameobjects.GameItem;
 import tp1.logic.gameobjects.GameObject;
 import tp1.logic.gameobjects.Lemming;
 //import tp1.logic.gameobjects.Wall;
@@ -87,7 +88,10 @@ public class GameObjectContainer {
         }
      }
 }
-
+	  public boolean receiveInteractionsFrom(GameItem obj) 
+	  {
+		  return true;
+	  }
 
 	public int numLemmingDead() {
 		int dead = 0; 

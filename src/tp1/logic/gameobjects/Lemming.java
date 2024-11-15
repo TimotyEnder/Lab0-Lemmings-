@@ -148,4 +148,34 @@ public class Lemming extends GameObject
 	{
 		this.lr= new Walker();
 	}
+
+	@Override
+	public boolean receiveInteraction(GameItem other) {
+		// TODO Auto-generated method stub
+		return other.interactWith(this);
+	}
+
+	@Override
+	public boolean interactWith(Lemming lemming) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	@Override
+	public boolean interactWith(Wall wall) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	@Override
+	public boolean interactWith(ExitDoor door) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	@Override
+	public boolean isInPosition(Position pos) {
+		// TODO Auto-generated method stub
+		return false;
+	}
 }

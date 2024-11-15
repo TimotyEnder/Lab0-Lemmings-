@@ -2,6 +2,7 @@ package tp1.logic;
 
 import tp1.logic.LemmingsRole.LemmingRole;
 import tp1.logic.gameobjects.ExitDoor;
+import tp1.logic.gameobjects.GameItem;
 import tp1.logic.gameobjects.Lemming;
 import tp1.logic.gameobjects.Wall;
 
@@ -217,4 +218,9 @@ public class Game implements GameModel, GameStatus,GameWorld{
 	{
 		return gameCon.LemmingRoleAssigner(pos, lr);
 	}
+	public boolean interactionRecieverCaller(GameItem obj) 
+	{
+		  return gameCon.receiveInteractionsFrom(obj);
+	}
+
 }

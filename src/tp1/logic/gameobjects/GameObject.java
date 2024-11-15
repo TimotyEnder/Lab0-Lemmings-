@@ -3,7 +3,7 @@ package tp1.logic.gameobjects;
 import tp1.logic.Position;
 import tp1.logic.LemmingsRole.LemmingRole;
 
-public abstract class GameObject {
+public abstract class GameObject implements GameItem{
 	protected Position pos;
 	protected boolean alive = false;
 	
