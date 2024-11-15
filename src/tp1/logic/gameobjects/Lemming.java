@@ -10,7 +10,7 @@ import tp1.logic.GameWorld;
 
 public class Lemming extends GameObject 
 {
-	private final int LethalFall=4;
+	private final int LethalFall=10;
 	private Direction prevDir;
 	private Direction dir;
 	private Integer fallForce;
@@ -22,6 +22,7 @@ public class Lemming extends GameObject
 		this.pos=pos;
 		this.alive=true;
 		this.dir=dir;
+		this.prevDir=dir;
 		this.fallForce=0;
 		this.game=game;
 		this.lr= new Walker();
@@ -40,6 +41,11 @@ public class Lemming extends GameObject
 		if(this.GetPos().GetRow()>=0 && this.GetPos().GetRow()<Game.DIM_Y-1) 
 		{
 			Position fallPos=new Position(pos.GetCol(), pos.GetRow()+1);
+			Position unParachutePos= new Position(pos.GetCol(), pos.GetRow()+2);
+			if(game.isSolid(unParachutePos)) 
+			{
+				ResetRole();
+			}
 			if(game.isSolid(fallPos))
 			{
 				Walk();
@@ -67,7 +73,7 @@ public class Lemming extends GameObject
 			if(fallForce > 0) 
 			{
 				fallForce=0;
-				if(prevDir!=null) 
+				if(prevDir!=dir) 
 				{
 					dir=prevDir;
 				}
@@ -96,7 +102,7 @@ public class Lemming extends GameObject
 	}
 	private void Fall() 
 	{
-		if(prevDir!=null && prevDir.equals(Direction.DOWN)) 
+		if(!dir.equals(Direction.DOWN)) 
 		{
 			prevDir=dir;
 		}
@@ -128,7 +134,7 @@ public class Lemming extends GameObject
 		this.lr = lr;
 		return true;
 	}
-	public void DisableRole() 
+	public void ResetRole() 
 	{
 		this.lr= new Walker();
 	}
