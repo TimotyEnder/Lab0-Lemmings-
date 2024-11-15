@@ -64,7 +64,7 @@ public class Walker implements LemmingRole
 	public int FallForce(int ff) {
 		
 		return ff+1;
-	
+	}
 	public String getDetails() {
 		String r = this.details + ": " + this.help;
 		return r;
