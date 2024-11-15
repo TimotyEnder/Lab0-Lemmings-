@@ -47,7 +47,9 @@ public class Messages {
 	public static final String SETROLE_ERROR="SetRoleCommand error (Incorrect position or no object in that position admits that role)";
 	
 	public static final String COMMAND_PARAMETERS_MISSING = "Missing parameters";
-
+	
+	public static final String SETROLE_ERROR_ROLE="Incorrect or unexistent role";
+	
 	public static final String COMMAND_INCORRECT_PARAMETER_NUMBER = "Incorrect parameter number";
 
 	public static final String INVALID_POSITION = "Invalid position (%s, %s)";

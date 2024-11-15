@@ -1,5 +1,7 @@
 package tp1.control;
 
+import javax.swing.text.View;
+
 import tp1.logic.GameModel;
 import tp1.logic.GameWorld;
 import tp1.logic.Position;
@@ -42,12 +44,13 @@ public class SetRoleCommand extends Command{
 	@Override
 	public void execute(GameModel mtg, GameView mtgview) 
 	{
+		if(role==null) 
+		{
+			mtgview.showError(Messages.SETROLE_ERROR_ROLE);
+		}
 		Position pos = new Position(row,col);
-		if(mtg.LemmingRoleAssign(pos, role)) {
-        }
-		else {
-			//change to show errors
-			System.out.println("Lemming not found");
+		if(!mtg.LemmingRoleAssign(pos, role)) {
+			mtgview.showError(Messages.SETROLE_ERROR);
 		}
 		mtgview.showGame();
 	}
