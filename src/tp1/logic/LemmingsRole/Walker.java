@@ -31,13 +31,27 @@ public class Walker implements LemmingRole
 	public String geticon(Lemming l) {
 		if(l.isAlive()) 
 		{
-			if(l.GetDir()==Direction.LEFT) 
+			if(!l.GetAirborne()) 
 			{
-				return Messages.LEMMING_LEFT;
+				if(l.GetDir()==Direction.LEFT) 
+				{
+					return Messages.LEMMING_LEFT;
+				}
+				else 
+				{
+					return Messages.LEMMING_RIGHT;
+				}
 			}
 			else 
 			{
-				return Messages.LEMMING_RIGHT;
+				if(l.GetPrevDir()==Direction.LEFT) 
+				{
+					return Messages.LEMMING_LEFT;
+				}
+				else 
+				{
+					return Messages.LEMMING_RIGHT;
+				}
 			}
 		}
 		else 

@@ -3,19 +3,19 @@ package tp1.logic.gameobjects;
 import tp1.logic.Position;
 import tp1.logic.LemmingsRole.LemmingRole;
 import tp1.logic.LemmingsRole.Walker;
-import tp1.view.Messages;
 import tp1.logic.Direction;
 import tp1.logic.Game;
 import tp1.logic.GameWorld;
 
 public class Lemming extends GameObject 
 {
-	private final int LethalFall=10;
+	private final int LethalFall=3;
 	private Direction prevDir;
 	private Direction dir;
 	private Integer fallForce;
 	private LemmingRole lr;
 	private GameWorld game;
+	private boolean airBorne;
 	private boolean turned=false;
 	
 	public Lemming (GameWorld game, Position pos,Direction dir) {
@@ -48,10 +48,12 @@ public class Lemming extends GameObject
 			}
 			if(game.isSolid(fallPos))
 			{
+				airBorne=false;
 				Walk();
 			}
 			else 
 			{
+				airBorne=true;
 				Fall();
 			}
 			if(alive && !turned) 
@@ -116,6 +118,14 @@ public class Lemming extends GameObject
 	public Direction GetDir() 
 	{
 		return dir;
+	}
+	public Direction GetPrevDir() 
+	{
+		return prevDir;
+	}
+	public boolean GetAirborne() 
+	{
+		return airBorne;
 	}
 	@Override
 	public void update() 
