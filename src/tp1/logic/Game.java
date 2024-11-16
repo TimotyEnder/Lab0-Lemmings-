@@ -4,6 +4,7 @@ import tp1.logic.LemmingsRole.LemmingRole;
 import tp1.logic.gameobjects.ExitDoor;
 import tp1.logic.gameobjects.GameItem;
 import tp1.logic.gameobjects.Lemming;
+import tp1.logic.gameobjects.MetalWall;
 import tp1.logic.gameobjects.Wall;
 
 public class Game implements GameModel, GameStatus,GameWorld{
@@ -138,7 +139,8 @@ public class Game implements GameModel, GameStatus,GameWorld{
 	        Add(new Wall(this, new Position(8,8)));
 
 	        Add(new Wall(this, new Position(8,9)));
-
+	        
+	        Add(new MetalWall(this,new Position(1,2)));
 
 	        Add(new ExitDoor(this, new Position(4,5)));
 
@@ -198,6 +200,10 @@ public class Game implements GameModel, GameStatus,GameWorld{
 
 	public void Add(Wall w) {
 		gameCon.add(w);
+	}
+	public void Add(MetalWall m) 
+	{
+		gameCon.add(m);
 	}
 
 	public void reset() {

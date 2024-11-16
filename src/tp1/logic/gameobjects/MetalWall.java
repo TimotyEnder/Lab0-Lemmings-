@@ -1,10 +1,23 @@
 package tp1.logic.gameobjects;
 
+import tp1.logic.GameWorld;
 import tp1.logic.Position;
 import tp1.logic.LemmingsRole.LemmingRole;
+import tp1.view.Messages;
 
 public class MetalWall extends GameObject {
 
+	private GameWorld game;
+	public MetalWall(GameWorld game,Position pos) 
+	{
+		game=game;
+		this.pos=pos;
+	}
+	@Override
+	public String toString() 
+	{
+		return Messages.METALWALL;
+	}
 	@Override
 	public boolean receiveInteraction(GameItem other) {
 		return false;
