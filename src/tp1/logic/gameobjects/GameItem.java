@@ -1,6 +1,8 @@
 package tp1.logic.gameobjects;
 
+import tp1.logic.Direction;
 import tp1.logic.Position;
+import tp1.logic.LemmingsRole.LemmingRole;
 
 public interface GameItem {
 	public boolean receiveInteraction(GameItem other);
@@ -13,4 +15,16 @@ public interface GameItem {
 	public boolean isAlive();
 	public boolean isExit();
 	public boolean isInPosition(Position pos);
+
+	public Position GetPos();
+
+	public boolean setRole(LemmingRole lr);
+
+	public void update();
+
+	public int GetExit();
+
+	public Direction GetDir();
+	
+	public boolean hasExited();
 }

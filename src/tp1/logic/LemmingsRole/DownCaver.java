@@ -20,6 +20,7 @@ public class DownCaver implements LemmingRole  {
 
 	@Override
 	public void advance(Lemming l) {
+		l.DownCaver();
 	}
 
 	@Override
@@ -67,7 +68,12 @@ public class DownCaver implements LemmingRole  {
 
 	@Override
 	public boolean interactWith(Wall wall, Lemming lemming) {
-		return false;
+		if(lemming.GetPos().GetRow()==wall.GetPos().GetRow()-1)
+		{
+			lemming.setPos(wall.GetPos());
+			wall.setAlive(false);	
+		}
+		return true;
 	}
 
 	@Override

@@ -17,6 +17,7 @@ public class Lemming extends GameObject
 	private GameWorld game;
 	private boolean airBorne;
 	private boolean turned=false;
+	private boolean exited=false;
 	
 	public Lemming (GameWorld game, Position pos,Direction dir) {
 		this.pos=pos;
@@ -40,13 +41,12 @@ public class Lemming extends GameObject
 		turned=false;
 		if(this.GetPos().GetRow()>=0 && this.GetPos().GetRow()<Game.DIM_Y-1) 
 		{
-			Position fallPos=new Position(pos.GetCol(), pos.GetRow()+1);
 			Position unParachutePos= new Position(pos.GetCol(), pos.GetRow()+2);
 			if(game.isSolid(unParachutePos)) 
 			{
 				resetRole();
 			}
-			if(game.isSolid(fallPos))
+			if(!GetAirborne())
 			{
 				airBorne=false;
 				Walk();
@@ -125,13 +125,15 @@ public class Lemming extends GameObject
 	}
 	public boolean GetAirborne() 
 	{
-		return airBorne;
+		Position fallPos=new Position(pos.GetCol(), pos.GetRow()+1);
+		return !game.isSolid(fallPos);
 	}
 	@Override
 	public void update() 
 	{
 		if(alive) 
 		{
+			
 			lr.advance(this);
 		}
 	}
@@ -163,10 +165,19 @@ public class Lemming extends GameObject
 		lr.interactWith(wall, this);
 		return false;
 	}
-
+	public void DownCaver() 
+	{
+		if(GetAirborne()) 
+		{
+			resetRole();
+		}
+	}
 	@Override
 	public boolean interactWith(ExitDoor door) {
-		return false;
+		door.Exit();
+		exited=true;
+		alive=false;
+		return true;
 	}
 
 	@Override
@@ -177,5 +188,9 @@ public class Lemming extends GameObject
 	@Override
 	public boolean isSoft() {
 		return false;
+	}
+	public boolean hasExited() 
+	{
+		return exited;
 	}
 }

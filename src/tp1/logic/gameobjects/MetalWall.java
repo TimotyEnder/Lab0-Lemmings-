@@ -1,5 +1,6 @@
 package tp1.logic.gameobjects;
 
+import tp1.logic.Direction;
 import tp1.logic.GameWorld;
 import tp1.logic.Position;
 import tp1.logic.LemmingsRole.LemmingRole;
@@ -60,6 +61,15 @@ public class MetalWall extends GameObject {
 
 	@Override
 	public boolean isSoft() {
+		return false;
+	}
+	@Override
+	public Direction GetDir() {
+		return Direction.NONE;
+	}
+	@Override
+	public boolean hasExited() {
+		// TODO Auto-generated method stub
 		return false;
 	}
 

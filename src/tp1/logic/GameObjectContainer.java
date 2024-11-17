@@ -15,7 +15,7 @@ import tp1.view.Messages;
 
 public class GameObjectContainer {
 	
-	 private List<GameObject> gameObjects;
+	 private List<GameItem> gameObjects;
 
 	public GameObjectContainer() {
 		gameObjects = new ArrayList<>();
@@ -29,7 +29,7 @@ public class GameObjectContainer {
 	public String SearchForPos(Position pos) 
 	{
 		String obj = "";
-		for(GameObject i:gameObjects) 
+		for(GameItem i:gameObjects) 
 		{
 			if(i.GetPos().Eq(pos)) 
 			{
@@ -41,7 +41,7 @@ public class GameObjectContainer {
 	
 	public boolean isSolid(Position pos) 
 	{
-		for(GameObject i: gameObjects) 
+		for(GameItem i: gameObjects) 
 		{
 			if(i.GetPos().Eq(pos) && i.isSolid()) 
 			{
@@ -53,7 +53,7 @@ public class GameObjectContainer {
 	
 	public boolean LemmingRoleAssigner(Position pos, LemmingRole lr) 
 	{
-		for(GameObject i: gameObjects) 
+		for(GameItem i: gameObjects) 
 		{
 			if(i.GetPos().Eq(pos) && !i.isSolid() && !i.isExit()) 
 			{
@@ -64,39 +64,48 @@ public class GameObjectContainer {
 	}
 	
 	public void update() {
-		GameObject d = null;
-        for(GameObject i : gameObjects)
+		GameItem d = null;
+        for(GameItem i : gameObjects)
         {
             if(i.isExit()){
                 d = i;
             }
         }
 
-        for (Iterator<GameObject> iterator = gameObjects.iterator(); iterator.hasNext();) {
+        for (Iterator<GameItem> iterator = gameObjects.iterator(); iterator.hasNext();) {
         {
-            GameObject goIt= iterator.next();
-
-            if(!goIt.isExit()&& d.GetPos().Eq(goIt.GetPos())) 
+            GameItem goIt= iterator.next();
+            receiveInteractionsFrom(goIt);
+            if(goIt.hasExited()) 
             {
-                ((ExitDoor) d).Exit();
                 iterator.remove();
             }
             else
             {
                 goIt.update();
             }
-        }
-     }
+        } 
+    }
+        
 }
 	  public boolean receiveInteractionsFrom(GameItem obj) 
 	  {
+		  Position downPos=new Position(obj.GetPos().GetCol(), obj.GetPos().GetRow()+1);
+		  Position forwardPos= new Position(obj.GetPos().GetCol()+obj.GetDir().getX(), obj.GetPos().GetRow());
+		  for(GameItem i: gameObjects) 
+		  {
+			  if(i.GetPos().Eq(forwardPos) || i.GetPos().Eq(downPos) || i.GetPos().Eq(obj.GetPos())) 
+			  {
+				  i.receiveInteraction(obj);
+			  }
+		  }
 		  return true;
 	  }
 
 	public int numLemmingDead() {
 		int dead = 0; 
 		
-		for(GameObject i : gameObjects)
+		for(GameItem i : gameObjects)
 		{
 			if(!i.isAlive() && !i.isSolid() && !i.isExit()){
 				dead++;
@@ -109,7 +118,7 @@ public class GameObjectContainer {
 	public int GetExit() 
 	{
 		int c = -1;
-		for(GameObject i : gameObjects)
+		for(GameItem i : gameObjects)
 		{
 			if(i.isExit()){
 				c = i.GetExit();

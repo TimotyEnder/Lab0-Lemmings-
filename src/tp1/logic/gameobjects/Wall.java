@@ -1,5 +1,6 @@
 package tp1.logic.gameobjects;
 
+import tp1.logic.Direction;
 import tp1.logic.Game;
 import tp1.logic.Position;
 import tp1.logic.LemmingsRole.LemmingRole;
@@ -14,11 +15,16 @@ public class Wall extends GameObject
 	}
  	public Wall( Game game, Position pos) 
 	{
+ 		alive=true;
 		setPos(pos);
 	}
 	public String toString() 
 	{
-		return Messages.WALL;
+		if(alive) 
+		{
+			return Messages.WALL;
+		}
+		return "";
 	}
 	@Override
 	public boolean setRole(LemmingRole lr) {
@@ -47,5 +53,14 @@ public class Wall extends GameObject
 	@Override
 	public boolean isSoft() {
 		return true;
+	}
+	@Override
+	public Direction GetDir() {
+		return Direction.NONE;
+	}
+	@Override
+	public boolean hasExited() {
+		// TODO Auto-generated method stub
+		return false;
 	}
 }
