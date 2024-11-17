@@ -140,7 +140,7 @@ public class Game implements GameModel, GameStatus,GameWorld{
 
 	        Add(new Wall(this, new Position(8,9)));
 	        
-	        Add(new MetalWall(this,new Position(1,2)));
+	        //Add(new MetalWall(this,new Position(1,2)));
 
 	        Add(new ExitDoor(this, new Position(4,5)));
 
