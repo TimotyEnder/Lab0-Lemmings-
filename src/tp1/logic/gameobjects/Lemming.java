@@ -48,12 +48,10 @@ public class Lemming extends GameObject
 			}
 			if(!GetAirborne())
 			{
-				airBorne=false;
 				Walk();
 			}
 			else 
 			{
-				airBorne=true;
 				Fall();
 			}
 			if(alive && !turned) 
