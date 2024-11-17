@@ -15,6 +15,7 @@ public class Game implements GameModel, GameStatus,GameWorld{
 	private int LemmingsNumber;
 	private GameObjectContainer gameCon;
 	private Boolean exit=false;
+	public static final int MaxLevels=3;
 
 	public Game(int nLevel) {
 		this.level = nLevel;
@@ -206,12 +207,20 @@ public class Game implements GameModel, GameStatus,GameWorld{
 		gameCon.add(m);
 	}
 
-	public void reset() {
+	public void reset(int lvl) {
 		this.CyclesNumber = 0;
 		this.LemmingsNumber = 0;
 		this.gameCon = new GameObjectContainer();
-		this.Init(level);
-	}
+		if(lvl!=-1) 
+		{
+			this.Init(lvl);
+		}
+		else 
+		{
+			this.Init(level);
+		}
+		
+}
 	public boolean seFinito(boolean exiting) 
 	{
 		if(exiting) 

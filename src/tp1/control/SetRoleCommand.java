@@ -25,7 +25,18 @@ public class SetRoleCommand extends Command{
 	public SetRoleCommand() {
 		super(NAME, SHORTCUT, DETAILS, HELP);
 	}
-	
+	public  void setRole(LemmingRole lr ) 
+	{
+		this.role=lr;
+	}
+	public void setCol(int col) 
+	{
+		this.col=col;
+	}
+	public void setRow(int row) 
+	{
+		this.row=row;
+	}
 	//Remember to change this, as it needs to recognize a position (ROW COL
 	public Command parse(String[] sa) 
 	{
@@ -33,10 +44,10 @@ public class SetRoleCommand extends Command{
 		
 		if(c.matchCommand(sa[0])) 
 		{
-			role= LemmingRoleFactory.parse(sa[1]);
-			col= LetterToNum(sa[2].toUpperCase());
-			row= Integer.parseInt(sa[3])-1;
-			return this;
+			c.setRole(LemmingRoleFactory.parse(sa[1]));
+			c.setCol(LetterToNum(sa[2].toUpperCase()));
+			c.setRow(Integer.parseInt(sa[3])-1);
+			return c;
 		}
 		else return null;
 	}

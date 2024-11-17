@@ -76,11 +76,13 @@ public class Messages {
 	public static final String PLAYER_LOOSES = "Player looses...";
 
 	public static final String POSITION = "(%s,%s)";
+	
+	public static final String LEVEL_INVALID="Invalid Level";
 
 //Commands
 	
 	
-	public static final String COMMAND_SETROLE_NAME = "set Role";
+	public static final String COMMAND_SETROLE_NAME = "setRole";
 	public static final String COMMAND_SETROLE_SHORTCUT = "sR";
 	public static final String COMMAND_SETROLE_DETAILS = "[s]et[R]ole ROLE ROW COL:";
 	public static final String COMMAND_SETROLE_HELP = "set the lemming in position (ROW,COL) to role ROLE";
