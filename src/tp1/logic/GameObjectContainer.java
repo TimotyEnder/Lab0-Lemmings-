@@ -3,15 +3,10 @@ package tp1.logic;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
-import java.util.Vector;
 
 import tp1.logic.LemmingsRole.LemmingRole;
-import tp1.logic.gameobjects.ExitDoor;
 import tp1.logic.gameobjects.GameItem;
 import tp1.logic.gameobjects.GameObject;
-import tp1.logic.gameobjects.Lemming;
-//import tp1.logic.gameobjects.Wall;
-import tp1.view.Messages;
 
 public class GameObjectContainer {
 	
@@ -64,14 +59,6 @@ public class GameObjectContainer {
 	}
 	
 	public void update() {
-		GameItem d = null;
-        for(GameItem i : gameObjects)
-        {
-            if(i.isExit()){
-                d = i;
-            }
-        }
-
         for (Iterator<GameItem> iterator = gameObjects.iterator(); iterator.hasNext();) {
         {
             GameItem goIt= iterator.next();

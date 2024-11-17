@@ -1,13 +1,10 @@
 package tp1.control;
 
-import javax.swing.text.View;
 
 import tp1.logic.GameModel;
-import tp1.logic.GameWorld;
 import tp1.logic.Position;
 import tp1.logic.LemmingsRole.LemmingRole;
 import tp1.logic.LemmingsRole.LemmingRoleFactory;
-import tp1.logic.gameobjects.GameObject;
 import tp1.view.GameView;
 import tp1.view.Messages;
 

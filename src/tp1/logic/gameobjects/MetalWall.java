@@ -11,7 +11,7 @@ public class MetalWall extends GameObject {
 	private GameWorld game;
 	public MetalWall(GameWorld game,Position pos) 
 	{
-		game=game;
+		this.game=game;
 		this.pos=pos;
 	}
 	@Override
