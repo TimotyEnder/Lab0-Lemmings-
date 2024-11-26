@@ -51,8 +51,7 @@ public class SetRoleCommand extends Command{
 		else return null;
 		}
 		catch (NumberFormatException nfe) {
-			throw new CommandParseException(Messages.INVALID_POSITION.formatted
-				(Messages.POSITION.formatted(row, col)), nfe);
+			throw new CommandParseException(Messages.INVALID_POSITION.formatted(Messages.POSITION.formatted(row, col)), nfe);
 		}
 	}
 	
