@@ -2,6 +2,7 @@ package tp1.control;
 
 
 import tp1.logic.GameModel;
+import tp1.exceptions.*;
 import tp1.logic.Position;
 import tp1.logic.LemmingsRole.LemmingRole;
 import tp1.logic.LemmingsRole.LemmingRoleFactory;
@@ -34,10 +35,11 @@ public class SetRoleCommand extends Command{
 	{
 		this.row=row;
 	}
-	//Remember to change this, as it needs to recognize a position (ROW COL
-	public Command parse(String[] sa) 
+	public Command parse(String[] sa) throws CommandParseException 
 	{
-		SetRoleCommand c= new SetRoleCommand();
+		try
+		{
+			SetRoleCommand c= new SetRoleCommand();
 		
 		if(c.matchCommand(sa[0])) 
 		{
@@ -47,6 +49,11 @@ public class SetRoleCommand extends Command{
 			return c;
 		}
 		else return null;
+		}
+		catch (NumberFormatException nfe) {
+			throw new CommandParseException(Messages.INVALID_POSITION.formatted
+				(Messages.POSITION.formatted(row, col)), nfe);
+		}
 	}
 	
 	@Override
@@ -70,7 +77,7 @@ public class SetRoleCommand extends Command{
 	@Override
 	public  String GetHelp() 
 	{
-		String help = this.HELP;
+		String help = HELP;
 		help += LemmingRoleFactory.getHelpRole();
 		return help;
 	}

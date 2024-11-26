@@ -1,5 +1,6 @@
 package tp1.control;
 
+import tp1.exceptions.*;
 import tp1.logic.GameModel;
 import tp1.view.GameView;
 
@@ -32,6 +33,6 @@ public abstract class Command {
 	{
 		return c.equalsIgnoreCase(this.GetName()) || c.equalsIgnoreCase(this.GetShortCut()); 
 	} 
-	protected abstract void execute(GameModel game, GameView view);
-	protected abstract Command parse(String[] sa);
+	protected abstract void execute(GameModel game, GameView view)throws CommandExecuteException;
+	protected abstract Command parse(String[] sa) throws CommandParseException;
 }

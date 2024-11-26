@@ -3,6 +3,8 @@ package tp1;
 import java.util.Locale;
 
 import tp1.control.Controller;
+import tp1.exceptions.CommandExecuteException;
+import tp1.exceptions.CommandParseException;
 import tp1.logic.Game;
 import tp1.view.ConsoleView;
 import tp1.view.GameView;
@@ -10,7 +12,7 @@ import tp1.view.Messages;
 
 public class Main {
 	@SuppressWarnings("deprecation")
-	public static void main(String[] args) {
+	public static void main(String[] args) throws CommandParseException, CommandExecuteException {
 		// Required to avoid issues with tests
 		// Locale.of("es", "ES");
 		// You can replace the following line by the previous line if using Java21

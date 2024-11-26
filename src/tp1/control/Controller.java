@@ -1,5 +1,7 @@
 package tp1.control;
 
+import tp1.exceptions.CommandExecuteException;
+import tp1.exceptions.CommandParseException;
 import tp1.logic.Game;
 import tp1.logic.GameModel;
 import tp1.view.GameView;
@@ -17,7 +19,7 @@ public class Controller {
 		this.view = view;
 	}
 	
-public void run() {
+public void run() throws CommandParseException, CommandExecuteException {
 		while (!game.seFinito(false)) {
 	
 		    String[] userWords = view.getPrompt();
