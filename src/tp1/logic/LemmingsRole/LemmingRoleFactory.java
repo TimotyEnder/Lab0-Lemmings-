@@ -3,6 +3,9 @@ package tp1.logic.LemmingsRole;
 import java.util.Arrays;
 import java.util.List;
 
+import tp1.exceptions.CommandParseException;
+import tp1.view.Messages;
+
 
 public class LemmingRoleFactory {
 	private static final List<LemmingRole> ROLES = Arrays.asList(
@@ -10,14 +13,14 @@ public class LemmingRoleFactory {
 	        new Parachuter(),
 	        new DownCaver());
 	
-	public static LemmingRole parse(String  wordywords) {
+	public static LemmingRole parse(String  wordywords) throws CommandParseException{
 		LemmingRole lr=null;
 		for(LemmingRole lrp : ROLES) {
 			if(lrp.matchRole(wordywords)){
-				lr = lrp;
+				return lrp;
 			}
 		}
-		return lr;
+		throw new CommandParseException(Messages.UNKOWN_ROLE);
 	}
 	
 	public static String getHelpRole() {
