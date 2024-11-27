@@ -8,7 +8,7 @@ import tp1.view.Messages;
 public class Wall extends GameObject
 {
 	public boolean isSolid() {
-		return alive?true:false;
+		return isAlive()? true:false;
 	}
 	public boolean isExit() {
 		return false;

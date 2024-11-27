@@ -27,4 +27,6 @@ public interface GameItem {
 	public Direction GetDir();
 	
 	public boolean hasExited();
+
+	public boolean isSoft();
 }
