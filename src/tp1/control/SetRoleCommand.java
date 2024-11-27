@@ -56,11 +56,14 @@ public class SetRoleCommand extends Command{
 		{
 			mtgview.showError(Messages.SETROLE_ERROR_ROLE);
 		}
-		Position pos = new Position(row,col);
-		if(!mtg.LemmingRoleAssign(pos, role)) {
-			mtgview.showError(Messages.SETROLE_ERROR);
+		else 
+		{
+			Position pos = new Position(row,col);
+			if(!mtg.LemmingRoleAssign(pos, role)) {
+				mtgview.showError(Messages.SETROLE_ERROR);
+			}
+			mtgview.showGame();
 		}
-		mtgview.showGame();
 	}
 	public int LetterToNum(String let) 
 	{
