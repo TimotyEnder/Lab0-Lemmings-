@@ -91,10 +91,9 @@ public class GameObjectContainer {
 
 	public int numLemmingDead() {
 		int dead = 0; 
-		
 		for(GameItem i : gameObjects)
 		{
-			if(!i.isAlive() && !i.isSolid() && !i.isExit()){
+			if(!i.isAlive() && !i.isSolid() && !i.isExit() && !i.isSoft()){
 				dead++;
 			}
 		}

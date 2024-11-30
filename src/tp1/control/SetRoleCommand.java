@@ -58,14 +58,8 @@ public class SetRoleCommand extends Command{
 	@Override
 	public void execute(GameModel mtg, GameView mtgview) 
 	{
-		if(role==null) 
-		{
-			mtgview.showError(Messages.SETROLE_ERROR_ROLE);
-		}
 		Position pos = new Position(row,col);
-		if(!mtg.LemmingRoleAssign(pos, role)) {
-			mtgview.showError(Messages.SETROLE_ERROR);
-		}
+		mtg.LemmingRoleAssign(pos, role);
 		mtgview.showGame();
 	}
 	public int LetterToNum(String let) 
