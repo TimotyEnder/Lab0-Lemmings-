@@ -13,6 +13,7 @@ public class Game implements GameModel, GameStatus,GameWorld{
 	private int lemmingsToWin;
 	private int CyclesNumber;
 	private int LemmingsNumber;
+	private int NumDeadLemmings=0;
 	private GameObjectContainer gameCon;
 	private Boolean exit=false;
 	public static final int MaxLevels=3;
@@ -163,7 +164,7 @@ public class Game implements GameModel, GameStatus,GameWorld{
 	}
 
 	public int numLemmingsDead() {
-		return gameCon.numLemmingDead();
+		return NumDeadLemmings;
 	}
 
 	public int numLemmingsExit() {
@@ -237,5 +238,8 @@ public class Game implements GameModel, GameStatus,GameWorld{
 	{
 		  return gameCon.receiveInteractionsFrom(obj);
 	}
-
+	public void LemmingDying() 
+	{
+		NumDeadLemmings++;
+	}
 }

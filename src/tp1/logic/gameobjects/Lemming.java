@@ -15,7 +15,6 @@ public class Lemming extends GameObject
 	private Integer fallForce;
 	private LemmingRole lr;
 	private GameWorld game;
-	private boolean airBorne;
 	private boolean turned=false;
 	private boolean exited=false;
 	
@@ -62,7 +61,7 @@ public class Lemming extends GameObject
 		}
 		else 
 		{
-			setAlive(false);
+			Die();
 		}
 		
 	}
@@ -97,7 +96,7 @@ public class Lemming extends GameObject
 		}
 		else 
 		{
-			setAlive(false);
+			Die();
 		}
 	}
 	private void Fall() 
@@ -190,5 +189,10 @@ public class Lemming extends GameObject
 	public boolean hasExited() 
 	{
 		return exited;
+	}
+	public void Die() 
+	{
+		this.setAlive(false);
+		this.game.LemmingDying();
 	}
 }

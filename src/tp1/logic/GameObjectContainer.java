@@ -88,19 +88,6 @@ public class GameObjectContainer {
 		  }
 		  return true;
 	  }
-
-	public int numLemmingDead() {
-		int dead = 0; 
-		
-		for(GameItem i : gameObjects)
-		{
-			if(!i.isAlive() && !i.isSolid() && !i.isExit() && !i.isSoft()){
-				dead++;
-			}
-		}
-		
-		return dead;
-	}
 	
 	public int GetExit() 
 	{
