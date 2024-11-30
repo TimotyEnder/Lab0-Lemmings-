@@ -62,6 +62,7 @@ public class SetRoleCommand extends Command{
 			if(!mtg.LemmingRoleAssign(pos, role)) {
 				mtgview.showError(Messages.SETROLE_ERROR);
 			}
+			mtg.update();
 			mtgview.showGame();
 		}
 	}
