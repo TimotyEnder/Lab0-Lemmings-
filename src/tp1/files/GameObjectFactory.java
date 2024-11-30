@@ -7,7 +7,6 @@ import java.util.Scanner;
 import tp1.logic.Position;
 import tp1.logic.Direction;
 import tp1.logic.GameWorld;
-import tp1.logic.LemmingsRole.LemmingRole;
 import tp1.logic.LemmingsRole.LemmingRoleFactory;
 import tp1.logic.gameobjects.ExitDoor;
 import tp1.logic.gameobjects.GameObject;
