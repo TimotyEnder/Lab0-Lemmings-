@@ -49,7 +49,7 @@ public class DownCaver implements LemmingRole  {
 		return sc;
 	}
 
-	private String GetName() {
+	public String GetName() {
 		// TODO Auto-generated method stub
 		return name;
 	}

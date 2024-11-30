@@ -1,5 +1,7 @@
 package tp1.logic;
 
+import tp1.exceptions.CommandExecuteException;
+import tp1.exceptions.OffBoardException;
 import tp1.logic.LemmingsRole.LemmingRole;
 import tp1.logic.gameobjects.ExitDoor;
 import tp1.logic.gameobjects.GameItem;
@@ -229,7 +231,7 @@ public class Game implements GameModel, GameStatus,GameWorld{
 		}
 		return exit? true : this.playerWins() || this.playerLoses();
 	}
-	public boolean LemmingRoleAssign(Position pos, LemmingRole lr) 
+	public boolean LemmingRoleAssign(Position pos, LemmingRole lr) throws OffBoardException, CommandExecuteException 
 	{
 		return gameCon.LemmingRoleAssigner(pos, lr);
 	}

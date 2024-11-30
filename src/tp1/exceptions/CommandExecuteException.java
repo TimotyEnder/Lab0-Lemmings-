@@ -5,6 +5,10 @@ public class CommandExecuteException extends CommandException{
 		super(message);
 		// TODO Auto-generated constructor stub
 	}
+	public CommandExecuteException() 
+	{
+		super("Command execute problem");
+	}
 
 	private static final long serialVersionUID = 02;
 

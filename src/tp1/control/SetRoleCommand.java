@@ -56,10 +56,11 @@ public class SetRoleCommand extends Command{
 	}
 	
 	@Override
-	public void execute(GameModel mtg, GameView mtgview) 
+	public void execute(GameModel mtg, GameView mtgview) throws OffBoardException, CommandExecuteException 
 	{
 		Position pos = new Position(row,col);
 		mtg.LemmingRoleAssign(pos, role);
+		mtg.update();
 		mtgview.showGame();
 	}
 	public int LetterToNum(String let) 
