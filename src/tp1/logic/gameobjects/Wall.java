@@ -15,6 +15,8 @@ public class Wall extends GameObject
 	}
  	public Wall( Game game, Position pos) 
 	{
+ 		this.name="Wall";
+		this.shortcut="W";
  		alive=true;
 		setPos(pos);
 	}

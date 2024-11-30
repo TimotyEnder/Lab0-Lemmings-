@@ -12,16 +12,16 @@ public class Lemming extends GameObject
 	private final int LethalFall=3;
 	private Direction prevDir;
 	private Direction dir;
-	private Integer fallForce;
 	private LemmingRole lr;
-	private GameWorld game;
 	private boolean turned=false;
 	private boolean exited=false;
 	
-	public Lemming (GameWorld game, Position pos,Direction dir) {
+	public Lemming (GameWorld game, Position pos,Direction direction) {
+		this.name="Lemming";
+		this.shortcut="L";
 		this.pos=pos;
 		this.alive=true;
-		this.dir=dir;
+		this.dir=direction;
 		this.prevDir=dir;
 		this.fallForce=0;
 		this.game=game;

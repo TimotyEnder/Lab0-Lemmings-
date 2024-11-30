@@ -12,6 +12,8 @@ public class ExitDoor extends GameObject
 	//Maybe should redirect the calls to GameObject instead of having this function
 	public ExitDoor(Game game, Position pos) 
 	{
+		this.name="ExitDoor";
+		this.shortcut="ED";
 		setPos(pos);
 	}
 	@Override

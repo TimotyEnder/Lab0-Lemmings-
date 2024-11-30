@@ -11,6 +11,8 @@ public class MetalWall extends GameObject {
 	private GameWorld game;
 	public MetalWall(GameWorld game,Position pos) 
 	{
+		this.name="MetalWall";
+		this.shortcut="MW";
 		this.game=game;
 		this.pos=pos;
 	}
