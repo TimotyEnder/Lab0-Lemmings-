@@ -100,5 +100,14 @@ public class GameObjectContainer {
 		}
 		return c;
 	}
+	public void SetExit(int ExitNum) 
+	{
+		for(GameItem i : gameObjects)
+		{
+			if(i.isExit()){
+				i.SetExit(ExitNum);
+			}
+		}
+	}
 	//R.I.P here lies Lemmings 1.0 code. It served us well. Farewell, friend.
 }

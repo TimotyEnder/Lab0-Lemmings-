@@ -29,4 +29,6 @@ public interface GameItem {
 	public boolean hasExited();
 
 	public boolean isSoft();
+	
+	public void SetExit(int ExitNum);
 }

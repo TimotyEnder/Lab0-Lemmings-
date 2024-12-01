@@ -66,4 +66,7 @@ public abstract class GameObject implements GameItem{
 	{
 		this.fallForce=i;
 	}
+	public void SetExit(int ExitNum) 
+	{
+	}
 }

@@ -174,7 +174,26 @@ public class Game implements GameModel, GameStatus,GameWorld, GameConfiguration{
 	public int numLemmingsToWin() {
 		return this.lemmingsToWin;
 	}
+	public void setCycle(int cycle) {
+		this.CyclesNumber=cycle;
+	}
 
+	public void setnumLemmingsInBoard(int lonboard) {
+		//this.LemmingsNumber -= numLemmingsDead();
+		this.LemmingsNumber=lonboard;
+	}
+
+	public void setnumLemmingsDead(int lemdead) {
+		this.NumDeadLemmings=lemdead;
+	}
+
+	public void  setnumLemmingsExit(int numExit) {
+		gameCon.SetExit(numExit);
+	}
+
+	public void setnumLemmingsToWin(int toWin) {
+		this.lemmingsToWin=toWin;
+	}
 	public String positionToString(int col, int row) {
 		return gameCon.SearchForPos(new Position(col, row));
 	}
@@ -257,7 +276,10 @@ public class Game implements GameModel, GameStatus,GameWorld, GameConfiguration{
 
 	@Override
 	public GameObjectContainer getGameObjects() {
-		// TODO Auto-generated method stub
 		return gameCon;
+	}
+	public void load(String fileName) 
+	{
+		new FileGameConfiguration(fileName,this);
 	}
 }

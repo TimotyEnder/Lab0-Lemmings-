@@ -21,6 +21,11 @@ public class ExitDoor extends GameObject
 	{
 		return ExitNum;
 	}
+	@Override
+	public void SetExit(int ExitNum) 
+	{
+		this.ExitNum=ExitNum;
+	}
 	public void Exit() 
 	{
 		ExitNum++;
