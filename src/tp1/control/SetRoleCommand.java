@@ -23,7 +23,7 @@ public class SetRoleCommand extends Command{
 	public SetRoleCommand() {
 		super(NAME, SHORTCUT, DETAILS, HELP);
 	}
-	public  void setRole(LemmingRole lr ) 
+	public  void setRole(LemmingRole lr) 
 	{
 		this.role=lr;
 	}
@@ -41,17 +41,22 @@ public class SetRoleCommand extends Command{
 		{
 			SetRoleCommand c= new SetRoleCommand();
 		
-		if(c.matchCommand(sa[0])) 
-		{
-			c.setRole(LemmingRoleFactory.parse(sa[1]));
-			c.setCol(LetterToNum(sa[2].toUpperCase()));
-			c.setRow(Integer.parseInt(sa[3])-1);
-			return c;
-		}
-		else return null;
+			if(c.matchCommand(sa[0])) 
+			{
+				c.setRole(LemmingRoleFactory.parse(sa[1]));
+				c.setCol(LetterToNum(sa[2].toUpperCase()));
+				c.setRow(Integer.parseInt(sa[3])-1);
+				return c;
+			}
+			else
+			{
+				return null;
+			}
 		}
 		catch (NumberFormatException nfe) {
-			throw new CommandParseException(Messages.INVALID_POSITION.formatted(Messages.POSITION.formatted(row, col)), nfe);
+			//Still wrong, working on it
+			throw new CommandParseException("Invalid position (" + this.row +"," + col + ")");
+			//Messages.INVALID_POSITION.formatted(Messages.POSITION.formatted(row, col)), nfe);			
 		}
 	}
 	
@@ -63,8 +68,13 @@ public class SetRoleCommand extends Command{
 		mtg.update();
 		mtgview.showGame();
 	}
-	public int LetterToNum(String let) 
+	public int LetterToNum(String let)
 	{
+		// Check if the character is an uppercase letter
+	    char ch = let.charAt(0);
+	    if (ch < 'A' || ch > 'Z') {
+	        throw new NumberFormatException();
+	    }
 		return let.charAt(0) - 'A';
 	}
 	

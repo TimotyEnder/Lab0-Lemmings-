@@ -8,8 +8,8 @@ public class CommandParseException extends CommandException {
 		super(message);
 	}
 
-	public CommandParseException(String message, NumberFormatException nfe) {
-		super(message);
+	public CommandParseException(String message, Throwable nfe) {
+		super(message, nfe);
 	}
 
 }

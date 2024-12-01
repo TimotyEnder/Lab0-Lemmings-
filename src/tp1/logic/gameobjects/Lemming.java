@@ -15,7 +15,6 @@ public class Lemming extends GameObject
 	private Integer fallForce;
 	private LemmingRole lr;
 	private GameWorld game;
-	private boolean airBorne;
 	private boolean turned=false;
 	private boolean exited=false;
 	
