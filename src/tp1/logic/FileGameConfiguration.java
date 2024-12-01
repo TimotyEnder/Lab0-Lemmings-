@@ -19,10 +19,10 @@ public class FileGameConfiguration {
 	            System.out.println(line);
 	    		String[] attributes = line.trim().split("\\s+");
 	    		game.setCycle(Integer.parseInt(attributes[0]));
-	    		game.setnumLemmingsInBoard(Integer.parseInt(attributes[0]));
-	    		game.setnumLemmingsDead(Integer.parseInt(attributes[1]));
-	    		game.setnumLemmingsExit(Integer.parseInt(attributes[2]));
-	    		game.setnumLemmingsToWin(Integer.parseInt(attributes[3]));
+	    		game.setnumLemmingsInBoard(Integer.parseInt(attributes[1]));
+	    		game.setnumLemmingsDead(Integer.parseInt(attributes[2]));
+	    		game.setnumLemmingsExit(Integer.parseInt(attributes[3]));
+	    		game.setnumLemmingsToWin(Integer.parseInt(attributes[4]));
 	            while ((line = br.readLine()) != null) {
 	            	System.out.println(line);
 	                GameObject goLoaded = gof.parse(line, game);

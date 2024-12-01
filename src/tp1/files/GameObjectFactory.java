@@ -17,12 +17,6 @@ import tp1.logic.gameobjects.Wall;
 public class GameObjectFactory {
 	
 	private Scanner scanner;
-	private static final List<GameObject> GAME_OBJECTS = Arrays.asList(
-	        new Lemming(null, null, null),
-	        new Wall(null, null),
-	        new MetalWall(null, null),
-	        new ExitDoor(null, null)
-	    );
 	public GameObject parse(String line, GameWorld game) 
 	{
 		GameObject go;
@@ -38,6 +32,10 @@ public class GameObjectFactory {
 			go.setRole(LemmingRoleFactory.parse(words[4]));
 			
 		}
+		else 
+		{
+			go.SetDir(Direction.NONE);
+		}
 		go.SetGame(game);
 		
 		return  go;
@@ -48,20 +46,34 @@ public class GameObjectFactory {
 		 String[] parts = line.substring(1, line.length() - 1).split(",");
 	     int row = Integer.parseInt(parts[0].trim());
 	     int col = Integer.parseInt(parts[1].trim());
-	     Position returnPos= new Position(row,col);
+	     Position returnPos= new Position(col,row);
 		 return returnPos;
 	}
 	
 	private GameObject  GetGo(String line)  
 	{
-		for(GameObject i: GAME_OBJECTS) 
+		GameObject go = null;
+		if(line.equalsIgnoreCase("lemming")||line.equalsIgnoreCase("l")) 
 		{
-			if(i.MatchGo(line)) 
-			{
-				return i; //NEW OBJECT NOT LIST
-			}
+			go= new Lemming(null,null,null);
+			return go;
 		}
-		return null;   //THROW EXCEPTION HERE LATER
+		else if(line.equalsIgnoreCase("exitdoor")||line.equalsIgnoreCase("ED")) 
+		{
+			go= new ExitDoor(null,null);
+			return go;
+		}
+		else if(line.equalsIgnoreCase("wall")||line.equalsIgnoreCase("w")) 
+		{
+			go= new Wall(null,null);
+			return go;
+		}
+		else if(line.equalsIgnoreCase("metalwall")||line.equalsIgnoreCase("mw")) 
+		{
+			go= new MetalWall(null,null);
+			return go;
+		}
+		return null; //ADD EXCEPTION HANDLING HERE
 	}
 	
 	private static Direction getLemmingDirectionFrom(String line)  
