@@ -7,7 +7,7 @@ import tp1.logic.gameobjects.Lemming;
 import tp1.logic.gameobjects.MetalWall;
 import tp1.logic.gameobjects.Wall;
 
-public class Game implements GameModel, GameStatus,GameWorld{
+public class Game implements GameModel, GameStatus,GameWorld, GameConfiguration{
 
 	private int level;
 	private int lemmingsToWin;
@@ -241,5 +241,23 @@ public class Game implements GameModel, GameStatus,GameWorld{
 	public void LemmingDying() 
 	{
 		NumDeadLemmings++;
+	}
+
+	@Override
+	public int numLemingsExit() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	@Override
+	public int numLemmingToWin() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	@Override
+	public GameObjectContainer getGameObjects() {
+		// TODO Auto-generated method stub
+		return gameCon;
 	}
 }

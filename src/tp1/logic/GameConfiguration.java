@@ -1,8 +1,6 @@
-package tp1.files;
+package tp1.logic;
 
-import tp1.logic.GameObjectContainer;
-
-public interface GameConfiguration {
+public interface GameConfiguration{
 	 // game status
 	   public int getCycle();
 	   public int numLemmingsInBoard();
