@@ -21,14 +21,14 @@ public class LoadCommand extends Command{
 	@Override
 	protected void execute(GameModel game, GameView view) {
 		game.load(fileName);
-		//view.showGame();
+		view.showGame();
 	}
 	@Override
 	protected Command parse(String[] sa) {
 		LoadCommand c= new LoadCommand();
 		if(c.matchCommand(sa[0])) 
 		{
-				c.SetFileName(sa[1]);
+			c.SetFileName(sa[1]);
 			return c;
 		}
 		return null; //ADD EXCEPTIONS HERE

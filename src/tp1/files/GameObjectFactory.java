@@ -36,9 +36,11 @@ public class GameObjectFactory {
 			go.SetDir(getLemmingDirectionFrom(words[2]));
 			go.SetFallF(Integer.parseInt(words[3]));
 			go.setRole(LemmingRoleFactory.parse(words[4]));
+			
 		}
+		go.SetGame(game);
 		
-		return null;
+		return  go;
 	}
 	
 	private static Position getPositionFrom(String line)  
@@ -56,7 +58,7 @@ public class GameObjectFactory {
 		{
 			if(i.MatchGo(line)) 
 			{
-				return i;
+				return i; //NEW OBJECT NOT LIST
 			}
 		}
 		return null;   //THROW EXCEPTION HERE LATER
