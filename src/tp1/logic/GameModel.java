@@ -7,4 +7,5 @@ public interface GameModel  {
     public void update();
     public void reset(int lvl);
     public boolean LemmingRoleAssign(Position pos, LemmingRole lr);
+	public void load(String fileName);
 }

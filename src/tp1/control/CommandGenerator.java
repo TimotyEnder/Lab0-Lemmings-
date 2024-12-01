@@ -13,7 +13,8 @@ public class CommandGenerator {
 	        new HelpCommand(),
 	        new ExitCommand(),
 	        new NoneCommand(),
-	        new SetRoleCommand()
+	        new SetRoleCommand(),
+	        new LoadCommand()
 	    );
 	
 	public static Command parse(String [] wordywords) {

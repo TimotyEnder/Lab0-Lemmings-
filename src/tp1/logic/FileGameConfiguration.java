@@ -9,7 +9,6 @@ import tp1.files.GameObjectFactory;
 import tp1.logic.gameobjects.GameObject;
 
 public class FileGameConfiguration {
-	Scanner scanner;
 	public FileGameConfiguration(String fileName, GameWorld game) 
 	{
 		 try (BufferedReader br = new BufferedReader(new FileReader(fileName))) {
@@ -17,7 +16,7 @@ public class FileGameConfiguration {
 	            GameObjectFactory gof=new GameObjectFactory();
 	            GameObjectContainer gameCon;
 	            line = br.readLine();
-	            line = scanner.nextLine();
+	            System.out.println(line);
 	    		String[] attributes = line.trim().split("\\s+");
 	    		game.setCycle(Integer.parseInt(attributes[0]));
 	    		game.setnumLemmingsInBoard(Integer.parseInt(attributes[0]));
@@ -25,6 +24,7 @@ public class FileGameConfiguration {
 	    		game.setnumLemmingsExit(Integer.parseInt(attributes[2]));
 	    		game.setnumLemmingsToWin(Integer.parseInt(attributes[3]));
 	            while ((line = br.readLine()) != null) {
+	            	System.out.println(line);
 	                GameObject goLoaded = gof.parse(line, game);
 	                gameCon=game.getGameObjects();
 	                gameCon.add(goLoaded);

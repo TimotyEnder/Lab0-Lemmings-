@@ -280,6 +280,7 @@ public class Game implements GameModel, GameStatus,GameWorld, GameConfiguration{
 	}
 	public void load(String fileName) 
 	{
+		gameCon=new GameObjectContainer();
 		new FileGameConfiguration(fileName,this);
 	}
 }

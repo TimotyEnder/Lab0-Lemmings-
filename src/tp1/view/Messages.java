@@ -115,6 +115,11 @@ public class Messages {
 	public static final String COMMAND_HELP_DETAILS = "[h]elp";
 	public static final String COMMAND_HELP_HELP = "shows this help";
 	
+	public static final String COMMAND_LOAD_NAME = "load";
+	public static final String COMMAND_LOAD_SHORTCUT = "l";
+	public static final String COMMAND_LOAD_DETAILS = "[l]oad <fileName>";
+	public static final String COMMAND_LOAD_HELP = "load a state of the game from the text file <fileName>";
+	
 //Roles
 	public static final String WALKER_NAME="walker";
 	public static final String WALKER_SHORTCUT="w";

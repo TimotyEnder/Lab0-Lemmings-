@@ -26,7 +26,6 @@ public class GameObjectFactory {
 	public GameObject parse(String line, GameWorld game) 
 	{
 		GameObject go;
-		line = scanner.nextLine();
 		String[] words = line.trim().split("\\s+");
 		go = GetGo(words[1]);
 		go.setAlive(true);
