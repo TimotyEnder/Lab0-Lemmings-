@@ -52,7 +52,10 @@ public class GameObjectContainer {
 		{
 			if(i.GetPos().Eq(pos) && !i.isSolid() && !i.isExit()) 
 			{
-				 return i.setRole(lr);
+				 if(i.setRole(lr)) 
+				 {
+					 return true;
+				 }
 			}
 		}
 		return false;

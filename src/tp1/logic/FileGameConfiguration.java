@@ -23,7 +23,7 @@ public class FileGameConfiguration {
 	    		game.setnumLemmingsExit(Integer.parseInt(attributes[3]));
 	    		game.setnumLemmingsToWin(Integer.parseInt(attributes[4]));
 	            while ((line = br.readLine()) != null) {
-	            	System.out.println(line);
+	            	//System.out.println(line); DEBUG
 	                GameObject goLoaded = gof.parse(line, game);
 	                gameCon=game.getGameObjects();
 	                gameCon.add(goLoaded);

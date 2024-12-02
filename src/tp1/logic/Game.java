@@ -17,6 +17,7 @@ public class Game implements GameModel, GameStatus,GameWorld, GameConfiguration{
 	private GameObjectContainer gameCon;
 	private Boolean exit=false;
 	public static final int MaxLevels=3;
+	private String fileName;
 	
 	private GameConfiguration fileLoader;
 
@@ -255,12 +256,7 @@ public class Game implements GameModel, GameStatus,GameWorld, GameConfiguration{
 		}
 		else 
 		{
-			this.lemmingsToWin=fileLoader.numLemmingsToWin();
-			this.CyclesNumber=fileLoader.getCycle();
-			this.LemmingsNumber=fileLoader.numLemmingsInBoard();
-			this.NumDeadLemmings=fileLoader.numLemmingsDead();
-			this.setnumLemmingsExit(fileLoader.numLemmingsExit());
-			this.gameCon = fileLoader.getGameObjects();
+			load(this.fileName);
 		}	
 	}
 	public boolean seFinito(boolean exiting) 
@@ -292,8 +288,8 @@ public class Game implements GameModel, GameStatus,GameWorld, GameConfiguration{
 	{
 		gameCon=new GameObjectContainer();
 		new FileGameConfiguration(fileName,this);
-		Game loadedGame= new Game(this.CyclesNumber,this.LemmingsNumber,this.NumDeadLemmings, this.lemmingsToWin,this.gameCon);
-		fileLoader=loadedGame;
+		this.fileName=fileName;
+		fileLoader=this;
 	}
 
 	
