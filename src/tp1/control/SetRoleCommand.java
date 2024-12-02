@@ -74,7 +74,7 @@ public class SetRoleCommand extends Command{
 	@Override
 	public  String GetHelp() 
 	{
-		String help = this.HELP;
+		String help = HELP;
 		help += LemmingRoleFactory.getHelpRole();
 		return help;
 	}

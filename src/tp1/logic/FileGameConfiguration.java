@@ -3,7 +3,6 @@ package tp1.logic;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
-import java.util.Scanner;
 
 import tp1.files.GameObjectFactory;
 import tp1.logic.gameobjects.GameObject;
@@ -16,7 +15,7 @@ public class FileGameConfiguration {
 	            GameObjectFactory gof=new GameObjectFactory();
 	            GameObjectContainer gameCon;
 	            line = br.readLine();
-	            System.out.println(line);
+	            //System.out.println(line); DEBUG
 	    		String[] attributes = line.trim().split("\\s+");
 	    		game.setCycle(Integer.parseInt(attributes[0]));
 	    		game.setnumLemmingsInBoard(Integer.parseInt(attributes[1]));

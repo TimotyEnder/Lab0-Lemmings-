@@ -1,8 +1,5 @@
 package tp1.files;
 
-import java.util.Arrays;
-import java.util.List;
-import java.util.Scanner;
 
 import tp1.logic.Position;
 import tp1.logic.Direction;
@@ -16,7 +13,6 @@ import tp1.logic.gameobjects.Wall;
 
 public class GameObjectFactory {
 	
-	private Scanner scanner;
 	public GameObject parse(String line, GameWorld game) 
 	{
 		GameObject go;

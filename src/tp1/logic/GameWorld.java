@@ -2,7 +2,7 @@ package tp1.logic;
 
 import tp1.logic.gameobjects.GameItem;
 
-public interface GameWorld {
+public interface GameWorld{
 	public static final int DIM_X = 10;
 	public static final int DIM_Y = 10;
 	public Boolean isSolid(Position pos);
@@ -14,6 +14,4 @@ public interface GameWorld {
 	public void setnumLemmingsDead(int lemdead); 
 	public void  setnumLemmingsExit(int numExit); 
 	public void setnumLemmingsToWin(int toWin);
-	int numLemingsExit();
-	int numLemmingToWin();
 }

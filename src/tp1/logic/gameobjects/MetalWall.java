@@ -8,7 +8,6 @@ import tp1.view.Messages;
 
 public class MetalWall extends GameObject {
 
-	private GameWorld game;
 	public MetalWall(GameWorld game,Position pos) 
 	{
 		this.game=game;

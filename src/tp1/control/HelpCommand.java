@@ -5,7 +5,7 @@ import tp1.view.GameView;
 import tp1.view.Messages;
 
 public class HelpCommand extends NoParamsCommand{
-	private Messages msg;			
+	
 	private static final String NAME = Messages.COMMAND_HELP_NAME;
 	private static final String SHORTCUT = Messages.COMMAND_HELP_SHORTCUT;
 	private static final String DETAILS = Messages.COMMAND_HELP_DETAILS;
@@ -23,7 +23,7 @@ public class HelpCommand extends NoParamsCommand{
 	//We shall delete this (the CommandGenerator creates the same thing from each instruction (which seems more legal)
 	public String helpText() {
 		String s = "";
-		for(String i: msg.HELP_LINES) 
+		for(String i: Messages.HELP_LINES) 
 		{
 			s += i;
 		}

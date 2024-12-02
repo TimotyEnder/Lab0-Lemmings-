@@ -7,7 +7,7 @@ import tp1.logic.gameobjects.Lemming;
 import tp1.logic.gameobjects.MetalWall;
 import tp1.logic.gameobjects.Wall;
 
-public class Game implements GameModel, GameStatus,GameWorld,GameConfiguration{
+public class Game implements GameModel, GameStatus,GameWorld, GameConfiguration{
 
 	private int level;
 	private int lemmingsToWin;
@@ -24,6 +24,13 @@ public class Game implements GameModel, GameStatus,GameWorld,GameConfiguration{
 		this.level = nLevel;
 		gameCon = new GameObjectContainer();
 		Init(level);
+	}
+	public Game(int CyclesNumber,int LemmingsNumber,int NumDeadLemmings, int lemmingsToWin, GameObjectContainer gameCon) {
+		this.lemmingsToWin=lemmingsToWin;
+		this.CyclesNumber=CyclesNumber;
+		this.LemmingsNumber=LemmingsNumber;
+		this.NumDeadLemmings=NumDeadLemmings;
+		this.gameCon=gameCon;
 	}
 
 	public void Init(int level) {
@@ -248,11 +255,11 @@ public class Game implements GameModel, GameStatus,GameWorld,GameConfiguration{
 		}
 		else 
 		{
-			this.lemmingsToWin=fileLoader.numLemmingToWin();
+			this.lemmingsToWin=fileLoader.numLemmingsToWin();
 			this.CyclesNumber=fileLoader.getCycle();
 			this.LemmingsNumber=fileLoader.numLemmingsInBoard();
 			this.NumDeadLemmings=fileLoader.numLemmingsDead();
-			this.setnumLemmingsExit(fileLoader.numLemingsExit());
+			this.setnumLemmingsExit(fileLoader.numLemmingsExit());
 			this.gameCon = fileLoader.getGameObjects();
 		}	
 	}
@@ -277,16 +284,6 @@ public class Game implements GameModel, GameStatus,GameWorld,GameConfiguration{
 		NumDeadLemmings++;
 	}
 
-	public int numLemingsExit() {
-		// TODO Auto-generated method stub
-		return 0;
-	}
-
-	public int numLemmingToWin() {
-		// TODO Auto-generated method stub
-		return 0;
-	}
-
 	@Override
 	public GameObjectContainer getGameObjects() {
 		return gameCon;
@@ -295,6 +292,9 @@ public class Game implements GameModel, GameStatus,GameWorld,GameConfiguration{
 	{
 		gameCon=new GameObjectContainer();
 		new FileGameConfiguration(fileName,this);
-		fileLoader=this;
+		Game loadedGame= new Game(this.CyclesNumber,this.LemmingsNumber,this.NumDeadLemmings, this.lemmingsToWin,this.gameCon);
+		fileLoader=loadedGame;
 	}
+
+	
 }
