@@ -14,4 +14,6 @@ public interface GameWorld {
 	public void setnumLemmingsDead(int lemdead); 
 	public void  setnumLemmingsExit(int numExit); 
 	public void setnumLemmingsToWin(int toWin);
+	int numLemingsExit();
+	int numLemmingToWin();
 }

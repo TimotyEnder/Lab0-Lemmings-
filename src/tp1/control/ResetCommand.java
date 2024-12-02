@@ -19,7 +19,12 @@ public class ResetCommand extends Command{
 	
 	@Override
 	protected void execute(GameModel game, GameView view) {
-		if(level>0 && level<= Game.MaxLevels) //come back
+		if(level>0 && level<= Game.MaxLevels)
+		{
+			game.reset(level);
+			view.showGame();
+		}
+		else if(level ==-1) 
 		{
 			game.reset(level);
 			view.showGame();

@@ -7,7 +7,7 @@ import tp1.logic.gameobjects.Lemming;
 import tp1.logic.gameobjects.MetalWall;
 import tp1.logic.gameobjects.Wall;
 
-public class Game implements GameModel, GameStatus,GameWorld, GameConfiguration{
+public class Game implements GameModel, GameStatus,GameWorld,GameConfiguration{
 
 	private int level;
 	private int lemmingsToWin;
@@ -17,6 +17,8 @@ public class Game implements GameModel, GameStatus,GameWorld, GameConfiguration{
 	private GameObjectContainer gameCon;
 	private Boolean exit=false;
 	public static final int MaxLevels=3;
+	
+	private GameConfiguration fileLoader;
 
 	public Game(int nLevel) {
 		this.level = nLevel;
@@ -228,19 +230,32 @@ public class Game implements GameModel, GameStatus,GameWorld, GameConfiguration{
 	}
 
 	public void reset(int lvl) {
-		this.CyclesNumber = 0;
-		this.LemmingsNumber = 0;
-		this.gameCon = new GameObjectContainer();
-		if(lvl!=-1) 
+		if(fileLoader==null) 
 		{
-			this.Init(lvl);
+			this.lemmingsToWin=0;
+			this.CyclesNumber=0;
+			this.LemmingsNumber=0;
+			this.NumDeadLemmings=0;
+			this.gameCon = new GameObjectContainer();
+			if(lvl!=-1) 
+			{
+				this.Init(lvl);
+			}
+			else 
+			{
+				this.Init(level);
+			}
 		}
 		else 
 		{
-			this.Init(level);
-		}
-		
-}
+			this.lemmingsToWin=fileLoader.numLemmingToWin();
+			this.CyclesNumber=fileLoader.getCycle();
+			this.LemmingsNumber=fileLoader.numLemmingsInBoard();
+			this.NumDeadLemmings=fileLoader.numLemmingsDead();
+			this.setnumLemmingsExit(fileLoader.numLemingsExit());
+			this.gameCon = fileLoader.getGameObjects();
+		}	
+	}
 	public boolean seFinito(boolean exiting) 
 	{
 		if(exiting) 
@@ -262,13 +277,11 @@ public class Game implements GameModel, GameStatus,GameWorld, GameConfiguration{
 		NumDeadLemmings++;
 	}
 
-	@Override
 	public int numLemingsExit() {
 		// TODO Auto-generated method stub
 		return 0;
 	}
 
-	@Override
 	public int numLemmingToWin() {
 		// TODO Auto-generated method stub
 		return 0;
@@ -282,5 +295,6 @@ public class Game implements GameModel, GameStatus,GameWorld, GameConfiguration{
 	{
 		gameCon=new GameObjectContainer();
 		new FileGameConfiguration(fileName,this);
+		fileLoader=this;
 	}
 }

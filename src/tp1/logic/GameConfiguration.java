@@ -1,7 +1,7 @@
 package tp1.logic;
 
 public interface GameConfiguration{
-	 // game status
+	   // game status
 	   public int getCycle();
 	   public int numLemmingsInBoard();
 	   public int numLemmingsDead();
