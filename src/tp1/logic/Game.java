@@ -22,7 +22,6 @@ public class Game implements GameModel, GameStatus,GameWorld, GameConfiguration{
 	private GameObjectContainer gameCon;
 	private Boolean exit=false;
 	public static final int MaxLevels=3;
-	private String fileName;
 	
 	private GameConfiguration fileLoader;
 
@@ -36,7 +35,7 @@ public class Game implements GameModel, GameStatus,GameWorld, GameConfiguration{
 		this.CyclesNumber=CyclesNumber;
 		this.LemmingsNumber=LemmingsNumber;
 		this.NumDeadLemmings=NumDeadLemmings;
-		this.gameCon=gameCon;
+		this.gameCon=new GameObjectContainer(gameCon);
 	}
 
 	public void Init(int level) {
@@ -261,7 +260,13 @@ public class Game implements GameModel, GameStatus,GameWorld, GameConfiguration{
 		}
 		else 
 		{
-			load(this.fileName);
+			Game loadedGame= new Game(fileLoader.getCycle(),fileLoader.numLemmingsInBoard(),fileLoader.numLemmingsDead(),fileLoader.numLemmingsToWin(),fileLoader.getGameObjects());
+			this.setCycle(loadedGame.getCycle());
+			this.setnumLemmingsDead(loadedGame.numLemmingsDead());
+			this.setnumLemmingsExit(loadedGame.numLemmingsExit());
+			this.setnumLemmingsInBoard(loadedGame.numLemmingsInBoard());
+			this.setnumLemmingsToWin(loadedGame.numLemmingsToWin());
+			this.gameCon=loadedGame.getGameObjects();
 		}	
 	}
 	public boolean seFinito(boolean exiting) 
@@ -293,8 +298,7 @@ public class Game implements GameModel, GameStatus,GameWorld, GameConfiguration{
 	{
 		gameCon=new GameObjectContainer();
 		new FileGameConfiguration(fileName,this);
-		this.fileName=fileName;
-		fileLoader=this;
+		this.fileLoader= new Game(this.CyclesNumber,this.LemmingsNumber,this.NumDeadLemmings,this.lemmingsToWin,this.gameCon);
 	}
 
 	

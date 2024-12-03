@@ -2,6 +2,7 @@ package tp1.logic.gameobjects;
 
 import tp1.logic.Direction;
 import tp1.logic.Game;
+import tp1.logic.GameWorld;
 import tp1.logic.Position;
 import tp1.logic.LemmingsRole.LemmingRole;
 import tp1.view.Messages;
@@ -13,7 +14,7 @@ public class Wall extends GameObject
 	public boolean isExit() {
 		return false;
 	}
- 	public Wall( Game game, Position pos) 
+ 	public Wall( GameWorld game, Position pos) 
 	{
  		alive=true;
 		setPos(pos);
@@ -62,5 +63,16 @@ public class Wall extends GameObject
 	public boolean hasExited() {
 		// TODO Auto-generated method stub
 		return false;
+	}
+	@Override
+	public GameItem Clone() {
+		GameItem clone = new Wall(this.game,this.pos);
+		clone.setAlive(this.alive);
+		return clone;
+	}
+	@Override
+	public void setPrevDir(Direction dir) {
+		// TODO Auto-generated method stub
+		
 	}
 }

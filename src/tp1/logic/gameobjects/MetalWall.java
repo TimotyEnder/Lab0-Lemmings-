@@ -71,5 +71,16 @@ public class MetalWall extends GameObject {
 		// TODO Auto-generated method stub
 		return false;
 	}
+	@Override
+	public GameItem Clone() {
+		GameItem clone= new MetalWall(this.game,this.pos);
+		clone.setAlive(this.alive);
+		return clone;
+	}
+	@Override
+	public void setPrevDir(Direction dir) {
+		// TODO Auto-generated method stub
+		
+	}
 
 }

@@ -31,4 +31,10 @@ public interface GameItem {
 	public boolean isSoft();
 	
 	public void SetExit(int ExitNum);
+	
+	public GameItem Clone();
+
+	public void setAlive(boolean alive);
+
+	public void setPrevDir(Direction dir);
 }

@@ -116,7 +116,11 @@ public class Lemming extends GameObject
 	}
 	public Direction GetPrevDir() 
 	{
-		return prevDir;
+		return this.prevDir;
+	}
+	public void setPrevDir(Direction dir) 
+	{
+		this.prevDir=dir;
 	}
 	public boolean GetAirborne() 
 	{
@@ -199,5 +203,14 @@ public class Lemming extends GameObject
 	{
 		this.setAlive(false);
 		this.game.LemmingDying();
+	}
+
+	@Override
+	public GameItem Clone() {
+		GameItem clone= new Lemming(this.game,this.pos,this.dir);
+		clone.setAlive(this.alive);
+		clone.setRole(lr);
+		clone.setPrevDir(this.dir);
+		return clone;
 	}
 }

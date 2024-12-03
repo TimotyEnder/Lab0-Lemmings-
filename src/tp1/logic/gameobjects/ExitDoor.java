@@ -2,6 +2,7 @@ package tp1.logic.gameobjects;
 
 import tp1.logic.Direction;
 import tp1.logic.Game;
+import tp1.logic.GameWorld;
 import tp1.logic.Position;
 import tp1.logic.LemmingsRole.LemmingRole;
 import tp1.view.Messages;
@@ -10,7 +11,7 @@ public class ExitDoor extends GameObject
 {
 	private int ExitNum=0;
 	//Maybe should redirect the calls to GameObject instead of having this function
-	public ExitDoor(Game game, Position pos) 
+	public ExitDoor(GameWorld game, Position pos) 
 	{
 		setPos(pos);
 	}
@@ -80,5 +81,15 @@ public class ExitDoor extends GameObject
 	public boolean hasExited() {
 		// TODO Auto-generated method stub
 		return false;
+	}
+	@Override
+	public GameItem Clone() {
+		GameItem clone= new ExitDoor(this.game,this.pos);
+		clone.SetExit(this.GetExit());
+		clone.setAlive(this.alive);
+		return clone;
+	}
+	@Override
+	public void setPrevDir(Direction dir) {
 	}
 }

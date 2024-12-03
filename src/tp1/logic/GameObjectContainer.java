@@ -15,8 +15,15 @@ public class GameObjectContainer {
 	public GameObjectContainer() {
 		gameObjects = new ArrayList<>();
 	}
-	
-	public void add(GameObject object) 
+	public GameObjectContainer(GameObjectContainer gc) 
+	{
+		this.gameObjects=new ArrayList<>();
+		for(GameItem i: gc.gameObjects) 
+		{
+			this.add(i.Clone());
+		}
+	}
+	public void add(GameItem object) 
 	{
 		gameObjects.add(object);
 	}
