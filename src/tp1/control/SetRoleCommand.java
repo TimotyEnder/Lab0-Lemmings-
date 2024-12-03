@@ -54,24 +54,23 @@ public class SetRoleCommand extends Command{
 			}
 		}
 		catch (NumberFormatException nfe) {
-			//Still wrong, working on it
-			throw new CommandParseException("Invalid position (" + this.row +"," + col + ")");
-			//Messages.INVALID_POSITION.formatted(Messages.POSITION.formatted(row, col)), nfe);			
-		}
+		throw new CommandParseException(Messages.INVALID_POSITION.formatted
+			(Messages.POSITION.formatted(row, col)), nfe);
+	 }
 	}
 	
 	@Override
-	public void execute(GameModel mtg, GameView mtgview) throws OffBoardException, CommandExecuteException 
+	public void execute(GameModel mtg, GameView mtgview) throws  CommandExecuteException 
 	{
 		if(role==null) 
 		{
-			mtgview.showError(Messages.SETROLE_ERROR_ROLE);
+		    //
 		}
 		else 
 		{
 			Position pos = new Position(row,col);
 			if(!mtg.LemmingRoleAssign(pos, role)) {
-				mtgview.showError(Messages.SETROLE_ERROR);
+				//
 			}
 			mtg.update();
 			mtgview.showGame();

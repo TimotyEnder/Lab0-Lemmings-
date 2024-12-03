@@ -46,7 +46,7 @@ public class GameObjectContainer {
 		return false;
 	}
 	
-	public boolean LemmingRoleAssigner(Position pos, LemmingRole lr) throws OffBoardException, CommandExecuteException
+	public boolean LemmingRoleAssigner(Position pos, LemmingRole lr) throws OffBoardException, CommandExecuteException 
 	{
 		for(GameItem i: gameObjects) 
 		{

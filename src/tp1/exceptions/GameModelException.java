@@ -1,8 +1,7 @@
 package tp1.exceptions;
 
-public class GameModelException extends CommandException{
+public class GameModelException extends Exception{
 
-	private static final long serialVersionUID = 1L;
 
 	public GameModelException(String message) {
 		super(message);
