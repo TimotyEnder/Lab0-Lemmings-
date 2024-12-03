@@ -7,7 +7,7 @@ public class GameModelException extends Exception{
 		super(message);
 	}
 	
-	public GameModelException(String message, Throwable e) {
-		super(message,e);
+	public GameModelException(String message, Throwable cause) {
+		super(message,cause);
 	}
 }

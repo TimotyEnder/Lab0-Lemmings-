@@ -7,8 +7,8 @@ public class CommandParseException extends CommandException {
 		super(message);
 	}
 
-	public CommandParseException(String message, Throwable nfe) {
-		super(message, nfe);
+	public CommandParseException(String message, Throwable cause) {
+		super(message, cause);
 	}
 
 }

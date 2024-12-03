@@ -5,6 +5,7 @@ import java.util.List;
 
 
 import tp1.exceptions.CommandParseException;
+import tp1.exceptions.RoleParseException;
 import tp1.view.Messages;
 
 public class CommandGenerator {
@@ -19,7 +20,7 @@ public class CommandGenerator {
 	        new LoadCommand()
 	    );
 	
-	public static Command parse(String [] wordywords) throws CommandParseException {
+	public static Command parse(String [] wordywords) throws CommandParseException, RoleParseException {
 		Command c = null;
 		if(wordywords[0]=="") 
 		{

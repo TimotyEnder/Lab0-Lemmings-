@@ -12,7 +12,6 @@ public class Lemming extends GameObject
 	private final int LethalFall=3;
 	private Direction prevDir;
 	private LemmingRole lr;
-	private GameWorld game;
 	private boolean turned=false;
 	private boolean exited=false;
 	

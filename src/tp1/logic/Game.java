@@ -1,7 +1,10 @@
 package tp1.logic;
 
 import tp1.exceptions.CommandExecuteException;
+import tp1.exceptions.GameLoadException;
+import tp1.exceptions.ObjectParseException;
 import tp1.exceptions.OffBoardException;
+import tp1.exceptions.RoleParseException;
 import tp1.logic.LemmingsRole.LemmingRole;
 import tp1.logic.gameobjects.ExitDoor;
 import tp1.logic.gameobjects.GameItem;
@@ -239,7 +242,7 @@ public class Game implements GameModel, GameStatus,GameWorld, GameConfiguration{
 		gameCon.add(m);
 	}
 
-	public void reset(int lvl) {
+	public void reset(int lvl) throws  GameLoadException {
 		if(fileLoader==null) 
 		{
 			this.lemmingsToWin=0;
@@ -269,9 +272,9 @@ public class Game implements GameModel, GameStatus,GameWorld, GameConfiguration{
 		}
 		return exit? true : this.playerWins() || this.playerLoses();
 	}
-	public boolean LemmingRoleAssign(Position pos, LemmingRole lr) throws OffBoardException, CommandExecuteException 
+	public boolean LemmingRoleAssign(Position pos, LemmingRole lr) throws OffBoardException, CommandExecuteException
 	{
-		return gameCon.LemmingRoleAssigner(pos, lr);
+			return gameCon.LemmingRoleAssigner(pos, lr);
 	}
 	public boolean interactionRecieverCaller(GameItem obj) 
 	{
@@ -286,7 +289,7 @@ public class Game implements GameModel, GameStatus,GameWorld, GameConfiguration{
 	public GameObjectContainer getGameObjects() {
 		return gameCon;
 	}
-	public void load(String fileName) 
+	public void load(String fileName) throws GameLoadException 
 	{
 		gameCon=new GameObjectContainer();
 		new FileGameConfiguration(fileName,this);

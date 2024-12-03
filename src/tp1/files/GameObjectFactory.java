@@ -4,8 +4,10 @@ package tp1.files;
 import tp1.logic.Position;
 import tp1.exceptions.CommandParseException;
 import tp1.exceptions.ObjectParseException;
+import tp1.exceptions.OffBoardException;
 import tp1.exceptions.RoleParseException;
 import tp1.logic.Direction;
+import tp1.logic.Game;
 import tp1.logic.GameWorld;
 import tp1.logic.LemmingsRole.LemmingRoleFactory;
 import tp1.logic.gameobjects.ExitDoor;
@@ -13,10 +15,11 @@ import tp1.logic.gameobjects.GameObject;
 import tp1.logic.gameobjects.Lemming;
 import tp1.logic.gameobjects.MetalWall;
 import tp1.logic.gameobjects.Wall;
+import tp1.view.Messages;
 
 public class GameObjectFactory {
 	
-	public GameObject parse(String line, GameWorld game) throws ObjectParseException, RoleParseException 
+	public GameObject parse(String line, GameWorld game) throws RoleParseException, OffBoardException, ObjectParseException
 	{
 		GameObject go;
 		String[] words = line.trim().split("\\s+");
@@ -40,16 +43,20 @@ public class GameObjectFactory {
 		return  go;
 	}
 	
-	private static Position getPositionFrom(String line)  
+	private static Position getPositionFrom(String line) throws OffBoardException  
 	{
 		 String[] parts = line.substring(1, line.length() - 1).split(",");
 	     int row = Integer.parseInt(parts[0].trim());
 	     int col = Integer.parseInt(parts[1].trim());
 	     Position returnPos= new Position(col,row);
+	     if(returnPos.GetCol()<0 || returnPos.GetCol()>Game.DIM_X || returnPos.GetRow()<0 || returnPos.GetRow()>Game.DIM_X) 
+			{
+				throw new OffBoardException("Position ("+returnPos.GetCol()+","+returnPos.GetRow()+") off the board");	
+			}
 		 return returnPos;
 	}
 	
-	private GameObject  GetGo(String line)  
+	private GameObject  GetGo(String line) throws ObjectParseException  
 	{
 		GameObject go = null;
 		if(line.equalsIgnoreCase("lemming")||line.equalsIgnoreCase("l")) 
@@ -72,7 +79,7 @@ public class GameObjectFactory {
 			go= new MetalWall(null,null);
 			return go;
 		}
-		return null; //ADD EXCEPTION HANDLING HERE
+		throw new ObjectParseException(Messages.INVALID_OBJECT.formatted(line));
 	}
 	
 	private static Direction getLemmingDirectionFrom(String line)  

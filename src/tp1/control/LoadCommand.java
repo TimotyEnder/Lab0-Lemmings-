@@ -1,5 +1,6 @@
 package tp1.control;
 
+import tp1.exceptions.GameLoadException;
 import tp1.exceptions.ObjectParseException;
 import tp1.exceptions.RoleParseException;
 import tp1.logic.GameModel;
@@ -21,12 +22,12 @@ public class LoadCommand extends Command{
 		super(NAME, SHORTCUT, DETAILS, HELP);
 	}
 	@Override
-	protected void execute(GameModel game, GameView view) throws ObjectParseException, RoleParseException {
+	protected void execute(GameModel game, GameView view) throws RoleParseException, GameLoadException   {
 		game.load(fileName);
 		view.showGame();
 	}
 	@Override
-	protected Command parse(String[] sa) {
+	public Command parse(String[] sa) {
 		LoadCommand c= new LoadCommand();
 		if(c.matchCommand(sa[0])) 
 		{

@@ -4,7 +4,7 @@ import tp1.util.MyStringUtils;
 
 public class Messages {
 	
-	public static final String VERSION = "2.2";
+	public static final String VERSION = "3";
 
 	public static final String GAME_NAME = "Lemmings";
 
@@ -78,6 +78,14 @@ public class Messages {
 	public static final String POSITION = "(%s,%s)";
 	
 	public static final String LEVEL_INVALID="Invalid Level";
+	
+	public static final String COMMAND_EXECUTE_PROBLEM="Command Execute Problem";
+	
+	public static final String GAME_LOAD_INCORRECTGAMESTATUS="Invalid game status: %s";
+	
+	public static final String INCORRECT_FILE="Invalid file \"%s\" configuration";
+	
+	public static final String INVALID_OBJECT="Invalid Object: %s";
 
 //Commands
 	
@@ -121,7 +129,7 @@ public class Messages {
 	public static final String COMMAND_LOAD_HELP = "load a state of the game from the text file <fileName>";
 	
 //Roles
-	public static final String WALKER_NAME="walker";
+	public static final String WALKER_NAME="Walker";
 	public static final String WALKER_SHORTCUT="w";
 	public static final String WALKER_DETAILS="[W]alker";
 	public static final String WALKER_HELP="Lemming that walks";
@@ -131,7 +139,7 @@ public class Messages {
 	public static final String PARACHUTER_DETAILS="[P]arachuter";
 	public static final String PARACHUTER_HELP="Lemming that falls with a parachute";
 	
-	public static final String DOWNCAVER_NAME="downcaver";
+	public static final String DOWNCAVER_NAME="Downcaver";
 	public static final String DOWNCAVER_SHORTCUT="d";
 	public static final String DOWNCAVER_DETAILS="[D]owncaver";
 	public static final String DOWNCAVER_HELP="Lemming caves downwards";

@@ -1,5 +1,7 @@
 package tp1.control;
 
+import tp1.exceptions.GameLoadException;
+import tp1.exceptions.RoleParseException;
 import tp1.logic.Game;
 import tp1.logic.GameModel;
 import tp1.view.GameView;
@@ -18,7 +20,7 @@ public class ResetCommand extends Command{
 	}
 	
 	@Override
-	protected void execute(GameModel game, GameView view) {
+	protected void execute(GameModel game, GameView view) throws RoleParseException, GameLoadException {
 		if(level>0 && level<= Game.MaxLevels)
 		{
 			game.reset(level);
@@ -39,7 +41,7 @@ public class ResetCommand extends Command{
 		this.level=lvl;
 	}
 	@Override
-	protected Command parse(String[] sa) {
+	public Command parse(String[] sa) {
 		ResetCommand c= new ResetCommand();
 		if(c.matchCommand(sa[0])) 
 		{

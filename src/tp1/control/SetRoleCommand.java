@@ -35,7 +35,7 @@ public class SetRoleCommand extends Command{
 	{
 		this.row=row;
 	}
-	public Command parse(String[] sa) throws CommandParseException 
+	public Command parse(String[] sa) throws CommandParseException, RoleParseException 
 	{
 		try
 		{
@@ -60,21 +60,12 @@ public class SetRoleCommand extends Command{
 	}
 	
 	@Override
-	public void execute(GameModel mtg, GameView mtgview) throws  CommandExecuteException 
+	public void execute(GameModel mtg, GameView mtgview) throws  CommandExecuteException, OffBoardException 
 	{
-		if(role==null) 
-		{
-		    //
-		}
-		else 
-		{
 			Position pos = new Position(row,col);
-			if(!mtg.LemmingRoleAssign(pos, role)) {
-				//
-			}
+			mtg.LemmingRoleAssign(pos, role);
 			mtg.update();
 			mtgview.showGame();
-		}
 	}
 	public int LetterToNum(String let)
 	{

@@ -4,6 +4,8 @@ package tp1.control;
 import tp1.exceptions.CommandException;
 import tp1.exceptions.CommandExecuteException;
 import tp1.exceptions.CommandParseException;
+import tp1.exceptions.GameModelException;
+import tp1.exceptions.OffBoardException;
 import tp1.logic.Game;
 import tp1.logic.GameModel;
 import tp1.view.GameView;
@@ -38,7 +40,13 @@ public void run() {
                 Throwable wrapped = e;
                 while ( (wrapped = wrapped.getCause()) != null )
                     view.showError(wrapped.getMessage());
-		    }
+		    } catch (GameModelException e) {
+				// TODO Auto-generated catch block
+		    	view.showError(e.getMessage());
+                Throwable wrapped = e;
+                while ( (wrapped = wrapped.getCause()) != null )
+                    view.showError(wrapped.getMessage());
+			}
 		}
 		view.showEndMessage();
 		
