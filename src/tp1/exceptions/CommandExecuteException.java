@@ -4,11 +4,10 @@ public class CommandExecuteException extends CommandException{
 	public CommandExecuteException(String message) {
 		super(message);
 	}
-	public CommandExecuteException() 
-	{
-		super("Command execute problem");
+
+	public CommandExecuteException(String message, Throwable cause) {
+		super(message,cause);
 	}
 
-	private static final long serialVersionUID = 02;
 
 }
