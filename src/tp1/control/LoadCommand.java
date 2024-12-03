@@ -1,5 +1,7 @@
 package tp1.control;
 
+import tp1.exceptions.CommandExecuteException;
+import tp1.exceptions.CommandParseException;
 import tp1.exceptions.GameLoadException;
 import tp1.exceptions.ObjectParseException;
 import tp1.exceptions.RoleParseException;
@@ -22,9 +24,16 @@ public class LoadCommand extends Command{
 		super(NAME, SHORTCUT, DETAILS, HELP);
 	}
 	@Override
-	protected void execute(GameModel game, GameView view) throws RoleParseException, GameLoadException   {
-		game.load(fileName);
-		view.showGame();
+	protected void execute(GameModel game, GameView view) throws CommandExecuteException  {
+		try 
+		{
+			game.load(fileName);
+			view.showGame();
+		}
+		catch(GameLoadException e) 
+		{
+			throw new CommandExecuteException(Messages.COMMADN_EXECUTE_PROBLEM,e);
+		}
 	}
 	@Override
 	public Command parse(String[] sa) {
@@ -34,7 +43,7 @@ public class LoadCommand extends Command{
 			c.SetFileName(sa[1]);
 			return c;
 		}
-		return null; //ADD EXCEPTIONS HERE
+		return null;
 	}
 
 }

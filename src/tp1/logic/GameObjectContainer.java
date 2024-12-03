@@ -69,7 +69,7 @@ public class GameObjectContainer {
 		{
 			throw new OffBoardException("Position ("+pos.GetCol()+","+pos.GetRow()+") off the board");	
 		}
-		else throw new CommandExecuteException ("No lemming in position ("+pos.GetCol()+","+pos.GetRow()+") admits role "+lr.GetName());
+		else throw new CommandExecuteException ("No lemming in position ("+pos.GetRow()+","+pos.GetCol()+") admits role "+lr.GetName());
 	}
 	
 	public void update() {

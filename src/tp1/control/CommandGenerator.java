@@ -20,7 +20,7 @@ public class CommandGenerator {
 	        new LoadCommand()
 	    );
 	
-	public static Command parse(String [] wordywords) throws CommandParseException, RoleParseException {
+	public static Command parse(String [] wordywords) throws CommandParseException {
 		Command c = null;
 		if(wordywords[0]=="") 
 		{

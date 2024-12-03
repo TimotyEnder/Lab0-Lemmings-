@@ -35,15 +35,22 @@ public class SetRoleCommand extends Command{
 	{
 		this.row=row;
 	}
-	public Command parse(String[] sa) throws CommandParseException, RoleParseException 
+	public Command parse(String[] sa) throws CommandParseException 
 	{
 		try
 		{
 			SetRoleCommand c= new SetRoleCommand();
-		
+			if(sa.length>4) 
+			{
+				throw new CommandParseException(Messages.COMMAND_INCORRECT_PARAMETER_NUMBER);
+			}
 			if(c.matchCommand(sa[0])) 
 			{
-				c.setRole(LemmingRoleFactory.parse(sa[1]));
+				try {
+					c.setRole(LemmingRoleFactory.parse(sa[1]));
+				} catch (RoleParseException e) {
+					throw new CommandParseException(Messages.INVALID_COMMAND_PARAMETERS,e);
+				}
 				c.setCol(LetterToNum(sa[2].toUpperCase()));
 				c.setRow(Integer.parseInt(sa[3])-1);
 				return c;
@@ -60,10 +67,17 @@ public class SetRoleCommand extends Command{
 	}
 	
 	@Override
-	public void execute(GameModel mtg, GameView mtgview) throws  CommandExecuteException, OffBoardException 
+	public void execute(GameModel mtg, GameView mtgview) throws  CommandExecuteException 
 	{
 			Position pos = new Position(row,col);
-			mtg.LemmingRoleAssign(pos, role);
+			try 
+			{
+				mtg.LemmingRoleAssign(pos, role);
+			}
+			catch (OffBoardException e) 
+			{
+				throw new CommandExecuteException(Messages.COMMADN_EXECUTE_PROBLEM,e);
+			}
 			mtg.update();
 			mtgview.showGame();
 	}

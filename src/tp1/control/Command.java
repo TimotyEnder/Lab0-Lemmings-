@@ -33,6 +33,6 @@ public abstract class Command {
 	{
 		return c.equalsIgnoreCase(this.GetName()) || c.equalsIgnoreCase(this.GetShortCut()); 
 	} 
-	protected abstract void execute(GameModel game, GameView view) throws CommandExecuteException, OffBoardException, RoleParseException, GameLoadException ;
-	public abstract Command parse(String[] sa) throws CommandParseException, RoleParseException;
+	protected abstract void execute(GameModel game, GameView view) throws CommandExecuteException ;
+	public abstract Command parse(String[] sa) throws CommandParseException;
 }

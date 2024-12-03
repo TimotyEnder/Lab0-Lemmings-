@@ -241,7 +241,7 @@ public class Game implements GameModel, GameStatus,GameWorld, GameConfiguration{
 		gameCon.add(m);
 	}
 
-	public void reset(int lvl) throws  GameLoadException {
+	public void reset(int lvl) {
 		if(fileLoader==null) 
 		{
 			this.lemmingsToWin=0;

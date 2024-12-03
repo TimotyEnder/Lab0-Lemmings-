@@ -21,7 +21,7 @@ public class LemmingRoleFactory {
 				return lrp;
 			}
 		}
-		throw new RoleParseException(Messages.UNKOWN_ROLE);
+		throw new RoleParseException(Messages.UNKOWN_ROLE.formatted(wordywords));
 	}
 	
 	public static String getHelpRole() {

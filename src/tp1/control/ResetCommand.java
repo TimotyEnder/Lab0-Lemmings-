@@ -20,7 +20,7 @@ public class ResetCommand extends Command{
 	}
 	
 	@Override
-	protected void execute(GameModel game, GameView view) throws RoleParseException, GameLoadException {
+	protected void execute(GameModel game, GameView view) {
 		if(level>0 && level<= Game.MaxLevels)
 		{
 			game.reset(level);

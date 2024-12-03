@@ -42,7 +42,7 @@ public class Messages {
 	
 	public static final String UNKNOWN_COMMAND = "Unknown command";
 	
-	public static final String UNKOWN_ROLE="Unknown Role";
+	public static final String UNKOWN_ROLE="Unknown Role: %s";
 	
 	public static final String SETROLE_ERROR="SetRoleCommand error (Incorrect position or no object in that position admits that role)";
 	
@@ -50,7 +50,7 @@ public class Messages {
 	
 	public static final String SETROLE_ERROR_ROLE="Incorrect or unexistent role";
 	
-	public static final String COMMAND_INCORRECT_PARAMETER_NUMBER = "Incorrect parameter number";
+	public static final String COMMAND_INCORRECT_PARAMETER_NUMBER = "Incorrect parameter numbers";
 
 	public static final String INVALID_POSITION = "Invalid position (%s, %s)";
 
@@ -79,14 +79,17 @@ public class Messages {
 	
 	public static final String LEVEL_INVALID="Invalid Level";
 	
-	public static final String COMMAND_EXECUTE_PROBLEM="Command Execute Problem";
-	
 	public static final String GAME_LOAD_INCORRECTGAMESTATUS="Invalid game status: %s";
 	
 	public static final String INCORRECT_FILE="Invalid file \"%s\" configuration";
 	
 	public static final String INVALID_OBJECT="Invalid Object: %s";
-
+    
+	public static final String COMMADN_EXECUTE_PROBLEM="Command execute problem";
+	
+	public static final String INVALID_COMMAND_PARAMETERS="Invalid command parameters";
+	
+	
 //Commands
 	
 	
