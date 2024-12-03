@@ -137,7 +137,7 @@ public class Lemming extends GameObject
 	}
 	
 	public boolean setRole(LemmingRole lr) {
-		if(this.lr!=lr) 
+		if(!this.lr.equals(lr)) 
 		{
 			this.lr = lr;
 			return true;
