@@ -2,6 +2,7 @@ package tp1.control;
 
 
 import tp1.logic.GameModel;
+import tp1.exceptions.*;
 import tp1.logic.Position;
 import tp1.logic.LemmingsRole.LemmingRole;
 import tp1.logic.LemmingsRole.LemmingRoleFactory;
@@ -22,7 +23,7 @@ public class SetRoleCommand extends Command{
 	public SetRoleCommand() {
 		super(NAME, SHORTCUT, DETAILS, HELP);
 	}
-	public  void setRole(LemmingRole lr ) 
+	public  void setRole(LemmingRole lr) 
 	{
 		this.role=lr;
 	}
@@ -34,23 +35,33 @@ public class SetRoleCommand extends Command{
 	{
 		this.row=row;
 	}
-	//Remember to change this, as it needs to recognize a position (ROW COL
-	public Command parse(String[] sa) 
+	public Command parse(String[] sa) throws CommandParseException 
 	{
-		SetRoleCommand c= new SetRoleCommand();
-		
-		if(c.matchCommand(sa[0])) 
+		try
 		{
-			c.setRole(LemmingRoleFactory.parse(sa[1]));
-			c.setCol(LetterToNum(sa[2].toUpperCase()));
-			c.setRow(Integer.parseInt(sa[3])-1);
-			return c;
+			SetRoleCommand c= new SetRoleCommand();
+		
+			if(c.matchCommand(sa[0])) 
+			{
+				c.setRole(LemmingRoleFactory.parse(sa[1]));
+				c.setCol(LetterToNum(sa[2].toUpperCase()));
+				c.setRow(Integer.parseInt(sa[3])-1);
+				return c;
+			}
+			else
+			{
+				return null;
+			}
 		}
-		else return null;
+		catch (NumberFormatException nfe) {
+			//Still wrong, working on it
+			throw new CommandParseException("Invalid position (" + this.row +"," + col + ")");
+			//Messages.INVALID_POSITION.formatted(Messages.POSITION.formatted(row, col)), nfe);			
+		}
 	}
 	
 	@Override
-	public void execute(GameModel mtg, GameView mtgview) 
+	public void execute(GameModel mtg, GameView mtgview) throws OffBoardException, CommandExecuteException 
 	{
 		if(role==null) 
 		{
@@ -66,8 +77,13 @@ public class SetRoleCommand extends Command{
 			mtgview.showGame();
 		}
 	}
-	public int LetterToNum(String let) 
+	public int LetterToNum(String let)
 	{
+		// Check if the character is an uppercase letter
+	    char ch = let.charAt(0);
+	    if (ch < 'A' || ch > 'Z') {
+	        throw new NumberFormatException();
+	    }
 		return let.charAt(0) - 'A';
 	}
 	

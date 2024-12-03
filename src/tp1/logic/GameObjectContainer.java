@@ -1,5 +1,5 @@
 package tp1.logic;
-
+import tp1.exceptions.*;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
@@ -46,7 +46,7 @@ public class GameObjectContainer {
 		return false;
 	}
 	
-	public boolean LemmingRoleAssigner(Position pos, LemmingRole lr) 
+	public boolean LemmingRoleAssigner(Position pos, LemmingRole lr) throws OffBoardException, CommandExecuteException
 	{
 		for(GameItem i: gameObjects) 
 		{
@@ -58,7 +58,11 @@ public class GameObjectContainer {
 				 }
 			}
 		}
-		return false;
+		if(pos.GetCol()<0 || pos.GetCol()>Game.DIM_X || pos.GetRow()<0 || pos.GetRow()>Game.DIM_X) 
+		{
+			throw new OffBoardException("Position ("+pos.GetCol()+","+pos.GetRow()+") off the board");	
+		}
+		else throw new CommandExecuteException ("No lemming in position ("+pos.GetCol()+","+pos.GetRow()+") admits role "+lr.GetName());
 	}
 	
 	public void update() {
