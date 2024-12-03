@@ -2,6 +2,9 @@ package tp1.files;
 
 
 import tp1.logic.Position;
+import tp1.exceptions.CommandParseException;
+import tp1.exceptions.ObjectParseException;
+import tp1.exceptions.RoleParseException;
 import tp1.logic.Direction;
 import tp1.logic.GameWorld;
 import tp1.logic.LemmingsRole.LemmingRoleFactory;
@@ -13,7 +16,7 @@ import tp1.logic.gameobjects.Wall;
 
 public class GameObjectFactory {
 	
-	public GameObject parse(String line, GameWorld game) 
+	public GameObject parse(String line, GameWorld game) throws ObjectParseException, RoleParseException 
 	{
 		GameObject go;
 		String[] words = line.trim().split("\\s+");

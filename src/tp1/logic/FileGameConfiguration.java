@@ -4,11 +4,13 @@ import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
 
+import tp1.exceptions.ObjectParseException;
+import tp1.exceptions.RoleParseException;
 import tp1.files.GameObjectFactory;
 import tp1.logic.gameobjects.GameObject;
 
 public class FileGameConfiguration {
-	public FileGameConfiguration(String fileName, GameWorld game) 
+	public FileGameConfiguration(String fileName, GameWorld game) throws ObjectParseException, RoleParseException 
 	{
 		 try (BufferedReader br = new BufferedReader(new FileReader(fileName))) {
 	            String line;

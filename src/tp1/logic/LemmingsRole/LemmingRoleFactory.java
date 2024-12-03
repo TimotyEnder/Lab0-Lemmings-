@@ -4,6 +4,7 @@ import java.util.Arrays;
 import java.util.List;
 
 import tp1.exceptions.CommandParseException;
+import tp1.exceptions.RoleParseException;
 import tp1.view.Messages;
 
 
@@ -13,14 +14,14 @@ public class LemmingRoleFactory {
 	        new Parachuter(),
 	        new DownCaver());
 	
-	public static LemmingRole parse(String  wordywords) throws CommandParseException{
+	public static LemmingRole parse(String  wordywords) throws RoleParseException{
 		LemmingRole lr=null;
 		for(LemmingRole lrp : ROLES) {
 			if(lrp.matchRole(wordywords)){
 				return lrp;
 			}
 		}
-		throw new CommandParseException(Messages.UNKOWN_ROLE);
+		throw new RoleParseException(Messages.UNKOWN_ROLE);
 	}
 	
 	public static String getHelpRole() {
