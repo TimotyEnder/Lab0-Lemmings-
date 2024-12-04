@@ -75,4 +75,10 @@ public class Wall extends GameObject
 		// TODO Auto-generated method stub
 		
 	}
+	@Override
+	public String stringify() {
+		String out="";
+		out+= "("+this.pos.GetRow()+","+this.pos.GetCol()+")"+" Wall"+"\n";
+		return out;
+	}
 }

@@ -82,5 +82,11 @@ public class MetalWall extends GameObject {
 		// TODO Auto-generated method stub
 		
 	}
+	@Override
+	public String stringify() {
+		String out="";
+		out+= "("+this.pos.GetRow()+","+this.pos.GetCol()+")"+" MetalWall"+"\n";
+		return out;
+	}
 
 }

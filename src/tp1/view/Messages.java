@@ -89,6 +89,8 @@ public class Messages {
 	
 	public static final String INVALID_COMMAND_PARAMETERS="Invalid command parameters";
 	
+	public static final String SAVE_FILE_ERROR ="Save error: %s ";
+	
 	
 //Commands
 	
@@ -131,6 +133,10 @@ public class Messages {
 	public static final String COMMAND_LOAD_DETAILS = "[l]oad <fileName>";
 	public static final String COMMAND_LOAD_HELP = "load a state of the game from the text file <fileName>";
 	
+	public static final String COMMAND_SAVE_NAME = "Save";
+	public static final String COMMAND_SAVE_SHORTCUT = "s";
+	public static final String COMMAND_SAVE_DETAILS = "[s]ave to <fileName>";
+	public static final String COMMAND_SAVE_HELP = "save  a state of the game to the text file <fileName>";
 //Roles
 	public static final String WALKER_NAME="Walker";
 	public static final String WALKER_SHORTCUT="w";

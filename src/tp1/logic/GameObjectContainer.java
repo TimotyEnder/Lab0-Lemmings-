@@ -123,5 +123,14 @@ public class GameObjectContainer {
 			}
 		}
 	}
+	public String stringify() 
+	{
+		String out = "";
+		for(GameItem i: gameObjects) 
+		{
+			out+=i.stringify();
+		}
+		return out;
+	}
 	//R.I.P here lies Lemmings 1.0 code. It served us well. Farewell, friend.
 }

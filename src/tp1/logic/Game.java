@@ -1,7 +1,11 @@
 package tp1.logic;
 
+import java.io.FileWriter;
+import java.io.IOException;
+
 import tp1.exceptions.CommandExecuteException;
 import tp1.exceptions.GameLoadException;
+import tp1.exceptions.GameModelException;
 import tp1.exceptions.ObjectParseException;
 import tp1.exceptions.OffBoardException;
 import tp1.exceptions.RoleParseException;
@@ -11,6 +15,7 @@ import tp1.logic.gameobjects.GameItem;
 import tp1.logic.gameobjects.Lemming;
 import tp1.logic.gameobjects.MetalWall;
 import tp1.logic.gameobjects.Wall;
+import tp1.view.Messages;
 
 public class Game implements GameModel, GameStatus,GameWorld, GameConfiguration{
 
@@ -300,6 +305,20 @@ public class Game implements GameModel, GameStatus,GameWorld, GameConfiguration{
 		new FileGameConfiguration(fileName,this);
 		this.fileLoader= new Game(this.CyclesNumber,this.LemmingsNumber,this.NumDeadLemmings,this.lemmingsToWin,this.gameCon);
 	}
-
-	
+	public void save(String filename) throws GameModelException
+	{
+		try (FileWriter writer = new FileWriter(filename)) {
+			String data = this.stringify();
+            writer.write(data);
+        } catch (IOException e) {
+    		throw new GameModelException(Messages.SAVE_FILE_ERROR.formatted(e.getMessage()));
+        }
+	}
+	public String stringify() 
+	{
+		String out = "";
+		out+= this.CyclesNumber +" "+this.LemmingsNumber+" "+this.NumDeadLemmings+" "+gameCon.GetExit()+" "+this.numLemmingsToWin()+"\n";
+		out+=gameCon.stringify();
+		return out;
+	}
 }

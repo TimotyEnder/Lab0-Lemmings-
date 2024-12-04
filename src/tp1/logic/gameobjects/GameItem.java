@@ -37,4 +37,6 @@ public interface GameItem {
 	public void setAlive(boolean alive);
 
 	public void setPrevDir(Direction dir);
+
+	public String stringify();
 }

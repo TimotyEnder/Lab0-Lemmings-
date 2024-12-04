@@ -92,4 +92,10 @@ public class ExitDoor extends GameObject
 	@Override
 	public void setPrevDir(Direction dir) {
 	}
+	@Override
+	public String stringify() {
+		String out="";
+		out+= "("+this.pos.GetRow()+","+this.pos.GetCol()+")"+" ExitDoor"+"\n";
+		return out;
+	}
 }

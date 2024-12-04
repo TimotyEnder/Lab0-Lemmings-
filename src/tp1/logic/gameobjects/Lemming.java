@@ -213,4 +213,11 @@ public class Lemming extends GameObject
 		clone.setPrevDir(this.dir);
 		return clone;
 	}
+
+	@Override
+	public String stringify() {
+		String out="";
+		out+= "("+this.pos.GetRow()+","+this.pos.GetCol()+")"+" Lemming "+this.dir.name()+" "+this.fallForce+" "+this.lr.GetName()+"\n";
+		return out;
+	}
 }
