@@ -125,7 +125,7 @@ public class Game implements GameModel, GameStatus,GameWorld, GameConfiguration{
 
 	        Add(new Lemming(this, new Position(9,0),Direction.RIGHT));
 
-	        Add(new Lemming(this, new Position(3,3),Direction.RIGHT));
+	        //Add(new Lemming(this, new Position(3,3),Direction.RIGHT));
 
 
 	        Add(new Wall(this, new Position(0,9)));
@@ -165,7 +165,7 @@ public class Game implements GameModel, GameStatus,GameWorld, GameConfiguration{
 
 	        Add(new ExitDoor(this, new Position(4,5)));
 
-	        this.lemmingsToWin = 3;//por ejempo
+	        this.lemmingsToWin = 2;//por ejempo
 		}
 	}
 
