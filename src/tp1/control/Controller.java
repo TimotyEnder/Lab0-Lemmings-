@@ -40,13 +40,7 @@ public void run() {
                 Throwable wrapped = e;
                 while ( (wrapped = wrapped.getCause()) != null )
                     view.showError(wrapped.getMessage());
-		    } /*catch (GameModelException e) {
-				// TODO Auto-generated catch block
-		    	view.showError(e.getMessage());
-                Throwable wrapped = e;
-                while ( (wrapped = wrapped.getCause()) != null )
-                    view.showError(wrapped.getMessage());
-			}*/
+		    }
 		}
 		view.showEndMessage();
 		

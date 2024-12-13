@@ -91,6 +91,8 @@ public class Messages {
 	
 	public static final String SAVE_FILE_ERROR ="Save error: %s ";
 	
+	public static final String LOAD_FILE_ERROR ="Load error";
+	
 	
 //Commands
 	

@@ -40,20 +40,12 @@ public class FileGameConfiguration {
 	                gameCon=game.getGameObjects();
 	                gameCon.add(goLoaded);
 	          }
-	        } catch (IOException e) { 
-	        	throw new GameLoadException(Messages.INCORRECT_FILE.formatted(fileName));
+	        } catch (GameLoadException e) { 
+	        	throw new GameLoadException(Messages.INCORRECT_FILE.formatted(fileName),e);
 	        }
-		     catch (OffBoardException e) 
+		     catch (Exception e) 
 		 	{
-		    	 throw new GameLoadException(e.getMessage());
-		 	}
-		 	catch(ObjectParseException e) 
-		 	{
-		 		throw new GameLoadException(e.getMessage());
-		 	}
-		 	catch(RoleParseException e) 
-		 	{
-		 		throw new GameLoadException(e.getMessage());
+		    	 throw new GameLoadException(Messages.LOAD_FILE_ERROR,e);
 		 	}
 	}
 }
