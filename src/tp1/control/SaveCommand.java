@@ -15,10 +15,6 @@ public class SaveCommand extends Command{
 	
 	private String fileName;
 	
-	public void SetFileName(String input) 
-	{
-		fileName=input;
-	}
 	public SaveCommand() {
 		super(NAME, SHORTCUT,DETAILS, HELP);
 	}
@@ -38,7 +34,7 @@ public class SaveCommand extends Command{
 		SaveCommand c= new SaveCommand();
 		if(c.matchCommand(sa[0])) 
 		{
-			c.SetFileName(sa[1]);
+			c.fileName=(sa[1]);
 			return c;
 		}
 		return null;

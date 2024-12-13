@@ -36,10 +36,6 @@ public class ResetCommand extends Command{
 			view.showError(Messages.LEVEL_INVALID);
 		}
 	}
-	public void setLevel(int lvl) 
-	{
-		this.level=lvl;
-	}
 	@Override
 	public Command parse(String[] sa) {
 		ResetCommand c= new ResetCommand();
@@ -47,7 +43,7 @@ public class ResetCommand extends Command{
 		{
 			if(sa.length>1) 
 			{
-				c.setLevel(Integer.parseInt(sa[1]));
+				c.level=(Integer.parseInt(sa[1]));
 			}
 			return c;
 		}

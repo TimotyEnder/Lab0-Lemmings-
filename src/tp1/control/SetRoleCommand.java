@@ -23,18 +23,6 @@ public class SetRoleCommand extends Command{
 	public SetRoleCommand() {
 		super(NAME, SHORTCUT, DETAILS, HELP);
 	}
-	public  void setRole(LemmingRole lr) 
-	{
-		this.role=lr;
-	}
-	public void setCol(int col) 
-	{
-		this.col=col;
-	}
-	public void setRow(int row) 
-	{
-		this.row=row;
-	}
 	public Command parse(String[] sa) throws CommandParseException 
 	{
 		try
@@ -47,12 +35,12 @@ public class SetRoleCommand extends Command{
 			if(c.matchCommand(sa[0])) 
 			{
 				try {
-					c.setRole(LemmingRoleFactory.parse(sa[1]));
+					c.role=(LemmingRoleFactory.parse(sa[1]));
 				} catch (RoleParseException e) {
 					throw new CommandParseException(Messages.INVALID_COMMAND_PARAMETERS,e);
 				}
-				c.setCol(LetterToNum(sa[2].toUpperCase()));
-				c.setRow(Integer.parseInt(sa[3])-1);
+				c.col=(LetterToNum(sa[2].toUpperCase()));
+				c.row=(Integer.parseInt(sa[3])-1);
 				return c;
 			}
 			else
