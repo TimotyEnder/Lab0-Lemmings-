@@ -17,7 +17,8 @@ public class LemmingRoleFactory {
 	public static LemmingRole parse(String  wordywords) throws RoleParseException{
 		LemmingRole lr=null;
 		for(LemmingRole lrp : ROLES) {
-			if(lrp.matchRole(wordywords)){
+			lrp=lrp.matchRole(wordywords);
+			if(lrp!=null){
 				return lrp;
 			}
 		}
