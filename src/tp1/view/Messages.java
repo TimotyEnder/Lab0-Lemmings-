@@ -155,6 +155,11 @@ public class Messages {
 	public static final String DOWNCAVER_DETAILS="[D]owncaver";
 	public static final String DOWNCAVER_HELP="Lemming caves downwards";
 	
+	public static final String BLOCKER_NAME="Blocker";
+	public static final String BLOCKER_SHORTCUT="b";
+	public static final String BLOCKER_DETAILS="[B]locker";
+	public static final String BLOCKER_HELP="Lemming that blocks other lemmings";
+	
 
 //Symbols
 	public static final String EMPTY = "";
@@ -164,5 +169,6 @@ public class Messages {
 	public static final String LEMMING_RIGHT = "K";
 	public static final String LEMMING_LEFT = "ꓘ";
 	public static final String PARACHUTE = "🪂";
+	public static final String BLOCK = "T";
 	public static final String LEMMING_DOWN_CAVER = "´･ω･`";
 }

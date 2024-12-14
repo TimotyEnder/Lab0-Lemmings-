@@ -14,6 +14,7 @@ public class Lemming extends GameObject
 	private LemmingRole lr;
 	private boolean turned=false;
 	private boolean exited=false;
+	private boolean Solid=false;
 	
 	public Lemming (GameWorld game, Position pos,Direction direction) {
 		this.pos=pos;
@@ -26,9 +27,12 @@ public class Lemming extends GameObject
 	}
 	
 	public boolean isSolid() {
-		return false;
+		return Solid;
 	}
-	
+	public void SetSolid(boolean set) 
+	{
+		this.Solid=set;
+	}
 	public boolean isExit() {
 		return false;
 	}
