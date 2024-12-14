@@ -39,7 +39,6 @@ public class Lemming extends GameObject
 		{
 			if(!GetAirborne())
 			{
-				resetRole();
 				Walk();
 			}
 			else 
