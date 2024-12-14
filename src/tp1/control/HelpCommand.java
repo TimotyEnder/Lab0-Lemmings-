@@ -20,13 +20,5 @@ public class HelpCommand extends NoParamsCommand{
 		System.out.println(CommandGenerator.commandHelp());
 	}
 	
-	//We shall delete this (the CommandGenerator creates the same thing from each instruction (which seems more legal)
-	public String helpText() {
-		String s = "";
-		for(String i: Messages.HELP_LINES) 
-		{
-			s += i;
-		}
-		return s;
-	}
+	
 }
