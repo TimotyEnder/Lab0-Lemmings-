@@ -12,10 +12,10 @@ public class LemmingRoleFactory {
 	private static final List<LemmingRole> ROLES = Arrays.asList(
 	        new Walker(),
 	        new Parachuter(),
-	        new DownCaver());
+	        new DownCaver(),
+	        new Drone());
 	
 	public static LemmingRole parse(String  wordywords) throws RoleParseException{
-		LemmingRole lr=null;
 		for(LemmingRole lrp : ROLES) {
 			lrp=lrp.matchRole(wordywords);
 			if(lrp!=null){

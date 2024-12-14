@@ -1,5 +1,7 @@
 package tp1.logic.LemmingsRole;
 
+import java.util.ArrayList;
+
 import tp1.logic.Direction;
 import tp1.logic.gameobjects.ExitDoor;
 import tp1.logic.gameobjects.GameItem;
@@ -22,6 +24,11 @@ public class Walker implements LemmingRole
 	{
 		return this.sc;
 	}
+	
+	public void setDirStr(ArrayList<String> directions) {
+	
+	}
+	
 	public void start(Lemming l) {
 		// TODO Auto-generated method stub
 		

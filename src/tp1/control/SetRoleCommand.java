@@ -2,6 +2,9 @@ package tp1.control;
 
 
 import tp1.logic.GameModel;
+
+import java.util.ArrayList;
+
 import tp1.exceptions.*;
 import tp1.logic.Position;
 import tp1.logic.LemmingsRole.LemmingRole;
@@ -20,6 +23,7 @@ public class SetRoleCommand extends Command{
 	private int col;
 	private int row;
 	private LemmingRole role;
+	private ArrayList<String> directions = new ArrayList<String>();
 	public SetRoleCommand() {
 		super(NAME, SHORTCUT, DETAILS, HELP);
 	}
@@ -28,16 +32,19 @@ public class SetRoleCommand extends Command{
 		try
 		{
 			SetRoleCommand c= new SetRoleCommand();
-			if(sa.length>4) 
-			{
-				throw new CommandParseException(Messages.COMMAND_INCORRECT_PARAMETER_NUMBER);
-			}
+			
 			if(c.matchCommand(sa[0])) 
 			{
 				try {
 					c.role=(LemmingRoleFactory.parse(sa[1]));
 					c.col=(LetterToNum(sa[2].toUpperCase()));
 					c.row=(Integer.parseInt(sa[3])-1);
+					if(sa.length>4) 
+					{
+						for(int i = 4; i <  sa.length; ++i) {
+							c.directions.add(sa[i]);
+						}
+					}
 				} catch (RoleParseException e) {
 					throw new CommandParseException(Messages.INVALID_COMMAND_PARAMETERS,e);
 				}
@@ -63,6 +70,7 @@ public class SetRoleCommand extends Command{
 			Position pos = new Position(row,col);
 			try 
 			{
+				role.setDirStr(directions);
 				mtg.LemmingRoleAssign(pos, role);
 			}
 			catch (OffBoardException e) 

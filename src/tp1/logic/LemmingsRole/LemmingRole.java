@@ -1,5 +1,7 @@
 package tp1.logic.LemmingsRole;
 
+import java.util.ArrayList;
+
 import tp1.logic.gameobjects.ExitDoor;
 import tp1.logic.gameobjects.GameItem;
 import tp1.logic.gameobjects.Lemming;
@@ -19,4 +21,5 @@ public interface LemmingRole {
  public boolean interactWith(ExitDoor door, Lemming lemming);
 public String GetName();
 public String GetSc();
+public void setDirStr(ArrayList<String> directions);
 }

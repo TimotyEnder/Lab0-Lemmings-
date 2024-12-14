@@ -1,6 +1,8 @@
 package tp1.logic.LemmingsRole;
 
 
+import java.util.ArrayList;
+
 import tp1.logic.gameobjects.ExitDoor;
 import tp1.logic.gameobjects.GameItem;
 import tp1.logic.gameobjects.Lemming;
@@ -17,6 +19,9 @@ public class DownCaver implements LemmingRole  {
 	@Override
 	public void start(Lemming l) {
 		
+	}
+	
+	public void setDirStr(ArrayList<String> directions) {
 	}
 
 	@Override

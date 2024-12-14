@@ -32,6 +32,14 @@ public class Lemming extends GameObject
 	public boolean isExit() {
 		return false;
 	}
+	
+	public void MoveWithDir(Direction dir) {
+		Position MovePos=new Position(pos.GetCol()+dir.getX(),pos.GetRow()+dir.getY());
+		if(!(game.isSolid(MovePos) || MovePos.GetCol()<0 || MovePos.GetCol()>Game.DIM_X-1 || MovePos.GetRow()<0 || MovePos.GetRow()>Game.DIM_Y-1)) {
+			this.pos=MovePos;
+		}
+	}
+	
 	public void Move ()
 	{
 		turned=false;
