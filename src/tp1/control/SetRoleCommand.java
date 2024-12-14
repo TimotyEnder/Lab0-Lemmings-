@@ -36,11 +36,14 @@ public class SetRoleCommand extends Command{
 			{
 				try {
 					c.role=(LemmingRoleFactory.parse(sa[1]));
+					c.col=(LetterToNum(sa[2].toUpperCase()));
+					c.row=(Integer.parseInt(sa[3])-1);
 				} catch (RoleParseException e) {
 					throw new CommandParseException(Messages.INVALID_COMMAND_PARAMETERS,e);
 				}
-				c.col=(LetterToNum(sa[2].toUpperCase()));
-				c.row=(Integer.parseInt(sa[3])-1);
+				catch (Exception e) {
+					throw new CommandParseException(Messages.INVALID_COMMAND_PARAMETERS);
+				}
 				return c;
 			}
 			else

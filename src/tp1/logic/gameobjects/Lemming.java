@@ -37,11 +37,6 @@ public class Lemming extends GameObject
 		turned=false;
 		if(this.GetPos().GetRow()>=0 && this.GetPos().GetRow()<Game.DIM_Y-1) 
 		{
-			Position unParachutePos= new Position(pos.GetCol(), pos.GetRow()+2);
-			if(game.isSolid(unParachutePos)) 
-			{
-				resetRole();
-			}
 			if(!GetAirborne())
 			{
 				resetRole();

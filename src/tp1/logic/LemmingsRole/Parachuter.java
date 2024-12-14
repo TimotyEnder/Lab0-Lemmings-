@@ -29,8 +29,12 @@ public class Parachuter implements LemmingRole {
 
 	@Override
 	public void advance(Lemming l) {
+		if(!l.GetAirborne()) 
+		{
+			l.resetRole();
+			l.SetDir(l.GetPrevDir());
+		}
 		l.Move();
-		
 	}
 
 	@Override
