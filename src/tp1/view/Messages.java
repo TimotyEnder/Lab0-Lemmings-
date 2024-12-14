@@ -155,6 +155,11 @@ public class Messages {
 	public static final String DOWNCAVER_DETAILS="[D]owncaver";
 	public static final String DOWNCAVER_HELP="Lemming caves downwards";
 	
+	public static final String DRONE_NAME="Drone";
+	public static final String DRONE_SHORTCUT="dr";
+	public static final String DRONE_DETAILS="[Dr]one";
+	public static final String DRONE_HELP="Drone that flies through all directions specified";
+	
 
 //Symbols
 	public static final String EMPTY = "";
@@ -165,4 +170,5 @@ public class Messages {
 	public static final String LEMMING_LEFT = "ꓘ";
 	public static final String PARACHUTE = "🪂";
 	public static final String LEMMING_DOWN_CAVER = "´･ω･`";
+	public static final String DRONE = "🛸";
 }

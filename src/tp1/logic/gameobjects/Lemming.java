@@ -57,6 +57,12 @@ public class Lemming extends GameObject
 		}
 		
 	}
+	public void Displace(Direction dir) 
+	{
+		Position DisplacePos=new Position(pos.GetCol()+dir.getX(),pos.GetRow()+dir.getY());
+		this.dir=dir;
+		this.pos=DisplacePos;
+	}
 	private void Walk() 
 	{
 		Position bumpPos= new Position(pos.GetCol()+dir.getX(), pos.GetRow());
@@ -90,6 +96,11 @@ public class Lemming extends GameObject
 		{
 			Die();
 		}
+	}
+	public boolean Crashed() 
+	{
+		Position crashPos=new Position(pos.GetCol()+dir.getX(), pos.GetRow()+dir.getY());
+		return game.isSolid(crashPos)||crashPos.GetCol()<0 || crashPos.GetCol()>Game.DIM_X-1;
 	}
 	private void Fall() 
 	{

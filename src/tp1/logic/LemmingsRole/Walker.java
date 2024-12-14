@@ -62,10 +62,10 @@ public class Walker implements LemmingRole
 			return "";
 		}
 	}
-	public LemmingRole matchRole(String c) 
+	public LemmingRole matchRole(String[] dirs) 
 	{
 		LemmingRole  d = new Walker();
-		if(c.equalsIgnoreCase(d.GetName()) || c.equalsIgnoreCase(d.GetSc())) 
+		if(dirs[0].equalsIgnoreCase(d.GetName()) || dirs[0].equalsIgnoreCase(d.GetSc())) 
 		{
 			return d;
 		}

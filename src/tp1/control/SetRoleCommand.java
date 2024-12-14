@@ -28,14 +28,21 @@ public class SetRoleCommand extends Command{
 		try
 		{
 			SetRoleCommand c= new SetRoleCommand();
-			if(sa.length>4) 
+			if(sa.length>5) 
 			{
 				throw new CommandParseException(Messages.COMMAND_INCORRECT_PARAMETER_NUMBER);
 			}
 			if(c.matchCommand(sa[0])) 
 			{
 				try {
-					c.role=(LemmingRoleFactory.parse(sa[1]));
+					if(sa.length>4) 
+					{
+						c.role=(LemmingRoleFactory.parse(sa[1],sa[4]));
+					}
+					else 
+					{
+						c.role=(LemmingRoleFactory.parse(sa[1],null));
+					}
 					c.col=(LetterToNum(sa[2].toUpperCase()));
 					c.row=(Integer.parseInt(sa[3])-1);
 				} catch (RoleParseException e) {

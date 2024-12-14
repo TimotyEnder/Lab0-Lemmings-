@@ -11,7 +11,7 @@ public interface LemmingRole {
  public String geticon(Lemming l);
  public int FallForce(int ff);
  public String getDetails();
- public  LemmingRole matchRole(String c);
+ public  LemmingRole matchRole(String[] dirs);
  
  public boolean receiveInteraction(GameItem other, Lemming lemming);
  public boolean interactWith(Lemming receiver, Lemming lemming);

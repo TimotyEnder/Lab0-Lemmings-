@@ -30,7 +30,7 @@ public class GameObjectFactory {
 		{
 			go.SetDir(getLemmingDirectionFrom(words[2]));
 			go.SetFallF(Integer.parseInt(words[3]));
-			go.setRole(LemmingRoleFactory.parse(words[4]));
+			go.setRole(LemmingRoleFactory.parse(words[4],null));
 			
 		}
 		else 

@@ -11,13 +11,24 @@ public class LemmingRoleFactory {
 	private static final List<LemmingRole> ROLES = Arrays.asList(
 	        new Walker(),
 	        new Parachuter(),
-	        new DownCaver());
+	        new DownCaver(),
+	        new Drone());
 	
-	public static LemmingRole parse(String  wordywords) throws RoleParseException{
-		LemmingRole lr=null;
+	public static LemmingRole parse(String  wordywords,String argumentString) throws RoleParseException{
+		LemmingRole lr;
+		String[] dirs = new String[1];
+		if(argumentString!=null) 
+		{
+		     dirs = (wordywords+","+argumentString.substring(1, argumentString.length() - 1)).split(",");
+		}
+		else 
+		{
+			dirs[0]=wordywords;
+		}
 		for(LemmingRole lrp : ROLES) {
-			lrp=lrp.matchRole(wordywords);
+			lrp=lrp.matchRole(dirs);
 			if(lrp!=null){
+				
 				return lrp;
 			}
 		}

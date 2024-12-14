@@ -1,18 +1,21 @@
 package tp1.logic.LemmingsRole;
 
+import java.util.Vector;
+
+import tp1.logic.Direction;
 import tp1.logic.gameobjects.ExitDoor;
 import tp1.logic.gameobjects.GameItem;
 import tp1.logic.gameobjects.Lemming;
 import tp1.logic.gameobjects.Wall;
 import tp1.view.Messages;
 
-public class Parachuter implements LemmingRole {
-
-	private String name= Messages.PARACHUTER_NAME;
-	private String details= Messages.PARACHUTER_DETAILS;
-	private String sc=Messages.PARACHUTER_SHORTCUT;
-	private String help= Messages.PARACHUTER_HELP;
+public class Drone implements LemmingRole{
+	private String name= Messages.DRONE_NAME;
+	private String details= Messages.DRONE_DETAILS;
+	private String sc=Messages.DRONE_SHORTCUT;
+	private String help= Messages.DRONE_HELP;
 	
+	private Vector<Direction> dirs= new Vector<Direction>();
 	public String GetName() 
 	{
 		return this.name;
@@ -29,20 +32,34 @@ public class Parachuter implements LemmingRole {
 
 	@Override
 	public void advance(Lemming l) {
-		if(!l.GetAirborne()) 
+		if(!dirs.isEmpty()) 
 		{
-			l.resetRole();
-			l.SetDir(l.GetPrevDir());
+			if(!l.Crashed()) 
+			{
+				l.Displace(dirs.elementAt(0));
+			}
+			dirs.remove(0);
 		}
-		l.Move();
+		else 
+		{
+			//l.SetDir(Direction.RIGHT);
+			l.resetRole();
+		}
 	}
-
+	public void ParseDirs(String[] dirStrings) 
+	{
+		for(int i=1;i<dirStrings.length;i++) 
+		{
+			Direction dir=Direction.valueOf(dirStrings[i]);
+			this.dirs.add(dir);
+		}
+	}
 	@Override
 	public String geticon(Lemming l) {
 		// TODO Auto-generated method stub
 		if(l.isAlive())
 		{
-			return Messages.PARACHUTE;
+			return Messages.DRONE;
 		}
 		else 
 		{
@@ -51,9 +68,10 @@ public class Parachuter implements LemmingRole {
 	}
 	public  LemmingRole matchRole(String[] dirs) 
 	{
-		LemmingRole  d = new Parachuter();
+		LemmingRole  d = new Drone();
 		if(dirs[0].equalsIgnoreCase(d.GetName()) || dirs[0].equalsIgnoreCase(d.GetSc())) 
 		{
+			((Drone) d).ParseDirs(dirs);
 			return d;
 		}
 		return null; 
@@ -61,9 +79,6 @@ public class Parachuter implements LemmingRole {
 	public int FallForce(int ff) {
 		return 0;
 	}
-
-	
-	
 	public String getDetails() {
 		String r = this.details + ": " + this.help;
 		return r;
