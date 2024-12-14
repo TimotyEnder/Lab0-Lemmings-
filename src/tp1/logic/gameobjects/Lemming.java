@@ -150,6 +150,7 @@ public class Lemming extends GameObject
 		if(!this.lr.equals(lr)) 
 		{
 			this.lr = lr;
+			lr.start(this);
 			return true;
 		}
 		else 
