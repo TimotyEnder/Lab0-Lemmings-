@@ -1,7 +1,6 @@
 package tp1.logic.LemmingsRole;
 
 
-import tp1.logic.Direction;
 import tp1.logic.gameobjects.ExitDoor;
 import tp1.logic.gameobjects.GameItem;
 import tp1.logic.gameobjects.Lemming;

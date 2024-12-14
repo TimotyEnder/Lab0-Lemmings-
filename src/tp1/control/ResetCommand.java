@@ -1,7 +1,5 @@
 package tp1.control;
 
-import tp1.exceptions.GameLoadException;
-import tp1.exceptions.RoleParseException;
 import tp1.logic.Game;
 import tp1.logic.GameModel;
 import tp1.view.GameView;

@@ -2,7 +2,6 @@ package tp1.files;
 
 
 import tp1.logic.Position;
-import tp1.exceptions.CommandParseException;
 import tp1.exceptions.ObjectParseException;
 import tp1.exceptions.OffBoardException;
 import tp1.exceptions.RoleParseException;

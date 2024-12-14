@@ -6,7 +6,6 @@ import java.util.List;
 
 import tp1.logic.LemmingsRole.LemmingRole;
 import tp1.logic.gameobjects.GameItem;
-import tp1.logic.gameobjects.GameObject;
 
 public class GameObjectContainer {
 	

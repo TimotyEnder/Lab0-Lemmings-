@@ -2,13 +2,7 @@ package tp1.logic;
 
 import java.io.BufferedReader;
 import java.io.FileReader;
-import java.io.IOException;
-
 import tp1.exceptions.GameLoadException;
-import tp1.exceptions.GameParseException;
-import tp1.exceptions.ObjectParseException;
-import tp1.exceptions.OffBoardException;
-import tp1.exceptions.RoleParseException;
 import tp1.files.GameObjectFactory;
 import tp1.logic.gameobjects.GameObject;
 import tp1.view.Messages;
