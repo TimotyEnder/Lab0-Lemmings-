@@ -110,6 +110,11 @@ public class Lemming extends GameObject
 	{
 		return lr.FallForce(fallForce);
 	}
+	public int GetFF() 
+	{
+		return this.fallForce;
+		
+	}
 	public Direction GetDir() 
 	{
 		return dir;
