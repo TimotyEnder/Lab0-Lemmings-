@@ -17,7 +17,8 @@ public class CommandGenerator {
 	        new NoneCommand(),
 	        new SetRoleCommand(),
 	        new LoadCommand(),
-	        new SaveCommand()
+	        new SaveCommand(),
+	        new FastCommand()
 	    );
 	
 	public static Command parse(String [] wordywords) throws CommandParseException {

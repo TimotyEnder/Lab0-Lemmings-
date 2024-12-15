@@ -120,6 +120,11 @@ public class Messages {
 	public static final String COMMAND_UPDATE_DETAILS = "[u]pdate";
 	public static final String COMMAND_UPDATE_HELP = "updates the game by one cycle";
 	
+	public static final String COMMAND_FAST_NAME = "fast";
+	public static final String COMMAND_FAST_SHORTCUT = "f";
+	public static final String COMMAND_FAST_DETAILS = "[f]ast";
+	public static final String COMMAND_FAST_HELP = "updates the game by n cycles";
+	
 	public static final String COMMAND_EXIT_NAME = "exit";
 	public static final String COMMAND_EXIT_SHORTCUT = "e";
 	public static final String COMMAND_EXIT_DETAILS = "[e]xit";
