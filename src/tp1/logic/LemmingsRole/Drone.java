@@ -14,6 +14,7 @@ public class Drone implements LemmingRole{
 	private String details= Messages.DRONE_DETAILS;
 	private String sc=Messages.DRONE_SHORTCUT;
 	private String help= Messages.DRONE_HELP;
+	private boolean Crashed=false;
 	
 	private Vector<Direction> dirs= new Vector<Direction>();
 	public String GetName() 
@@ -34,7 +35,7 @@ public class Drone implements LemmingRole{
 	public void advance(Lemming l) {
 		if(!dirs.isEmpty()) 
 		{
-			if(!l.Crashed()) 
+			if(!l.Crashed(dirs.elementAt(0))) 
 			{
 				l.Displace(dirs.elementAt(0));
 			}

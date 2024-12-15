@@ -97,7 +97,7 @@ public class Lemming extends GameObject
 			Die();
 		}
 	}
-	public boolean Crashed() 
+	public boolean Crashed(Direction dir) 
 	{
 		Position crashPos=new Position(pos.GetCol()+dir.getX(), pos.GetRow()+dir.getY());
 		return game.isSolid(crashPos)||crashPos.GetCol()<0 || crashPos.GetCol()>Game.DIM_X-1;

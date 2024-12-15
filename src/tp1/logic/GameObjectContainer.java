@@ -56,7 +56,7 @@ public class GameObjectContainer {
 	{
 		for(GameItem i: gameObjects) 
 		{
-			if(i.GetPos().Eq(pos) && !i.isSolid() && !i.isExit()) 
+			if(i.GetPos().Eq(pos)) 
 			{
 				 if(i.setRole(lr)) 
 				 {
