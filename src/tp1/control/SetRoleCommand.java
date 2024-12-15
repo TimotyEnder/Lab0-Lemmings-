@@ -20,6 +20,7 @@ public class SetRoleCommand extends Command{
 	private int col;
 	private int row;
 	private LemmingRole role;
+	private int numC = 0;
 	public SetRoleCommand() {
 		super(NAME, SHORTCUT, DETAILS, HELP);
 	}
@@ -28,7 +29,7 @@ public class SetRoleCommand extends Command{
 		try
 		{
 			SetRoleCommand c= new SetRoleCommand();
-			if(sa.length>4) 
+			if(sa.length>5) 
 			{
 				throw new CommandParseException(Messages.COMMAND_INCORRECT_PARAMETER_NUMBER);
 			}
@@ -38,6 +39,9 @@ public class SetRoleCommand extends Command{
 					c.role=(LemmingRoleFactory.parse(sa[1]));
 					c.col=(LetterToNum(sa[2].toUpperCase()));
 					c.row=(Integer.parseInt(sa[3])-1);
+					if(sa.length == 5) {
+						c.numC = Integer.parseInt(sa[4]);
+					}
 				} catch (RoleParseException e) {
 					throw new CommandParseException(Messages.INVALID_COMMAND_PARAMETERS,e);
 				}
@@ -64,6 +68,9 @@ public class SetRoleCommand extends Command{
 			try 
 			{
 				mtg.LemmingRoleAssign(pos, role);
+				if(this.numC != 0) {
+					role.setNumCycles(numC);
+				}
 			}
 			catch (OffBoardException e) 
 			{

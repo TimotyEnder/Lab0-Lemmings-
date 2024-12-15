@@ -95,4 +95,9 @@ public class Walker implements LemmingRole
 	public boolean interactWith(ExitDoor door, Lemming lemming) {
 		return false;
 	}
+	@Override
+	public void setNumCycles(int x) {
+		// TODO Auto-generated method stub
+		
+	}
 }

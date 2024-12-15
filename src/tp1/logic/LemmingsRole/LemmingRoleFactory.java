@@ -11,7 +11,8 @@ public class LemmingRoleFactory {
 	private static final List<LemmingRole> ROLES = Arrays.asList(
 	        new Walker(),
 	        new Parachuter(),
-	        new DownCaver());
+	        new DownCaver(),
+	        new FastWalker());
 	
 	public static LemmingRole parse(String  wordywords) throws RoleParseException{
 		LemmingRole lr=null;

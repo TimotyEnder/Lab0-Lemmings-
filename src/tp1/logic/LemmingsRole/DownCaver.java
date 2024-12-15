@@ -88,4 +88,10 @@ public class DownCaver implements LemmingRole  {
 		return false;
 	}
 
+	@Override
+	public void setNumCycles(int x) {
+		// TODO Auto-generated method stub
+		
+	}
+
 }

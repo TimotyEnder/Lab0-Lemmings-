@@ -145,6 +145,11 @@ public class Messages {
 	public static final String WALKER_DETAILS="[W]alker";
 	public static final String WALKER_HELP="Lemming that walks";
 	
+	public static final String FAST_WALKER_NAME="Fast";
+	public static final String FAST_WALKER_SHORTCUT="f";
+	public static final String FAST_WALKER_DETAILS="[F]ast";
+	public static final String FAST_WALKER_HELP="Lemming that walks faster";
+	
 	public static final String PARACHUTER_NAME="Parachuter";
 	public static final String PARACHUTER_SHORTCUT="p";
 	public static final String PARACHUTER_DETAILS="[P]arachuter";

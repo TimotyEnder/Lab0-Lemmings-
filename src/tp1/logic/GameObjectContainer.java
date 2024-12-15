@@ -88,6 +88,7 @@ public class GameObjectContainer {
     }
         
 }
+	
 	 public boolean receiveInteractionsFrom(GameItem obj) 
 	  {
 		  Position downPos=new Position(obj.GetPos().GetCol(), obj.GetPos().GetRow()+1);
