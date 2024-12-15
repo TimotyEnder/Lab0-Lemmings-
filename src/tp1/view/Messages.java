@@ -155,7 +155,11 @@ public class Messages {
 	public static final String DOWNCAVER_DETAILS="[D]owncaver";
 	public static final String DOWNCAVER_HELP="Lemming caves downwards";
 	
-
+	public static final String KANGAROO_NAME="Kangaroo";
+	public static final String KANGAROO_SHORTCUT="k";
+	public static final String KANGAROO_DETAILS="[K]angaroo";
+	public static final String KANGAROO_HELP="Lemming that moves diagonally";
+	
 //Symbols
 	public static final String EMPTY = "";
 	public static final String WALL = MyStringUtils.repeat("▓",ConsoleView.CELL_SIZE);
