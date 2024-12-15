@@ -169,4 +169,5 @@ public class Messages {
 	public static final String LEMMING_LEFT = "ꓘ";
 	public static final String PARACHUTE = "🪂";
 	public static final String LEMMING_DOWN_CAVER = "´･ω･`";
+	public static final String LEMMING_KANGAROO = "🦘";
 }

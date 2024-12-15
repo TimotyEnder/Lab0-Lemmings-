@@ -33,35 +33,7 @@ public class Kangaroo implements LemmingRole
 	
 	@Override
 	public String geticon(Lemming l) {
-		if(l.isAlive()) 
-		{
-			if(l.GetDir()!=Direction.DOWN) 
-			{
-				if(l.GetDir()==Direction.LEFT) 
-				{
-					return Messages.LEMMING_LEFT;
-				}
-				else 
-				{
-					return Messages.LEMMING_RIGHT;
-				}
-			}
-			else 
-			{
-				if(l.GetPrevDir()==Direction.LEFT) 
-				{
-					return Messages.LEMMING_LEFT;
-				}
-				else 
-				{
-					return Messages.LEMMING_RIGHT;
-				}
-			}
-		}
-		else 
-		{
-			return "";
-		}
+		return Messages.LEMMING_KANGAROO;
 	}
 	public LemmingRole matchRole(String c) 
 	{
